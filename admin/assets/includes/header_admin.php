@@ -12,7 +12,7 @@ if (session_status() === PHP_SESSION_NONE){
 <html lang="fr">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title><?= $web_name ;?> | <?=$page_title?></title>
+    <title>Dashboard | <?=$page_title?></title>
     <link rel="icon" href="assets/img/dashboard.svg">
     <link rel="apple-touch-icon" href="assets/img/dashboard.svg">
 
@@ -43,7 +43,7 @@ else if(stripos($_SERVER['REQUEST_URI'], 'register.php')){
     <div class="sidebar">
          <div class="sidebar__header">
            <h3 class="brand">
-              <span><?= $web_name ;?></span>
+              <span>Dashboard</span>
            </h3> 
             <label for="sidebar-toggle" class="ti-menu-alt"></label>
          </div>

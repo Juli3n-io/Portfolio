@@ -1,1 +1,1 @@
-test
+<a href="admin/index_admin.php">admin</a>

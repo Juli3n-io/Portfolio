@@ -1,7 +1,7 @@
 <?php
 
 const DB_HOST = 'localhost';
-const DB_NAME = 'BANZAI';
+const DB_NAME = 'Portfolio';
 const DB_USER = 'root';
 const DB_PASS = 'root';
 
@@ -19,5 +19,3 @@ const AUTRE = 2;
 const NON_CONFIRME = 0;
 const CONFIRME = 1;
 
-// Nom du site
-$web_name = 'Banzai';

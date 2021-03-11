@@ -47,6 +47,28 @@ ul{
 }
 
 /* *************** */
+/* ***  Scroll-bar *** */
+/* *************** */
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  width: 10px;
+  background: #212529;
+  border-left: 0 solid #FFF;
+  border-right: 0 solid #FFF;
+}
+
+::-webkit-scrollbar-thumb{
+background-color: var(--violet);
+width: 0;
+height: 20%;
+transition: 0.5 ease;
+cursor: pointer;
+}
+
+/* *************** */
 /* *** header *** */
 /* *************** */
 

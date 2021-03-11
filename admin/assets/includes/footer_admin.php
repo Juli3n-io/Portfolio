@@ -22,6 +22,8 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
      echo '<script type="text/javascript" src="assets/js/update_admin.js"></script>';
 }else if(stripos($_SERVER['REQUEST_URI'], 'index_admin.php')){
      echo '<script type="text/javascript" src="assets/js/index.js"></script>';
+}else if(stripos($_SERVER['REQUEST_URI'], 'docs.php')){
+     echo '<script type="text/javascript" src="assets/js/docs.js"></script>';
 }else{
      echo '';
 }

@@ -93,9 +93,9 @@ else if(stripos($_SERVER['REQUEST_URI'], 'register.php')){
                     </a>
                </li>
                <li>
-                    <a href="">
-                         <span class="ti-book"></span>
-                         <span>Contact</span>
+                    <a href="docs.php">
+                         <i class="far fa-file"></i>
+                         <span>Docs</span>
                     </a>
                </li>
                <li>

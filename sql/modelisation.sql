@@ -57,7 +57,7 @@ confirm TINYINT,
 
 CREATE TABLE notification
 (
-id_notification INT(3)NOT NULL AUTO_INCREMENT,
+id_notification INT(3)NOT NULL AUTO_INCREMENT,s
 class varchar(30),
 message varchar(255),
 user INT(3) DEFAULT NULL,
@@ -74,6 +74,15 @@ CREATE TABLE pics
 id_pics INT(3) NOT NULL AUTO_INCREMENT,
 img VARCHAR (255) NOT NULL,
  PRIMARY KEY (id_pics)
+)ENGINE=INNODB;
+
+CREATE TABLE docs
+(
+id_doc INT(3) NOT NULL AUTO_INCREMENT,
+titre VARCHAR (255) NOT NULL,
+fichier VARCHAR (255) NOT NULL,
+date_enregistrement DATETIME NOT NULL,
+ PRIMARY KEY (id_doc)
 )ENGINE=INNODB;
 
 CREATE TABLE langages

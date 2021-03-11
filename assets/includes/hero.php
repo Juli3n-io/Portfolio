@@ -1,6 +1,8 @@
-<section class="home container text-white" id="home">
+<section class="home text-white" id="home">
 
-    <div class="row">
+  <div class="container">
+
+  <div class="row">
 
       <div class="col-md-5">
           <div class="hero-text">
@@ -30,5 +32,7 @@
 
 
     </div>
+
+  </div>
 
   </section>

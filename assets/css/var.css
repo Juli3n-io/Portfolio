@@ -16,6 +16,8 @@
     url("../font/playfairdisplay-variablefont_wght-webfont.woff") format("woff");
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 :root {
   /* ##### COLOR ##### */
   --light-black: rgba(0, 0, 0, 0.7);
@@ -37,4 +39,5 @@
   --takota: "takota";
   --redwing: "redwing";
   --playfair: "playfair";
+  --poppins : 'Poppins', sans-serif;
 }

@@ -7,6 +7,8 @@ include __DIR__. '/assets/includes/header.php';
 
 include __DIR__. '/assets/includes/hero.php';
 
+include __DIR__. '/assets/includes/about.php';
+
 include __DIR__. '/assets/includes/footer.php';
 ?>
 

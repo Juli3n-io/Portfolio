@@ -259,7 +259,7 @@ ul{
 }
 
 .hero-text{
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--poppins)
 }
 
 .title{
@@ -316,6 +316,94 @@ ul{
 }
 
 /* *************** */
+/* *** about *** */
+/* *************** */
+
+.about{
+  font-family: var(--poppins);
+  height: 100vh;
+}
+
+
+.about .heading{
+  display: block;
+}
+
+.about-img{
+  width: 200px;
+  height:200px;
+  background-image: url('../img/mac.png');
+  background-size: 100% 100%;
+  border-radius: 50%;
+  float: left;
+  shape-outside: border-box;
+}
+
+.about h2{
+  font-size: 30px;
+  margin-bottom: 1rem;
+}
+.about .gap{
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+
+.about .gap h2{
+  display: none;
+}
+.about .gap p{
+  margin-bottom: 10px;
+}
+
+.about .tag{
+  margin-top: 10px;
+}
+
+.about .tag ul{
+  text-align: center;
+}
+
+.about .tag ul li{
+  margin: 0 6px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: inline-flex;
+  padding: 4px 0px;
+}
+
+.about .tag ul li span{
+  border: 1px solid #774BBB;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.about .tag ul li span:hover{
+  background: transparent !important;
+}
+
+.download-btn{
+  text-align: center;
+}
+
+.custom-btn{
+  color: #FFF;
+  background-color: rgba(119, 75, 187, 0.9);
+  background-image: linear-gradient(to right, rgba(119, 75, 187, 0.9) 10%, rgba(255, 140, 0, 0.9) 74%);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  transition: 1s ease-in;
+  font-size: 14px;
+}
+
+.custom-btn:hover{
+  background-image: inherit;
+  color: #FFF;
+  background-color: rgba(119, 75, 187, 0.9);
+}
+
+/* *************** */
 /* ***  footer *** */
 /* *************** */
 
@@ -346,6 +434,19 @@ footer p{
 .hero-img {
   background-position-x: 0 !important;
 }
+
+/* ***  about *** */
+
+
+.about .about-img{
+  margin-top: 0 !important;
+  width: 200px ;
+  height: 200px ;
+  shape-outside: border-box !important;
+}
+
+
+
 }
 
 
@@ -363,11 +464,35 @@ footer p{
   .home{
     padding: 2rem;
     padding-top: 10rem;
+    height: 100vh;
   }
 
   .hero-img {
     background-position-y: -1rem;
     background-position-x: -3rem;
+  }
+
+  
+
+  /* ***  about *** */
+
+  .about .heading{
+    display: none;
+  }
+
+  .about .about-img{
+    width: 250px;
+    height: 250px;
+  }
+
+  .about .gap h2{
+    font-size: 40px;
+    display: block;
+    text-align: center;
+  }
+
+  .about .gap p{
+    font-size: 20px;
   }
 
 }
@@ -387,6 +512,7 @@ footer p{
   .home{
     padding: 2rem;
     padding-top: 10rem !important;
+    height: initial;
   }
 
   .name {
@@ -395,6 +521,17 @@ footer p{
 
   .designation{
     font-size:25px;
+  }
+
+  /* ***  about *** */
+
+  .about{
+    height: initial;
+  }
+
+  .about .about-img{
+    height: 350px;
+    width: 350px;
   }
 
 }

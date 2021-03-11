@@ -7,7 +7,7 @@
         </div>
 
         <div class="col-md-4">
-          <div class="pricing dark-bg">
+          <div class="pricing-item dark-bg">
             <i class="fa fa-calendar"></i>
             <h4>Taux Journalier</h4>
             <p>Je suis disponible a temps complet</p>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="col-md-4">
-          <div class="pricing dark-bg">
+          <div class="pricing-item dark-bg">
             <i class="fas fa-store"></i>
             <h4>Site Vitrine</h4>
             <p>Je réalise votre site sur mesure</p>
@@ -37,7 +37,7 @@
         </div>
 
         <div class="col-md-4">
-          <div class="pricing dark-bg">
+          <div class="pricing-item dark-bg">
             <i class="fas fa-shopping-cart"></i>
             <h4>E-Commerce</h4>
             <p>Je créer votre boutique en ligne</p>

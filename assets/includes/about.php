@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . './../functions/docs_functions.php';
+?>
 <section class="about" id="about">
 
     <div class="container">
@@ -53,10 +56,11 @@
 
           <br>
 
+          <?php foreach(getDocs($pdo) as $doc): ?>
           <div class="download-btn">
-              <a href="#" class="btn custom-btn">Télécharger mon CV</a>
+              <a href="global/uploads/<?=$doc['fichier']?>" download class="btn custom-btn">Télécharger mon CV</a>
           </div>
-
+          <?php endforeach;?>
         </div> 
 
       </div>

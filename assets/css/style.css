@@ -46,7 +46,9 @@ ul{
   padding: 0;
 }
 
+/* *************** */
 /* *** header *** */
+/* *************** */
 
 .header{
   position: relative;
@@ -246,7 +248,76 @@ ul{
   font-size: 14px;
 }
 
+/* *************** */
+/* ***  hero *** */
+/* *************** */
+
+
+.home{
+  height: 100vh;
+  padding: 1rem;
+  padding-top: 2rem;
+}
+
+.hero-text{
+  font-family: 'Poppins', sans-serif;
+}
+
+.title{
+  background-image: linear-gradient(to right, rgba(119, 75, 187, 0.9) 10%, rgba(255, 140, 0, 0.9) 74%);
+  font-size: 14px;
+  line-height: 24px;
+  padding: 10px 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 0px;
+}
+
+.name{
+  font-size: 60px;
+  letter-spacing: -1px;
+}
+
+.designation{
+  font-size: 20px;
+}
+
+.coffee{
+  height: 20px;
+  width: 20px;
+}
+
+.social-icons li{
+  list-style: none;
+  margin-right: 30px;
+  margin-top: 40px;
+  font-size: 25px;
+  cursor: pointer;
+  -webkit-transition: font-size 1s;
+  transition: font-size 1s;
+}
+.social-icons a{
+  text-decoration: none;
+  color: #FFF;
+}
+.social-icons li :hover{
+  transition: font-size 1s;
+  font-size: 35px;
+}
+
+.hero-img{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  background-image: url('../img/blob-2.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* *************** */
 /* ***  footer *** */
+/* *************** */
 
 footer p{
   color: #FFF;
@@ -262,20 +333,56 @@ footer p{
 
 }
 
+/* Small devices (landscape phones, Ony) */
+@media only screen and (orientation: landscape) {
+
+/* ***  hero *** */
+.home{
+  padding-top: 0 !important;
+}
+.designation{
+  font-size: 16px;
+}
+.hero-img {
+  background-position-x: 0 !important;
+}
+}
+
+
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
+
+/* ***  header *** */
 
   .header .sidemenu{
     width: 70%;
   }
+
+  /* ***  hero *** */
+
+  .home{
+    padding: 2rem;
+    padding-top: 10rem;
+  }
+
+  .hero-img {
+    background-position-y: -1rem;
+    background-position-x: -3rem;
+  }
+
 }
+
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
+  /* ***  header *** */
+
   .header .sidemenu{
     width: 40%;
   }
+
+  /* ***  hero *** */
 
   
 
@@ -283,6 +390,9 @@ footer p{
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
+
+  /* ***  header *** */
+
   .header .menu ul{
     display: flex;
   }

@@ -1,4 +1,4 @@
-
+</main>
 
 <footer>
     <p>&copy Copyright <span class="date2"></span>, Julien QUENTIER Tous droits réservés</p>

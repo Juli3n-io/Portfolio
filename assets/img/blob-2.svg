@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<svg height="100%" width="100%" viewBox="0 0 210 450" xmlns="http://www.w3.org/2000/svg">
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="20%" style="stop-color:rgba(49, 24, 131, 0.9);stop-opacity:1" />
+          <stop offset="74%" style="stop-color:rgba(72, 56, 149, 0.8);stop-opacity:1" />
+        </linearGradient>
+  <path fill="url(#grad1)" d="M53.3,-68.7C63.9,-54.6,63.9,-32.9,64,-14C64.2,4.9,64.4,21.1,57,31.9C49.6,42.6,34.4,47.8,19.9,51.9C5.4,56,-8.6,58.9,-21.8,55.8C-35,52.8,-47.5,43.7,-59.1,30.7C-70.7,17.7,-81.5,0.7,-78.5,-13.3C-75.4,-27.3,-58.4,-38.4,-43,-51.7C-27.7,-65,-13.8,-80.5,3.7,-85C21.3,-89.4,42.6,-82.8,53.3,-68.7Z" transform="translate(100 100)" />
+</svg>

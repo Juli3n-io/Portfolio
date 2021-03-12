@@ -13,6 +13,8 @@ include __DIR__. '/assets/views/services.php';
 
 include __DIR__. '/assets/views/price.php';
 
+include __DIR__. '/assets/views/skills.php';
+
 include __DIR__. '/assets/includes/footer.php';
 ?>
 

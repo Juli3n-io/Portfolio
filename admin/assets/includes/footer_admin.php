@@ -16,6 +16,8 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
      echo '<script type="text/javascript" src="assets/js/cat_admin.js"></script>';
 }elseif (stripos($_SERVER['REQUEST_URI'], 'langages.php')){
      echo '<script type="text/javascript" src="assets/js/lang_admin.js"></script>';
+}elseif (stripos($_SERVER['REQUEST_URI'], 'skills.php')){
+     echo '<script type="text/javascript" src="assets/js/skills_admin.js"></script>';
 }else if(stripos($_SERVER['REQUEST_URI'], 'register.php')){
      echo '<script type="text/javascript" src="assets/js/register_admin.js"></script>';  
 }else if(stripos($_SERVER['REQUEST_URI'], 'update_profil.php')){

@@ -87,6 +87,12 @@ else if(stripos($_SERVER['REQUEST_URI'], 'register.php')){
                     </a>
                </li>
                <li>
+                    <a href="skills.php">
+                         <i class="fas fa-user-tie"></i>
+                         <span>Compétences</span>
+                    </a>
+               </li>
+               <li>
                     <a href="education.php">
                          <i class="fas fa-graduation-cap"></i>
                          <span>Education</span>

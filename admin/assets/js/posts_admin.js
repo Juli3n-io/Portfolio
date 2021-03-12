@@ -31,7 +31,7 @@ $('#add_titre_post').blur(function(){
   
   });
 
-// ### ajout category ajax
+// ### ajout post ajax
 $("#add_post").on('submit', function(e){
 
     e.preventDefault();
@@ -272,9 +272,9 @@ $(document).on('submit', '#update_post', function(e){
 
   var publie = $(this).val();
   
-  delete_cat();
+  update_est_publie();
 
-  function delete_cat(){
+  function update_est_publie(){
 
     var id = data[0];
     var parameters = "id="+id + "&publie="+publie;

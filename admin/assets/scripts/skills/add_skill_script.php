@@ -21,11 +21,14 @@ if(!empty($_POST)){
     $result['notif'] = notif('error','oups! cette compétence existe déjà'); 
   
   }else{
+
+    $class = strtolower (generateClass($titre));
  
-      $req = $pdo->prepare('INSERT INTO skills (titre, number, est_publie) VALUES (:titre, :number, :publie)');
+      $req = $pdo->prepare('INSERT INTO skills (titre, number, class, est_publie) VALUES (:titre, :number, :class, :publie)');
         
       $req->bindParam(':titre',$titre);
       $req->bindValue(':number',$number);
+      $req->bindParam(':class',$class);
       $req->bindValue(':publie',isset($_POST['est_publie']),PDO::PARAM_BOOL);
       $req->execute();
 
@@ -113,6 +116,7 @@ $result['resultat'] .= '<thead>
         }
 
       $result['resultat'] .= '<td class="member_action">';
+          $result['resultat'] .= '<input type="button" class="viewbtn" name="view" id="'.$skill['id_skill'].'"></input>';
           $result['resultat'] .= '<input type="button" class="editbtn" id="'.$skill['id_skill'].'"></input>';
           $result['resultat'] .= '<input type="button" class="deletebtn"></input>';
       $result['resultat'] .= '</td>';

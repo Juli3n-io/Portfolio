@@ -178,8 +178,9 @@ $result['resultat'] .= '<thead>
         }
 
       $result['resultat'] .= '<td class="member_action">';
-          $result['resultat'] .= '<input type="button" class="editbtn" id="'.$skill['id_skill'].'"></input>';
-          $result['resultat'] .= '<input type="button" class="deletebtn"></input>';
+        $result['resultat'] .= '<input type="button" class="viewbtn" name="view" id="'.$skill['id_skill'].'"></input>';
+        $result['resultat'] .= '<input type="button" class="editbtn" id="'.$skill['id_skill'].'"></input>';
+        $result['resultat'] .= '<input type="button" class="deletebtn"></input>';
       $result['resultat'] .= '</td>';
       }
 

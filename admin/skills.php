@@ -100,7 +100,7 @@ include __DIR__. '/assets/includes/header_admin.php';
                     <td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value="<?= $skill['est_publie'] ?>" <?= ($skill['est_publie'] == 1) ? 'checked' : '' ;?>></td>
 
                     <td class="member_action">
-                         
+                          <input type="button" class="viewbtn" name="view" id="<?=$skill['id_skill']?>"></input>
                           <input type="button" class="editbtn" id="<?=$skill['id_skill']?>"></input>
                           <input type="button" class="deletebtn"></input>
                           
@@ -229,10 +229,8 @@ include __DIR__. '/assets/includes/header_admin.php';
         <h5 class="modal-title" id="exampleModalLabel">Skill détails</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" id="lang_detail">
-        <div class="list_container">
-          
-      </div>
+      <div class="modal-body" id="skill_detail">
+        
       <div class="modal-footer">
         <button type="button" class="closeBtn" data-bs-dismiss="modal">Fermer</button>
       </div>

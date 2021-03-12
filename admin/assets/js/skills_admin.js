@@ -72,6 +72,29 @@ $(document).ready(function (){
         }
       });
   });
+
+  /*
+ * --> View skill details
+ * 
+ * # Ouverture du Modal de vue
+ *
+ */
+
+// # Ouverture du Modal de vue
+$(document).on('click','.viewbtn', function(){  
+  var skill_id = $(this).attr("id");  
+
+  $.ajax({  
+       url:"assets/scripts/skills/view_skill_script.php",  
+       method:"post",  
+       data:{skill_id:skill_id},  
+       success:function(data){  
+         
+            $('#skill_detail').html(data);  
+            $('#viewmodal').modal("show");  
+       }  
+  });  
+});  
   
 
   /*

@@ -99,6 +99,7 @@ CREATE TABLE skills
   id_skill INT(3)NOT NULL AUTO_INCREMENT,
   titre VARCHAR(255),
   number INT(3)DEFAULT NULL,
+  class VARCHAR(255) DEFAULT NULL,
   est_publie TINYINT NOT NULL,
     PRIMARY KEY (id_skill)
 )ENGINE=INNODB;

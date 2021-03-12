@@ -43,6 +43,7 @@
           <ul>
             <li><a href="#about">A propos</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">tarifs</a></li>
             <li><a href="#skills">Compétences</a></li>
             <li><a href="#experience">Expériences</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
@@ -63,6 +64,7 @@
           <ul>
             <li><a href="#about">A propos</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">tarifs</a></li>
             <li><a href="#skills">Compétences</a></li>
             <li><a href="#experience">Expériences</a></li>
             <li><a href="#portfolio">Portfolio</a></li>

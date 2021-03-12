@@ -476,6 +476,7 @@ cursor: pointer;
 /* ***  Price *** */
 /* *************** */
 
+
 .pricing .heading{
   margin-bottom: 4rem;
   font-size: 30px;
@@ -614,7 +615,11 @@ footer p{
 }
 
 .pricing{
-  margin-top: 0;
+  margin-top: 2rem !important;
+}
+
+.pricing .heading{
+  margin-bottom: 0 !important;
 }
 
 
@@ -681,7 +686,7 @@ footer p{
   }
 
   .pricing{
-    margin-top: 0 !important;
+    margin-top: 0 ;
   }
 }
 
@@ -714,7 +719,7 @@ footer p{
   /* ***  about *** */
 
   .about{
-    padding-top: 12rem;
+    padding-top: 10rem;
   }
 
   .about .about-img{
@@ -725,7 +730,7 @@ footer p{
   /* ***  services *** */
 
   .services{
-    padding-top: 12rem;
+    padding-top: 8rem;
     height: 100vh !important;
   }
 
@@ -733,6 +738,12 @@ footer p{
 
   .pricing{
     margin-top: 0 !important;
+    height: 100vh;
+    padding-top: 8rem;
+  }
+
+  .pricing .heading{
+    margin-bottom: 1rem !important;
   }
 
 }

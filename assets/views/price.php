@@ -29,7 +29,7 @@
             <h5>500€*</h5>
             <ul>
               <li>Developpement sur mesure</li>
-              <li>Personalisé</li>
+              <li>Google Friendly</li>
               <li>avec Hébergement</li>
             </ul>
             <a href="" class="btn custom-btn">Engager moi</a>
@@ -44,7 +44,7 @@
             <h5>1500€*</h5>
             <ul>
             <li>Developpement sur mesure</li>
-              <li>Personalisé</li>
+              <li>Google Friendly</li>
               <li>avec Hébergement</li>
             </ul>
             <a href="" class="btn custom-btn">Engager moi</a>

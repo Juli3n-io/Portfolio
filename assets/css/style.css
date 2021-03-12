@@ -476,9 +476,10 @@ cursor: pointer;
 /* ***  Price *** */
 /* *************** */
 
-
+.pricing{
+  margin-top: 4rem;
+}
 .pricing .heading{
-  margin-bottom: 4rem;
   font-size: 30px;
   font-family: var(--poppins);
 }
@@ -558,6 +559,150 @@ padding: 20px 30px;
   color: var(--light-white);
   font-size: 10px;
 text-align: center;
+}
+
+/* *** Compétences *** */
+
+.skills{
+  margin-top: 4rem;
+}
+
+.skills .heading{
+  margin-bottom: 4rem;
+}
+
+.skills .pro-skill,
+.skills .tech-skill{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.skills .pro-skill h3,
+.skills .tech-skill h3{
+  font-size: 30px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: 400;
+  font-family: var(--poppins);
+  margin-bottom: 3rem;
+}
+
+/* *** tech skill *** */
+
+.tech-skill{
+  margin-bottom: 4rem;
+}
+
+.candidatos{
+  position: relative;
+  margin-bottom: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.candidatos .parcial{
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.candidatos .parcial .info{
+  position: relative;
+  font-family: var(--poppins);
+}
+
+.candidatos .parcial .info .skill-name{
+ position: absolute;
+ top: 0;
+ left: 0;
+ font-family: var(--poppins);
+font-size: 15px;
+font-weight: 600;
+opacity: 0.9;
+}
+
+.candidatos .parcial .info .pourcentage-num{
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: var(--poppins);
+ font-size: 14px;
+ font-weight: normal;
+}
+
+.candidatos .parcial .progressBar{
+position: relative;
+width: 100%;
+height: 7px;
+margin: 30px 0 2px;
+border-radius: 10px;
+background: rgba(0, 0, 0, 0.5);
+}
+
+
+.candidatos .parcial .pourcentagem{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 7px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-image: linear-gradient(to right, rgba(119, 75, 187, 0.9) 10%, rgba(255, 140, 0, 0.9) 74%);
+  -webkit-transition: 3s all;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-name: animationProgress;
+  font-family: var(--poppins);
+  transition: 3s all;
+  animation-name: animationProgress;
+}
+
+/* .candidatos .parcial .pourcentagem.progress{
+  background-image: linear-gradient(to right, rgba(119, 75, 187, 0.9) 10%, rgba(255, 140, 0, 0.9) 74%);
+  -webkit-transition: 3s all;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-name: animationProgress;
+  font-family: var(--poppins);
+  transition: 3s all;
+  animation-name: animationProgress;
+} */
+
+.precentual{
+  animation-name: animationProgress;
+}
+
+@keyframes animationProgress{
+  from{
+    width: 0;
+  }
+}
+
+/* *** soft skill *** */
+
+.card{
+  background: transparent;
+  border: none;
+}
+
+.card .circle .box,
+.card .circle .box span{
+  position: absolute;
+  top:45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins', sans-serif;
+}
+
+.card .circle .box{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+
+.card .text,
+.card .circle .box span{
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
 }
 
 

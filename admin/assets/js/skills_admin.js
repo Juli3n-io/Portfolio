@@ -334,8 +334,6 @@ $(document).on('click','#all', function(e){
     var id = data[0];
     var parameters = "id="+id + "&publie="+publie;
 
-    console.log(parameters)
-
     
     $.post('assets/scripts/skills/est_publie_update_script.php', parameters, function(data){
 

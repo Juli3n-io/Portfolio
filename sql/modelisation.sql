@@ -117,7 +117,8 @@ CREATE TABLE categories
 CREATE TABLE education
 (
   id_education INT(3)NOT NULL AUTO_INCREMENT,
-  titre VARCHAR(255),
+  titre VARCHAR(255) NOT NULL,
+  school VARCHAR(255) NOT NULL,
   contenu TEXT DEFAULT NULL,
   url VARCHAR (255) NOT NULL,
   start_date DATETIME NOT NULL,

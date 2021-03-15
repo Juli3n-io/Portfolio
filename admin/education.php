@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/assets/config/bootstrap_admin.php';
-require_once __DIR__ . '/assets/functions/langages_functions.php';
+require_once __DIR__ . '/assets/functions/education_functions.php';
 
 
 $page_title ='Education';
@@ -16,9 +16,9 @@ include __DIR__. '/assets/includes/header_admin.php';
   <div class="team__grid">
     <div class="team__card">
         <div class="card__header">
-            <h3>Toutes les Posts </h3>
+            <h3>Toutes les Formations </h3>
             <?php if($Membre['statut'] == 0) :?>
-            <button id="add_post_modal">
+            <button id="add_edu_modal">
                 <i class="fas fa-plus"></i>
                 Ajouter
             </button>
@@ -32,9 +32,9 @@ include __DIR__. '/assets/includes/header_admin.php';
             <tr>
                 <th>ID</th>
                 <th>Titre</th>
+                <th>School</th>
                 <th>Début</th>
                 <th>Fin</th>
-                <th>Url</th>
                 <?php if($Membre['statut'] == 0) :?>
                 <th>Publié</th>
                 <th>Actions</th>
@@ -47,31 +47,33 @@ include __DIR__. '/assets/includes/header_admin.php';
           
               
           <tbody>
-            <?php foreach(getPost($pdo) as $post): ?>
+            <?php foreach(getEdu($pdo) as $edu): ?>
+
+              <?php
+                // changement format date
+                $date_from = str_replace('/', '-', $edu['start_date']);
+                $date_to = str_replace('/', '-', $edu['stop_date']);
+
+                ?>
                 
                 <tr>
-                    <td><?=$post['id_post']?></td>
-                    <td class="dnone"><?=$post['pics_id']?></td>
-                    <?php if($post["pics_id"] !== NULL){
-                      echo "<td><div class='img-profil' style='background-image: url(../global/uploads/". getImg($pdo, $post['pics_id']).")'></div></td>";
-                    }else{
-                      echo "<td></td>";
-                    }
-                    ?>  
-                    <td><?=$post['titre']?></td>
-                    <td><div class="td-cat"><?= getIcon($pdo, $post['categories_id'])?></div></td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td><?=$edu['id_education']?></td>
+                    
+                    <td><?=$edu['titre']?></td>
+                    <td><?=$edu['school']?></td>
+
+                    <td><?= date('Y', strtotime($date_from))?></td>
+                    <td><?= date('Y', strtotime($date_to))?></td>                   
                     
                     <?php if($Membre['statut'] == 0) :?>
                       
-                    <td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value="<?= $post['est_publie'] ?>" <?= ($post['est_publie'] == 1) ? 'checked' : '' ;?>></td>
+                    <td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value="<?= $edu['est_publie'] ?>" <?= ($edu['est_publie'] == 1) ? 'checked' : '' ;?>></td>
 
                     <td class="member_action">
                          
-                          <a href="<?= $post['url']?>" class="linkbtn"></a>
-                          <input type="button" class="viewbtn" name="view" id="<?=$post['id_post']?>"></input>
-                          <input type="button" class="editbtn" id="<?=$post['id_post']?>"></input>
+                          <a href="<?= $edu['url']?>" class="linkbtn"></a>
+                          <input type="button" class="viewbtn" name="view" id="<?=$edu['id_education']?>"></input>
+                          <input type="button" class="editbtn" id="<?=$edu['id_education']?>"></input>
                           <input type="button" class="deletebtn"></input>
                           
                     </td>
@@ -79,7 +81,7 @@ include __DIR__. '/assets/includes/header_admin.php';
 
                     <td class="member_action">
                          
-                          <a href="<?= $post['url']?>" class="linkbtn"></a>
+                          <a href="<?= $edu['url']?>" class="linkbtn"></a>
                           
                     </td>
 
@@ -112,32 +114,61 @@ include __DIR__. '/assets/includes/header_admin.php';
       <div class="modal-body">
         <form action="" method="post" enctype="multipart/form-data" id="add_edu">
 
-            <div class="mb-3">
-              <label for="add_name_member">Nom du langage : </label>
+            <div class="mb-3 mt-4">
+              <label for="add_name_member">Nom de la formation : </label>
               <input type="text" 
-              name="add_name_lang" 
-              id="add_name_lang" 
+              name="add_name_edu" 
+              id="add_name_edu" 
               class="form-control">
             </div>
 
-            <div class="mb-3">
-              <label for="add_logo">Logo : </label>
+            <div class="mb-3 mt-4">
+              <label for="add_name_member">Ecole : </label>
               <input type="text" 
-              name="add_logo" 
-              id="add_logo" 
+              name="add_name_school" 
+              id="add_name_school" 
               class="form-control">
             </div>
 
-            <div class="mb-3">
-              <label for="skillRange" class="form-label">Pourcentage : </label>
-              <input type="text" id="rangeReturn" value="" class="prctVal">
-              <input type="range" class="form-range" min="0" max="100" step="0.5" id="skillRange" name="skillRange">
+            <div class="mb-3 mt-4">
+              <label for="add_contenu" class="form_label">Contenu : </label>
+              <textarea
+              name="add_contenu" 
+              id="add_contenu_edu" 
+              class="form-control">
+              </textarea>
+            </div>
+
+            <div class="mb-3 mt-4">
+              <label for="from" class="form_label">Début :</label>
+              <input type="text" id="from" name="from" class="from form-control">
+            </div>
+
+            <div class="mb-3 mt-4">
+              <label for="to" class="form_label">Fin :</label>
+              <input type="text" id="to" name="to" class="to form-control">
+            </div>
+
+            <div class="mb-3 mt-4">
+              <label for="add_url" class="form_label">Url : </label>
+              <input type="text" 
+              name="add_url" 
+              id="add_url" 
+              class="form-control">
+            </div>
+
+            <div class="mb-3 mt-4">
+              <label for="est publié" class="form_label">Publié : </label>
+                <div class="form-check">
+                <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete">
+                <label for="confirmedelete">OUI</label>
+                </div>
             </div>
 
 
             
             <div class="modal-footer">
-              <button type="submit" name="add_lang" id="addlangBtn" class="disabledBtn" disabled="true">Ajouter</button>
+              <button type="submit" name="add_edu" id="addEduBtn" class="disabledBtn" disabled="true">Ajouter</button>
             </div>
           </form>
       </div>
@@ -146,23 +177,23 @@ include __DIR__. '/assets/includes/header_admin.php';
 </div>
 
 
-<!-- ############################################## ***** Modal edit language ***** ########################################################## -->
+<!-- ############################################## ***** Modal edit education ***** ########################################################## -->
 
  
  <div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title" id="exampleModalLabel">Modifier Langage</h5>
+         <h5 class="modal-title" id="exampleModalLabel">Modifier Formations</h5>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
        <div class="modal-body" id="update_modal">
-          <form action="" method="post" id="update_lang" enctype="multipart/form-data">
+          <form action="" method="post" id="update_edu" enctype="multipart/form-data">
 
           
 
             <div class="modal-footer">
-              <button type="submit" name="update_lang" id="UpdatelangBtn" class="updateBtn">Modifier</button>
+              <button type="submit" name="update_edu" id="UpdateeduBtn" class="updateBtn">Modifier</button>
             </div>
           </form>
        </div>
@@ -172,28 +203,27 @@ include __DIR__. '/assets/includes/header_admin.php';
  
  
  
- <!-- ############################################## ***** Modal delete langage ***** ########################################################## -->
+ <!-- ############################################## ***** Modal delete education  ***** ########################################################## -->
  
  
  <div class="modal fade" id="deletemodal" >
    <div class="modal-dialog">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title">Delete Langage</h5>
+         <h5 class="modal-title">Delete Formation</h5>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
        <div class="modal-body">
-         <form action="" method="post" id="delete_lang">
+         <form action="" method="post" id="delete_edu">
            <input type="hidden" name="delete_id" id="delete_id">
-           <input type="hidden" name="delete_img" id="delete_img">
              
-           <p>Etes vous sur de vouloir supprimer ce langage?</p>
+           <p>Etes vous sur de vouloir supprimer cette formation?</p>
  
            <input type="checkbox" id="confirmedelete" name="confirmedelete" class="confirmedelete">
            <label for="confirmedelete">OUI</label>
  
              <div class="modal-footer">
-               <button type="submit" name="deletecat"  id="deletecat" class="disabledBtn" disabled="true">Supprimer</button>
+               <button type="submit" name="deleteEdu"  id="deleteEdu" class="disabledBtn" disabled="true">Supprimer</button>
              </div>
            </form>
        </div>
@@ -209,10 +239,10 @@ include __DIR__. '/assets/includes/header_admin.php';
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Langage détails</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Formation détails</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" id="lang_detail">
+      <div class="modal-body" id="edu_detail">
         <div class="list_container">
           
       </div>

@@ -8,53 +8,26 @@ Ajout d'une formation a partir education.php en Ajax
 
 ############################################################################# */
 
-$result = array(); 
+if(!empty($_POST)){
 
-if(!empty($_POST)){ 
+  $result = array();
+  $id = $_POST['id'];
+  $confirme = 'on';
 
-  $titre = $_POST['add_name_edu'];
-  $school = $_POST['add_name_school'];
-  $contenu = $_POST['add_contenu'];
-  $url = $_POST['add_url'];
+  // validation en back de la confirmation de la suppression
+    if(($_POST['confirmedelete']) !== $confirme ){
 
-  if(empty($titre)){
+      $result['status'] = false;
+      $result['notif'] = notif('error','Merci de confirmer la suppression');
+  
+    }else{
 
-    $result['status'] = false;
-    $result['notif'] = notif('warning','oups! il manque le titre'); 
-
-  }elseif(getEduBy($pdo,'titre',$titre)!==null){
-
-    $result['status'] = false;
-    $result['notif'] = notif('warning','oups! cette formation existe déjà'); 
-
-  }elseif(empty($contenu)){
-
-    $result['status'] = false;
-    $result['notif'] = notif('warning','oups! il manque une description'); 
-
-  }elseif(empty($url)){
-
-    $result['status'] = false;
-    $result['notif'] = notif('warning','oups! il manque l\'adresse du site'); 
-
-  }else{
-
-    $req = $pdo->prepare('INSERT INTO education (titre, school, contenu, url, start_date, stop_date, est_publie)
-                          VALUES(:titre, :school, :contenu, :url, :start_date, :stop_date, :publie)');
-                    
-    $req->bindParam(':titre',$titre);
-    $req->bindParam(':school',$school);
-    $req->bindParam(':contenu',$contenu);
-    $req->bindParam(':url',$url);
-    $req->bindValue(':start_date',(new DateTime($_POST['from']))->format('Y-m-d')); 
-    $req->bindValue(':stop_date',(new DateTime($_POST['to']))->format('Y-m-d')); 
-    $req->bindValue(':publie',isset($_POST['est_publie']),PDO::PARAM_BOOL);
-    $req->execute();
+     //suppresion de la categorie de la BDD
+    $req = $pdo->exec("DELETE FROM education WHERE id_education = '$id'");
 
     $result['status'] = true;
-    $result['notif'] = notif('success','Nouvelle formation ajoutée');
+    $result['notif'] = notif('success','Formation, supprimée');
 
-    // préparation retour Ajax
     $query = $pdo->query('SELECT * FROM education');
 
     //retour ajax table
@@ -128,9 +101,10 @@ if(!empty($_POST)){
 
     $result['resultat'] .= '</table>';
 
-  }
+    }
 
+
+  echo json_encode($result);
 }
-// Return result 
-echo json_encode($result);
+
 ?>

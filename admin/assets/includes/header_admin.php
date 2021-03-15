@@ -18,17 +18,19 @@ if (session_status() === PHP_SESSION_NONE){
 
 <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    
+   
 <!-- CSS -->
 <?php
 if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
      echo '<link rel="stylesheet" href="assets/css/login_admin.css">';
-}
-else if(stripos($_SERVER['REQUEST_URI'], 'register.php')){
+}else if(stripos($_SERVER['REQUEST_URI'], 'register.php')){
      echo '<link rel="stylesheet" href="assets/css/register_admin.css">'; 
 }else if(stripos($_SERVER['REQUEST_URI'], 'profil_admin.php') || stripos($_SERVER['REQUEST_URI'], 'update_profil.php')){
      echo '<link rel="stylesheet" href="assets/css/profil_admin.css">'; 
-}else{
+}else if(stripos($_SERVER['REQUEST_URI'], 'education.php')){
+     echo '<link rel="stylesheet" href="assets/css/jquery-ui.min.css">';
+     echo '<link rel="stylesheet" href="assets/css/style.css">';
+}else {   
      echo '<link rel="stylesheet" href="assets/css/style.css">';
 }
 ?>   

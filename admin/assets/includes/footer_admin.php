@@ -14,6 +14,9 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
      echo '<script type="text/javascript" src="assets/js/posts_admin.js"></script>';
 }elseif (stripos($_SERVER['REQUEST_URI'], 'categories.php')){
      echo '<script type="text/javascript" src="assets/js/cat_admin.js"></script>';
+}elseif (stripos($_SERVER['REQUEST_URI'], 'education.php')){
+     echo '<script type="text/javascript" src="assets/js/education.js"></script>';
+     echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>';
 }elseif (stripos($_SERVER['REQUEST_URI'], 'langages.php')){
      echo '<script type="text/javascript" src="assets/js/lang_admin.js"></script>';
 }elseif (stripos($_SERVER['REQUEST_URI'], 'skills.php')){

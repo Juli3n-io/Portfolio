@@ -418,7 +418,8 @@ td {
 .member_action{
   align-items: center;
 }
-#posts_table .member_action{
+#posts_table .member_action,
+#edu_table .member_action{
   display: flex;
 }
 .member_action  .viewbtn,

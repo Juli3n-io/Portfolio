@@ -34,7 +34,7 @@ if(isset($_POST['cat_id'])){
 
         $result .= '<div class="mb-3 mt-4">';
             $result .= '<label for="update_name_cat">Nom de la categorie : </label>';
-            $result .= '<input type="text"  class="form-control" name="update_name_cat" id="update_name_cat" value="'.$cat['titre'].'">';
+            $result .= '<input type="text"  class="form-control" name="update_name_cat" id="update_name_cat" value="'.$cat['titre_cat'].'">';
         $result .= '</div>';
 
         $result .= '<div class="mb-3 mt-4">';

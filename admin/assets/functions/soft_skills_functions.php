@@ -56,13 +56,4 @@ function countSkillNonPublie(PDO $pdo) {
   return $count;
 }
 
-
-
-function generateClass($string) {
-  return preg_replace(array('/&.*;/','/\W/'),
-              '-',
-              preg_replace('/&([A-Za-z]{1,2})(grave|acute|circ|cedil|uml|lig);/',
-                       '',
-                   htmlentities($string,ENT_NOQUOTES,'UTF-8')));
-}
 ?>

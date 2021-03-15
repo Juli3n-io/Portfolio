@@ -30,7 +30,7 @@ if(!empty($_POST)){
     }else{
 
     
-    $req_update_cat = $pdo->prepare('UPDATE categories SET titre = :titre, motscles = :motscles, icone = :icone WHERE id_categorie = :id');
+    $req_update_cat = $pdo->prepare('UPDATE categories SET titre_cat = :titre, motscles = :motscles, icone = :icone WHERE id_categorie = :id');
 
     $req_update_cat->bindParam(':id',$id,PDO::PARAM_INT);
     $req_update_cat->bindValue(':titre',$titre);
@@ -67,7 +67,7 @@ if(!empty($_POST)){
       $result['resultat'] .= '<tr>';
         $result['resultat'] .= '<td>'.$cat['id_categorie'].'</td>';
         $result['resultat'] .= '<td><div class="img-logo"><i class="'.$cat['icone'].'"></i></div></td>';
-        $result['resultat'] .= '<td>'.$cat['titre'].'</td>';
+        $result['resultat'] .= '<td>'.$cat['titre_cat'].'</td>';
         $result['resultat'] .= '<td>'.$cat['motscles'].'</td>';
         $result['resultat'] .= '<td>'.getPostbyCar($pdo, $cat['id_categorie'] ).'</td>';
 

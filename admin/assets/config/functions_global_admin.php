@@ -11,29 +11,6 @@ function getMember(PDO $pdo):array
 }
 
 
-// Notification de success | error | warning | info
-// function notif(string $class, string $message){
-//   $output = '<div id="toats" class="notif alert-'. $class.'">';
-//     $output .= '<div class="toats_headers">';
-//       $output .= '<a class="toats_die">X</a>';
-//       $output .= '<h5><i class="fas fa-exclamation-circle"></i> Notification :</h5>';
-//   $output .= '</div>';
-
-//     $output .= '<div class="toats_core">
-//                 <p>'.$message.'</p>
-//                 </div>';
-//   $output .= '</div>';
-
-//   $output .= '<script>
-//                 setTimeout(function(){ document.querySelector(".notif").remove();}, 4000 );
-
-//                 document.querySelector(".toats_die").addEventListener("click", ()=>{
-//                 document.querySelector(".notif").remove();
-//               });
-//             </script>';
-//   return $output;
-// }
-
 function notif(string $class, string $message){
 $output = '<div class="notification">';
   $output .= '<div class="card '.$class.'">';
@@ -76,4 +53,13 @@ function getImg(PDO $pdo, INT $id)
   $data = $pdo->query("SELECT img FROM pics WHERE id_pics = '$id'");
   $photo = $data->fetch(PDO::FETCH_ASSOC);
   return $photo['img'];
+}
+
+
+function generateClass($string) {
+  return preg_replace(array('/&.*;/','/\W/'),
+              '-',
+              preg_replace('/&([A-Za-z]{1,2})(grave|acute|circ|cedil|uml|lig);/',
+                       '',
+                   htmlentities($string,ENT_NOQUOTES,'UTF-8')));
 }

@@ -107,8 +107,9 @@ CREATE TABLE skills
 CREATE TABLE categories
 (
   id_categorie INT(3)NOT NULL AUTO_INCREMENT,
-  titre VARCHAR(255),
+  titre_cat VARCHAR(255),
   motscles TEXT(255),
+  class VARCHAR(255) DEFAULT NULL,
    icone VARCHAR(255) DEFAULT NULL,
     PRIMARY KEY (id_categorie)
 )ENGINE=INNODB;

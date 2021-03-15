@@ -31,11 +31,13 @@ if(!empty($_POST)){
   
     }else{
 
+      $class = strtolower (generateClass($titre));
 
-      $req = $pdo->prepare('INSERT INTO categories(titre, motscles, icone) VALUES (:name, :motscles, :icone)');
+      $req = $pdo->prepare('INSERT INTO categories(titre_cat, motscles, class, icone) VALUES (:name, :motscles,:class, :icone)');
         
             $req->bindParam(':name',$titre);
             $req->bindParam(':motscles',$word);
+            $req->bindParam(':class',$class);
             $req->bindValue(':icone',$icone);
             $req->execute();
 
@@ -67,7 +69,7 @@ if(!empty($_POST)){
       $result['resultat'] .= '<tr>';
         $result['resultat'] .= '<td>'.$cat['id_categorie'].'</td>';
         $result['resultat'] .= '<td><div class="img-logo"><i class="'.$cat['icone'].'"></i></div></td>';
-        $result['resultat'] .= '<td>'.$cat['titre'].'</td>';
+        $result['resultat'] .= '<td>'.$cat['titre_cat'].'</td>';
         $result['resultat'] .= '<td>'.$cat['motscles'].'</td>';
         $result['resultat'] .= '<td>'.getPostbyCar($pdo, $cat['id_categorie'] ).'</td>';
 

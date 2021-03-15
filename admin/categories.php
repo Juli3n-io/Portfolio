@@ -20,7 +20,7 @@ include __DIR__. '/assets/includes/header_admin.php';
       <div class="card__body">
       <div class='img-logo'><i class="<?=$cat['icone']?>"></i></div>
         <div>
-          <h5><?= $cat['titre']?></h5>
+          <h5><?= $cat['titre_cat']?></h5>
           <h4><?= getPostbyCar($pdo, $cat['id_categorie'] )?></h4>
         </div>
       </div>
@@ -74,7 +74,7 @@ include __DIR__. '/assets/includes/header_admin.php';
                 <tr>
                     <td><?=$cat['id_categorie']?></td>
                     <td><div class='img-logo'><i class="<?=$cat['icone']?>"></i></div></td>
-                    <td><?=$cat['titre']?></td>
+                    <td><?=$cat['titre_cat']?></td>
                     <td><?=$cat['motscles']?></td>
                     <td><?= getPostbyCar($pdo, $cat['id_categorie'] )?></td>
                     

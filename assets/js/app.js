@@ -5,6 +5,7 @@ document.querySelector(".date2").innerHTML = new Date().getFullYear();
 
 
 $(document).ready(function(){
+
   // menu header
   $(".sidemenu-toggler").click(function(){  
     $('.sidemenu').addClass('active');
@@ -25,17 +26,47 @@ $(document).ready(function(){
 
   // soft skill circle progress
   
-    $('.card').each(function(){
-      $(this,'.bar').circleProgress({
-            value : $(this).data("value")/100,
-            startAngle: -1.55,
-            size: 100,
-            fill : {gradient:[["#FF8C00", 0.15], ["#774BBB", 0.74] ]}
-      })    
-    })
+  $('.card').each(function(){
+
+    $(this,'.bar').circleProgress({
+
+      value : $(this).data("value")/100,
+      startAngle: -1.55,
+      size: 100,
+      fill : {gradient:[["#FF8C00", 0.15], ["#774BBB", 0.74] ]}
+
+    })  
+
+  })
   
 
-  
+//portfolio
+$(window).on("load", function(){
+  var  $container = $('.portfolioContainer');
+  $container.isotope({
+    filter:'*',
+    animationOptions:{
+      queue : true
+    }
+  });
+
+$('.portfolio-nav li').on('click', function(){
+
+    $('.portfolio-nav .current').removeClass('current');
+    $(this).addClass('current')
+    var selector = $(this).attr('data-filter');
+    $container.isotope({
+      filter : selector,
+      animationOptions: {
+        queue : true
+      }
+    });
+    return false
+  });
+
+ 
+
+});
 
 
   

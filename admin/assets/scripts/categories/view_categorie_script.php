@@ -31,11 +31,15 @@ if(isset($_POST['cat_id'])){
      </tr> 
      <tr>  
           <td width="30%"><label>Titre :</label></td>  
-          <td width="70%">'.$cat["titre"].'</td>  
+          <td width="70%">'.$cat["titre_cat"].'</td>  
      </tr> 
      <tr>  
           <td width="30%"><label>Mots cles :</label></td>  
           <td width="70%">'.$cat["motscles"].'</td>  
+     </tr>   
+     <tr>  
+          <td width="30%"><label>Class :</label></td>  
+          <td width="70%">'.$cat["class"].'</td>  
      </tr>   
      <tr>  
           <td width="30%"><label>Nombre de sites</label></td>  

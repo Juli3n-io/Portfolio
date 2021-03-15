@@ -24,31 +24,21 @@ $(document).ready(function(){
   });
 
   // soft skill circle progress
-  let options = {
-      startAngle: -1.55,
-      size: 100,
-      value : 0.85,
-      fill : {gradient:[["#FF8C00", 0.15], ["#774BBB", 0.74] ]}
-    }
-    $('.circle .bar').circleProgress(options).on('circle-animation-progress', function(event,progress, stepValue){
-      $(this).parent().find("span").text(String(stepValue.toFixed(2).substr(2)) + "%")
-    });
   
-    $('.team .bar').circleProgress({
-      value : $('.team .box').data("value")/100,
-    })
-      
-    $('.Communication .bar').circleProgress({
-      value : $('.Communication .box').data("value")/100,
+    $('.card').each(function(){
+      $(this,'.bar').circleProgress({
+            value : $(this).data("value")/100,
+            startAngle: -1.55,
+            size: 100,
+            fill : {gradient:[["#FF8C00", 0.15], ["#774BBB", 0.74] ]}
+      })    
     })
   
-    $('.projet .bar').circleProgress({
-      value : $('.projet .box').data("value")/100,
-    })
-    $('.commercial .bar').circleProgress({
-      value : $('.commercial .box').data("value")/100,
-    })
 
+  
+
+
+  
   
 });
 

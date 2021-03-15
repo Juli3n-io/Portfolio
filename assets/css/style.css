@@ -681,6 +681,7 @@ background: rgba(0, 0, 0, 0.5);
 .card{
   background: transparent;
   border: none;
+  display: block;
 }
 
 .card .circle .box,
@@ -703,6 +704,20 @@ background: rgba(0, 0, 0, 0.5);
 .card .circle .box span{
   font-size: 15px;
   font-family: 'Poppins', sans-serif;
+}
+
+.mh-pro-progess li{
+  display: inline-block;
+  margin: 0 auto;
+  float: none;
+  width: 48%;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.mh-progress{
+  margin-bottom: 10px;
+  font: 900 1.14285/1 Cinzerl, cursive;
 }
 
 
@@ -833,6 +848,17 @@ footer p{
   .pricing{
     margin-top: 0 ;
   }
+
+  /* *** Skills *** */
+
+  .skills{
+    margin-top: 4rem;
+  }
+
+  .skills .heading{
+    margin-bottom: 6rem;
+  }
+
 }
 
 

@@ -85,6 +85,23 @@ $(document).on('click', '.post-link', function(){
   });   
 
 })
+
+//expérience ouverture modal
+$(document).on('click','.custom-link', function(e){  
+  e.preventDefault();
+  var edu_id = $(this).attr("id");  
+  
+  $.ajax({  
+       url:"assets/scripts/view_education_modal.php",  
+       method:"post",  
+       data:{edu_id:edu_id},  
+       success:function(data){  
+            $('#edu_detail').html(data);  
+            $('#viewmodal').modal('show');  
+       }  
+  });  
+});  
+
   
 });
 

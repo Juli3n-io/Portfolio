@@ -36,7 +36,7 @@ if(isset($_POST['edu_id'])){
 
         $result .= '<div class="mb-3 mt-4">';
             $result .= '<label for="update_contenu">Contenu : </label>';
-            $result .= '<textarea class="form-control" id="update_contenu" name="update_contenu">'.$edu['contenu'].'</textarea>';
+            $result .= '<textarea class="form-control" id="update_contenu" name="update_contenu">'.nl2br($edu['contenu']).'</textarea>';
         $result .= '</div>';
 
         $result .= '<div class="mb-3 mt-4">';

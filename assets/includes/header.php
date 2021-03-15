@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-<body>
+<body class=>
   
 <header class="header">
       <div class="wrap d-flex">
@@ -45,8 +45,8 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#pricing">tarifs</a></li>
             <li><a href="#skills">Compétences</a></li>
-            <li><a href="#experience">Expériences</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#experience">Expériences</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -66,8 +66,8 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#pricing">tarifs</a></li>
             <li><a href="#skills">Compétences</a></li>
-            <li><a href="#experience">Expériences</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#experience">Expériences</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>

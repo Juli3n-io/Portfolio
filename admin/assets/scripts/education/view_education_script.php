@@ -25,7 +25,7 @@ if(isset($_POST['edu_id'])){
 
     $result .= '<div class="card-body">';
       $result .= '<h5 class="card-title">'.$edu['titre'].'</h5>';
-      $result .= '<p class="card-text">'.$edu['contenu'].'</p>';
+      $result .= '<p class="card-text">'.nl2br($edu['contenu']).'</p>';
     $result .= '</div>';
 
     $result .= '<div class="table-responsive">';

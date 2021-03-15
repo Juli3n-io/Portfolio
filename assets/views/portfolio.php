@@ -37,7 +37,9 @@ require_once __DIR__ . './../functions/portfolio_functions.php';
                 <figure>
                   <img src="global/uploads/<?=$post['img']?>" alt="image site internet">
                   <figcaption class="fig-caption">
-                    <a href="<?= $post['url']?>">
+                    <a  href="<?=$post['url']?>"
+                        data-id="<?= $post['id_post']?>"
+                        class="post-link">
                       <i class="fa fa-search"></i>
                       <h5 class="title"><?= $post['titre']?></h5>
                     </a>

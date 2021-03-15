@@ -301,6 +301,10 @@ main {
   margin-bottom: 3rem;
 }
 
+.recent_index{
+  max-width: 75%;
+}
+
 .activity__grid {
   display: grid;
   grid-template-columns: 75% 25%;

@@ -111,3 +111,37 @@ function getOtherCat(PDO $pdo, INT $id)
     return $cat;
      
 }
+
+//get click by post
+function getClick(PDO $pdo, INT $id){
+
+  $req = $pdo->query(
+    "SELECT nb_clicks
+    from clicks
+    WHERE post_id = '$id'");
+
+
+    $click = $req->fetch(PDO::FETCH_ASSOC);
+    
+    if($click){
+      return $click['nb_clicks'];
+    }else{
+      return 0;
+    }
+
+  }
+
+
+
+//Index récupération des posts par ordre de vue
+function getPostIndex(PDO $pdo):array
+{
+  $query = $pdo->query("SELECT posts.*, clicks.*
+                          FROM posts 
+                          LEFT JOIN clicks on clicks.post_id = posts.id_post
+                          ORDER BY nb_clicks DESC
+                          LIMIT 5");
+  $data = $query->fetchAll(PDO::FETCH_ASSOC);
+  return $data;
+}
+?>

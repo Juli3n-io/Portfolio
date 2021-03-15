@@ -166,3 +166,14 @@ est_publie TINYINT NOT NULL,
         ON DELETE SET NULL
 )ENGINE=INNODB;
 
+CREATE TABLE clicks
+(
+  id INT(3)NOT NULL AUTO_INCREMENT,
+  nb_clicks INT,
+  post_id INT(3) DEFAULT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_click_post
+      FOREIGN KEY  (post_id)
+      REFERENCES  posts(id_post)
+      ON DELETE SET NULL
+)ENGINE=INNODB;

@@ -24,8 +24,8 @@ $(document).ready(function(){
     }
   });
 
+
   // soft skill circle progress
-  
   $('.card').each(function(){
 
     $(this,'.bar').circleProgress({
@@ -44,11 +44,14 @@ $(document).ready(function(){
 $(window).on("load", function(){
   var  $container = $('.portfolioContainer');
   $container.isotope({
+
     filter:'*',
     animationOptions:{
       queue : true
+
     }
-  });
+
+});
 
 $('.portfolio-nav li').on('click', function(){
 
@@ -64,12 +67,24 @@ $('.portfolio-nav li').on('click', function(){
     return false
   });
 
- 
 
 });
 
+// Portfolio function ajax pour nombre de click
+$(document).on('click', '.post-link', function(){
+  var post_id = $(this).data("id")
 
-  
+  $.ajax({  
+    url:"assets/scripts/posts_clicks_script.php",  
+    method:"post",  
+    data:{post_id:post_id},
+    success:function(data){  
+     
+    }  
+    
+  });   
+
+})
   
 });
 

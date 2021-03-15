@@ -106,7 +106,7 @@ include __DIR__. '/assets/includes/header_admin.php';
                     ?>  
                     <td><?=$post['titre']?></td>
                     <td><div class="td-cat"><?= getIcon($pdo, $post['categories_id'])?></div></td>
-                    <td>0</td>
+                    <td><?= getClick($pdo, $post["pics_id"])?></td>
                     <td>0</td>
                     
                     <?php if($Membre['statut'] == 0) :?>

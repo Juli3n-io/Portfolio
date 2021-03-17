@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/assets/config/bootstrap_admin.php';
+require_once __DIR__ . '/assets/functions/index_functions.php';
 require_once __DIR__ . '/assets/functions/posts_functions.php';
 require_once __DIR__ . '/assets/functions/categories_functions.php';
 
@@ -13,6 +14,27 @@ include __DIR__. '/assets/includes/header_admin.php';
   <p id="date"></p>
   <h1>Bonjour <?= $Membre['prenom'] ?></h1>
 </div>
+
+<section>
+  <div class="dash__cards" id="cards">
+
+    
+
+    <div class="card__single">
+      <div class="card__body">
+        <i class="fas fa-file-download"></i>
+        <div>
+          <h5>CV</h5>
+          <h4><?= getDownloadCv($pdo)?></h4>
+        </div>
+      </div>
+      <div class="card__footer">
+      <a href="docs.php">Voir les docs</a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <section class="recent recent_index">
   <div class="team__grid">

@@ -58,7 +58,10 @@ require_once __DIR__ . './../functions/docs_functions.php';
 
           <?php foreach(getDocs($pdo) as $doc): ?>
           <div class="download-btn">
-              <a href="global/uploads/<?=$doc['fichier']?>" download class="btn custom-btn">Télécharger mon CV</a>
+              <a href="global/uploads/<?=$doc['fichier']?>" 
+              download 
+              class="btn custom-btn cv"
+              id="<?= $doc['id_doc']?>">Télécharger mon CV</a>
           </div>
           <?php endforeach;?>
         </div> 

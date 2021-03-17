@@ -192,3 +192,15 @@ CREATE TABLE clicks
       REFERENCES  posts(id_post)
       ON DELETE SET NULL
 )ENGINE=INNODB;
+
+CREATE TABLE cv_clicks
+(
+  id INT(3)NOT NULL AUTO_INCREMENT,
+  nb_clicks INT,
+  doc_id INT(3) DEFAULT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_click_doc
+      FOREIGN KEY  (doc_id)
+      REFERENCES  docs(id_doc)
+      ON DELETE SET NULL
+)ENGINE=INNODB;

@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../config/bootstrap_admin.php';
+require_once __DIR__ . '/assets/functions/docs_functions.php';
 
 
 /* #############################################################################
@@ -46,7 +47,7 @@ if(!empty($_POST)){
   $result['resultat'] .= '<thead>
                               <tr>
                                 <th>ID</th>
-  
+                                <th><i class="fas fa-file-download"></i></th>
                                 <th>Titre</th>
                                 <th>Date d\'ajout</th> ';
                                 if($Membre['statut'] == 0){
@@ -63,6 +64,7 @@ while($doc = $query->fetch()){
   $result['resultat'] .= '<tr>';
   $result['resultat'] .= '<td>'.$doc['id_doc'].'</td>';
   $result['resultat'] .= '<td>'.$doc['titre'].'</td>';
+  $result['resultat'] .= '<td>'.getClick($pdo, $doc["id_doc"]).'</td>';
   $result['resultat'] .= ' <td>'.date('d-m-Y', strtotime($date)).'</td>';
 
   if($Membre['statut'] == 0){

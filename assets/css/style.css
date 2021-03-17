@@ -1311,7 +1311,7 @@ footer p{
 
   .experience .education-details .education-item,
 .work .work-details .work-item{
-  min-height: 250px;
+  min-height: 300px;
 }
 
 }
@@ -1324,6 +1324,13 @@ footer p{
   .header .menu ul{
     display: flex;
   }
+
+  /* ***  Experience *** */
+
+  .experience .education-details .education-item,
+.work .work-details .work-item{
+  min-height: 350px;
+}
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */

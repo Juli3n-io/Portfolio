@@ -35,6 +35,7 @@ include __DIR__. '/assets/includes/header_admin.php';
             <tr>
                 <th>ID</th>
                 <th>Titre</th>
+                <th><i class="fas fa-file-download"></i></th>
                 <th>Date d'ajout</th>
                 <?php if($Membre['statut'] == 0) :?>
                 <th>Actions</th>
@@ -53,6 +54,7 @@ include __DIR__. '/assets/includes/header_admin.php';
                 <tr>
                     <td><?=$doc['id_doc']?></td>
                     <td><?=$doc['titre']?></td>
+                    <td><?= getClick($pdo, $doc["id_doc"])?></td>
                     <td><?= date('d-m-Y', strtotime($date))?> </td>
                     <td class="member_action">
                     <input type="button" class="viewbtn" name="view" id="<?=$doc['id_doc']?>"></input>

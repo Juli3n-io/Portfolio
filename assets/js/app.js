@@ -86,6 +86,23 @@ $(document).on('click', '.post-link', function(){
 
 })
 
+// CV function ajax pour nombre de click
+$(document).on('click', '.download-btn a', function(){
+
+  var doc_id = this.id
+  
+  $.ajax({  
+    url:"assets/scripts/cv_clicks_script.php",  
+    method:"post",  
+    data:{doc_id:doc_id},
+    success:function(data){  
+     
+    }  
+    
+  });   
+
+})
+
 //education ouverture modal
 $(document).on('click','.link-education', function(e){  
   e.preventDefault();
@@ -117,7 +134,6 @@ $(document).on('click','.link-experience', function(e){
        }  
   });  
 });  
-
   
 });
 

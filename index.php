@@ -19,6 +19,8 @@ include __DIR__. '/assets/views/portfolio.php';
 
 include __DIR__. '/assets/views/experiences.php';
 
+include __DIR__. '/assets/views/contact.php';
+
 include __DIR__. '/assets/includes/footer.php';
 ?>
 

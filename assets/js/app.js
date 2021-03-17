@@ -134,6 +134,36 @@ $(document).on('click','.link-experience', function(e){
        }  
   });  
 });  
+
+//envoi de message
+$(document).on('submit','#contact-form', function(e){  
+  e.preventDefault();
+  
+  $.ajax({
+
+    type: 'POST',
+    url: 'assets/scripts/send_message_script.php',
+    data: new FormData(this),
+    dataType: 'json',
+    contentType: false,
+    cache: false,
+    processData:false,
+    success: function(data){
+
+      if(data.status == true){   
+       
+        $('#contact-form').trigger("reset");
+        $('#notif').html(data.notif);
+                                  
+      }else{
+          
+        $('#notif').html(data.notif); 
+
+      } 
+
+    }
+  }); 
+});  
   
 });
 
@@ -160,3 +190,16 @@ new Typewriter(textAnim,{
 .typeString('<span>Coffee <span style="color : #11643C">Lover <img class="coffee" src="assets/img/coffee.png"></span>')
 .pauseFor(1500)
 .start() 
+
+
+// animation Contact
+const contactTitle = document.querySelector('.contact .contact-info h4');
+
+new Typewriter(contactTitle,{
+  loop: false,
+  deleteSpeed: 20 // vitesse de suppresion des caractéres
+})
+.changeDelay(30)
+.typeString('Et si nous restions en contact ?') // text
+.pauseFor(1500) // pause entre 2 écriture
+.start()

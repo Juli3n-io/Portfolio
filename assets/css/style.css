@@ -1054,7 +1054,162 @@ body.modal-open .bg{
   z-index: 20;
 }
 
+/* *************** */
+/* ***  Contact *** */
+/* *************** */
 
+.contact{
+  margin-top: 4rem;
+}
+
+.contact-info,
+.contact-form{
+  font-family: var(--poppins);
+  color: #FFF;
+}
+
+.contact-info h4{
+font-size: 34px;
+margin-bottom: 1rem;
+font-weight: 400;
+font-family: var(--poppins);
+}
+
+.contact-info P{
+  font-size: 16px;
+  
+}
+
+.contact-info ul{
+  margin: 0;
+  padding: 10px 0 0;
+}
+
+.contact-info ul li{
+  font-size: 18px;
+  font-family: 400;
+
+line-height: 1.3;
+font-family: var(--poppins);
+position: relative;
+}
+.contact-info ul li i{
+  color: #774BBB;
+  width: 30px;
+  text-align: center;
+  font-size: 22px;
+}
+.contact-info ul li{
+  padding-top: 20px;
+}
+.contact-info ul li a{
+  text-decoration: none;
+  color: #FFF;
+}
+
+.contact-info ul li a:hover{
+  color: #774BBB;
+}
+.contact-info li span{
+  padding-left: 20px;
+}
+
+.form-part{
+  margin-top: 4rem;
+}
+
+.form-part form{
+  position: relative;
+}
+
+
+.contact-form h4{
+  font-weight: 400;
+  font-size: 22Px;
+  margin-bottom: 20px;
+}
+
+.contact-form .form-control{
+  color: white;
+  background: none;
+  border : 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 14px;
+  height: calc(2em + 0.75rem + 2px);
+}
+.contact-form .form-control:focus{
+  border: 1px solid var(--violet);
+}
+.contact-form textarea.form-control{
+  height: auto;
+}
+
+
+
+.contact-form .sendMsg{
+  color: #FFF;
+  background-color: rgba(119, 75, 187, 0.9);
+  background-image: linear-gradient(to right, rgba(119, 75, 187, 0.9) 10%, rgba(255, 140, 0, 0.9) 74%);
+  padding: 15px 35px;
+  border: none;
+  border-radius: 50px;
+  transition: 1s ease-in;
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+}
+
+
+
+
+.contact-form .btn:hover{
+  background-image: inherit;
+  color: #FFF;
+  background-color: rgba(119, 75, 187, 0.9);
+}
+
+.contact-form .valideCheck-container{
+  padding-left: 10px;
+}
+
+.checkbox {
+  cursor: pointer;
+  font-size: var(--poppins);
+}
+
+.checkbox:hover .checkbox_check {
+  background: var(--violet);
+}
+
+.checkbox_input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.checkbox_input:checked + .checkbox_check {
+  background: var(--violet);
+  stroke-dashoffset: 0;
+}
+
+.checkbox_check {
+  border: 0.2rem solid var(--violet);
+  stroke: #f9f9f9;
+  stroke-dasharray: 25;
+  stroke-dashoffset: 25;
+  stroke-linecap: round;
+  stroke-width: 0.2em;
+  border-radius: 0.3em;
+  fill: none;
+  transition: background 0.4s, stroke-dashoffset 
+0.6s;
+}
+
+.checkbox span{
+  margin-left: 10px;
+  font-size: 14px;
+}
 
 /* *************** */
 /* ***  footer *** */
@@ -1063,7 +1218,7 @@ body.modal-open .bg{
 footer p{
   color: #FFF;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--poppins);
   margin-top: 4rem;
 }
 
@@ -1314,6 +1469,11 @@ footer p{
   min-height: 300px;
 }
 
+/* *** Contact *** */
+
+.form-part{
+  margin-top: 0;
+}
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
@@ -1327,10 +1487,21 @@ footer p{
 
   /* ***  Experience *** */
 
+  .experience{
+    padding-top: 6rem;
+  }
+
   .experience .education-details .education-item,
 .work .work-details .work-item{
-  min-height: 350px;
+  min-height: 250px;
 }
+
+/* ***  Contact *** */
+
+.contact-info h4{
+  font-size: 30px;
+  }
+
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */

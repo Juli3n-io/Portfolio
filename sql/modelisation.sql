@@ -127,6 +127,20 @@ CREATE TABLE education
     PRIMARY KEY (id_education)
 )ENGINE=INNODB;
 
+CREATE TABLE experiences
+(
+  id_experience INT(3)NOT NULL AUTO_INCREMENT,
+  titre VARCHAR(255) NOT NULL,
+  entreprise VARCHAR(255) NOT NULL,
+  contenu TEXT DEFAULT NULL,
+  url VARCHAR (255) NOT NULL,
+  start_date DATETIME NOT NULL,
+  stop_date DATETIME,
+  actuel TINYINT NOT NULL,
+  est_publie TINYINT NOT NULL,
+    PRIMARY KEY (id_experience)
+)ENGINE=INNODB;
+
 
 CREATE TABLE cms
 (

@@ -419,7 +419,8 @@ td {
   align-items: center;
 }
 #posts_table .member_action,
-#edu_table .member_action{
+#edu_table .member_action,
+#exe_table .member_action{
   display: flex;
 }
 .member_action  .viewbtn,
@@ -483,7 +484,8 @@ tbody tr:nth-child(even) {
   width: 50% !important;
 }
 
-.badge.success {
+.badge.success,
+.badge.actuel {
   background: #def7ec;
   color: var(--main-color);
 }

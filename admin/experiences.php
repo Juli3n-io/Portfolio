@@ -1,10 +1,10 @@
 <?php
 
 require_once __DIR__ . '/assets/config/bootstrap_admin.php';
-require_once __DIR__ . '/assets/functions/education_functions.php';
+require_once __DIR__ . '/assets/functions/experiences_functions.php';
 
 
-$page_title ='Education';
+$page_title ='Expériences';
 include __DIR__. '/assets/includes/header_admin.php';
 
 ?>
@@ -16,23 +16,23 @@ include __DIR__. '/assets/includes/header_admin.php';
   <div class="team__grid">
     <div class="team__card">
         <div class="card__header">
-            <h3>Toutes les Formations </h3>
+            <h3>Toutes les Expériences </h3>
             <?php if($Membre['statut'] == 0) :?>
-            <button id="add_edu_modal">
+            <button id="add_exe_modal">
                 <i class="fas fa-plus"></i>
                 Ajouter
             </button>
             <?php endif;?>
         </div>
 
-        <div class="table-responsive" id="edu_table">
+        <div class="table-responsive" id="exe_table">
           <table>
 
           <thead>
             <tr>
                 <th>ID</th>
                 <th>Titre</th>
-                <th>School</th>
+                <th>Entreprise</th>
                 <th>Début</th>
                 <th>Fin</th>
                 <?php if($Membre['statut'] == 0) :?>
@@ -47,33 +47,40 @@ include __DIR__. '/assets/includes/header_admin.php';
           
               
           <tbody>
-            <?php foreach(getEdu($pdo) as $edu): ?>
+            <?php foreach(getExe($pdo) as $exe): ?>
 
               <?php
                 // changement format date
-                $date_from = str_replace('/', '-', $edu['start_date']);
-                $date_to = str_replace('/', '-', $edu['stop_date']);
+                $date_from = str_replace('/', '-', $exe['start_date']);
+                $date_to = str_replace('/', '-', $exe['stop_date']);
 
                 ?>
                 
                 <tr>
-                    <td><?=$edu['id_education']?></td>
+                    <td><?=$exe['id_experience']?></td>
                     
-                    <td><?=$edu['titre']?></td>
-                    <td><?=$edu['school']?></td>
+                    <td><?=$exe['titre']?></td>
+                    <td><?=$exe['entreprise']?></td>
 
                     <td><?= date('Y', strtotime($date_from))?></td>
-                    <td><?= date('Y', strtotime($date_to))?></td>                   
+                    
+                    <?php
+                    if($exe['actuel'] == 1){
+                      echo '<td><p class="badge actuel">Actuel</p></td>';
+                    }else{
+                      echo '<td>'. date('Y', strtotime($date_to)).'</td> ';
+                    }
+                    ?>
                     
                     <?php if($Membre['statut'] == 0) :?>
                       
-                    <td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value="<?= $edu['est_publie'] ?>" <?= ($edu['est_publie'] == 1) ? 'checked' : '' ;?>></td>
+                    <td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value="<?= $exe['est_publie'] ?>" <?= ($exe['est_publie'] == 1) ? 'checked' : '' ;?>></td>
 
                     <td class="member_action">
                          
-                          <a href="<?= $edu['url']?>" class="linkbtn"></a>
-                          <input type="button" class="viewbtn" name="view" id="<?=$edu['id_education']?>"></input>
-                          <input type="button" class="editbtn" id="<?=$edu['id_education']?>"></input>
+                          <a href="<?= $exe['url']?>" class="linkbtn"></a>
+                          <input type="button" class="viewbtn" name="view" id="<?=$exe['id_experience']?>"></input>
+                          <input type="button" class="editbtn" id="<?=$exe['id_experience']?>"></input>
                           <input type="button" class="deletebtn"></input>
                           
                     </td>
@@ -81,7 +88,7 @@ include __DIR__. '/assets/includes/header_admin.php';
 
                     <td class="member_action">
                          
-                          <a href="<?= $edu['url']?>" class="linkbtn"></a>
+                          <a href="<?= $exe['url']?>" class="linkbtn"></a>
                           
                     </td>
 
@@ -102,39 +109,39 @@ include __DIR__. '/assets/includes/header_admin.php';
 
 
 <?php if($Membre['statut'] == 0) :?>
-  <!-- ############################################## ***** Modal add formation ***** ########################################################## -->
+  <!-- ############################################## ***** Modal add expériences ***** ########################################################## -->
 
 <div class="modal fade" id="addmodal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Ajouter une formation</h5>
+        <h5 class="modal-title">Ajouter une Expérience</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="post" enctype="multipart/form-data" id="add_edu">
+        <form action="" method="post" enctype="multipart/form-data" id="add_exe">
 
             <div class="mb-3 mt-4">
-              <label for="add_name_member">Nom de la formation : </label>
+              <label for="add_name_member">Nom de l'Expérience : </label>
               <input type="text" 
-              name="add_name_edu" 
-              id="add_name_edu" 
+              name="add_name_exe" 
+              id="add_name_exe" 
               class="form-control">
             </div>
 
             <div class="mb-3 mt-4">
-              <label for="add_name_member">Ecole : </label>
+              <label for="add_name_member">Entreprise : </label>
               <input type="text" 
-              name="add_name_school" 
-              id="add_name_school" 
+              name="add_inc" 
+              id="add_inc" 
               class="form-control">
             </div>
 
             <div class="mb-3 mt-4">
               <label for="add_contenu" class="form_label">Contenu : </label>
               <textarea
-              name="add_contenu" 
-              id="add_contenu_edu" 
+              name="add_contenu_exe" 
+              id="add_contenu" 
               class="form-control"></textarea>
             </div>
 
@@ -144,6 +151,14 @@ include __DIR__. '/assets/includes/header_admin.php';
             </div>
 
             <div class="mb-3 mt-4">
+              <label for="est publié" class="form_label">Poste Actuel : </label>
+                <div class="form-check">
+                <input type="checkbox" id="actuel" name="actuel" class="actuel">
+                <label for="confirmedelete">OUI</label>
+                </div>
+            </div>
+
+            <div class="mb-3 mt-4 fin">
               <label for="to" class="form_label">Fin :</label>
               <input type="text" id="to" name="to" class="to form-control">
             </div>
@@ -167,7 +182,7 @@ include __DIR__. '/assets/includes/header_admin.php';
 
             
             <div class="modal-footer">
-              <button type="submit" name="add_edu" id="addEduBtn" class="disabledBtn" disabled="true">Ajouter</button>
+              <button type="submit" name="add_exe" id="addExeBtn" class="disabledBtn" disabled="true">Ajouter</button>
             </div>
           </form>
       </div>
@@ -176,23 +191,23 @@ include __DIR__. '/assets/includes/header_admin.php';
 </div>
 
 
-<!-- ############################################## ***** Modal edit education ***** ########################################################## -->
+<!-- ############################################## ***** Modal edit expérience ***** ########################################################## -->
 
  
  <div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title" id="exampleModalLabel">Modifier Formations</h5>
+         <h5 class="modal-title" id="exampleModalLabel">Modifier Experience</h5>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
        <div class="modal-body" id="update_modal">
-          <form action="" method="post" id="update_edu" enctype="multipart/form-data">
+          <form action="" method="post" id="update_exe" enctype="multipart/form-data">
 
           
 
             <div class="modal-footer">
-              <button type="submit" name="update_edu" id="UpdateeduBtn" class="updateBtn">Modifier</button>
+              <button type="submit" name="update_exe" id="UpdateExeBtn" class="updateBtn">Modifier</button>
             </div>
           </form>
        </div>
@@ -202,18 +217,18 @@ include __DIR__. '/assets/includes/header_admin.php';
  
  
  
- <!-- ############################################## ***** Modal delete education  ***** ########################################################## -->
+ <!-- ############################################## ***** Modal delete exeperience  ***** ########################################################## -->
  
  
  <div class="modal fade" id="deletemodal" >
    <div class="modal-dialog">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title">Delete Formation</h5>
+         <h5 class="modal-title">Delete Experience</h5>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
        <div class="modal-body">
-         <form action="" method="post" id="delete_edu">
+         <form action="" method="post" id="delete_exe">
            <input type="hidden" name="delete_id" id="delete_id">
              
            <p>Etes vous sur de vouloir supprimer cette formation?</p>
@@ -231,17 +246,17 @@ include __DIR__. '/assets/includes/header_admin.php';
  </div>
 
 
- <!-- ############################################## ***** Modal view langage ***** ########################################################## -->
+ <!-- ############################################## ***** Modal view experience ***** ########################################################## -->
   
   
 <div class="modal fade" id="viewmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Formation détails</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Expérience détails</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" id="edu_detail">
+      <div class="modal-body" id="exe_detail">
         <div class="list_container">
           
       </div>

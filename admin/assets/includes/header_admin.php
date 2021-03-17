@@ -27,7 +27,7 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
      echo '<link rel="stylesheet" href="assets/css/register_admin.css">'; 
 }else if(stripos($_SERVER['REQUEST_URI'], 'profil_admin.php') || stripos($_SERVER['REQUEST_URI'], 'update_profil.php')){
      echo '<link rel="stylesheet" href="assets/css/profil_admin.css">'; 
-}else if(stripos($_SERVER['REQUEST_URI'], 'education.php')){
+}else if(stripos($_SERVER['REQUEST_URI'], 'education.php') || stripos($_SERVER['REQUEST_URI'], 'experiences.php')){
      echo '<link rel="stylesheet" href="assets/css/jquery-ui.min.css">';
      echo '<link rel="stylesheet" href="assets/css/style.css">';
 }else {   
@@ -98,6 +98,12 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
                     <a href="education.php">
                          <i class="fas fa-graduation-cap"></i>
                          <span>Education</span>
+                    </a>
+               </li>
+               <li>
+                    <a href="experiences.php">
+                         <i class="fas fa-glasses"></i>
+                         <span>Expériences</span>
                     </a>
                </li>
                <li>

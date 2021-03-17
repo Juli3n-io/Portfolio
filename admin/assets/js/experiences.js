@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   /*
-   * --> Add Education
+   * --> Add Expérience
    * 
    * # Ouverture du Modal d'ajout
    * 
@@ -10,11 +10,13 @@ $(document).ready(function () {
    * 
    * ### gestion jquery ui de la date
    * 
-   * #### traitement Ajax de l'ajout
+   * #### retrait fin sur actual est coché
+   * 
+   * ##### traitement Ajax de l'ajout
    */
   
-  // # modal d'ajout education
-  $('#add_edu_modal').on('click', function () {
+  // # modal d'ajout categorie
+  $('#add_exe_modal').on('click', function () {
   
     $('#addmodal').modal('show');
   
@@ -22,15 +24,15 @@ $(document).ready(function () {
   
   
   // ## Gestion de l"oublie du nom
-  $('#add_name_edu').blur(function(){
+  $('#add_name_exe').blur(function(){
   
     if( $(this).val().length === 0 ) {
   
-      $('#addEduBtn').prop("disabled", true).addClass('disabledBtn').removeClass('addBtn');
+      $('#addExeBtn').prop("disabled", true).addClass('disabledBtn').removeClass('addBtn');
              
     }else{
   
-      $('#addEduBtn').prop("disabled", false).removeClass('disabledBtn').addClass('addBtn');
+      $('#addExeBtn').prop("disabled", false).removeClass('disabledBtn').addClass('addBtn');
   
     }
   
@@ -53,7 +55,8 @@ $(document).ready(function () {
         defaultDate: "+1w",
         changeMonth: true,
         changeYear: true,
-        numberOfMonths: 1
+        numberOfMonths: 1,
+        showButtonPanel: true
       })
       .on( "change", function() {
         from.datepicker( "option", "maxDate", getDate( this ) );
@@ -70,16 +73,30 @@ $(document).ready(function () {
       return date;
     }
   } );
+
+  // #### retrait fin sur actual est coché
+  $('#actuel').on('click', function () {
+    if ($(this).is(':checked')) {
   
-  // #### ajout education ajax
-    $("#add_edu").on('submit', function(e){
+      $('.fin').fadeToggle("slow", "linear")
+  
+    }else{
+
+      $('.fin').fadeToggle("slow", "linear")
+
+    }
+  });
+
+  
+  // ##### ajout expérience ajax
+    $("#add_exe").on('submit', function(e){
   
       e.preventDefault();
   
       $.ajax({
   
         type: 'POST',
-        url: 'assets/scripts/education/add_education_script.php',
+        url: 'assets/scripts/experiences/add_experience_script.php',
         data: new FormData(this),
         dataType: 'json',
         contentType: false,
@@ -89,15 +106,15 @@ $(document).ready(function () {
   
           if(data.status == true){    
 
-            $('#add_edu').trigger("reset");
+
+            $('#add_exe').trigger("reset");
             $('#notif').html(data.notif);
             $('#addmodal').modal('hide');
-            $('#edu_table').hide().html(data.resultat).fadeIn();
+            $('#exe_table').hide().html(data.resultat).fadeIn();
                                       
           }else{
 
-            
-            
+
             $('#notif').html(data.notif); 
   
           } 
@@ -108,7 +125,7 @@ $(document).ready(function () {
 
 
     /*
- * --> Delete formation
+ * --> Delete expérience
  * 
  * # Ouverture du Modal de suppresion
  * 
@@ -119,7 +136,7 @@ $(document).ready(function () {
  */
 
 
-// # modal delete education
+// # modal delete langage
 $(document).on('click','.deletebtn', function () {
 
   $('#deletemodal').modal('show');
@@ -151,27 +168,27 @@ $('#confirmedelete').on('click', function () {
 });
 
 
-// ### delete education ajax
-$('#delete_edu').on('submit', function(e){
+// ### delete cat ajax
+$('#delete_exe').on('submit', function(e){
 
   e.preventDefault();
-  delete_cat();
+  delete_exe();
 
-  function delete_cat(){
+  function delete_exe(){
 
     var id = $('#delete_id').val();
     var confirme = $('#confirmedelete').val();
     var parameters = "id="+id + '&confirmedelete=' + confirme;
 
         
-    $.post('assets/scripts/education/delete_education_script.php', parameters, function(data){
+    $.post('assets/scripts/experiences/delete_experience_script.php', parameters, function(data){
 
             if(data.status == true){ 
 
-                $('#delete_edu').trigger("reset"); 
+                $('#delete_exe').trigger("reset"); 
                 $('#notif').html(data.notif);
                 $('#deletemodal').modal('hide');
-                $('#edu_table').hide().html(data.resultat).fadeIn();
+                $('#exe_table').hide().html(data.resultat).fadeIn();
                 
             }else{
 
@@ -187,7 +204,7 @@ $('#delete_edu').on('submit', function(e){
 
 
 /*
- * --> Update formation
+ * --> Update experience
  * 
  * # Ouverture du Modal d'edition
  * 
@@ -197,12 +214,12 @@ $('#delete_edu').on('submit', function(e){
 
 // # Ouverture du Modal de vue
 $(document).on('click','.editbtn', function(){  
-  var edu_id = $(this).attr("id");  
+  var exe_id = $(this).attr("id");  
 
   $.ajax({  
-       url:"assets/scripts/education/update_modal.php",  
+       url:"assets/scripts/experiences/update_modal.php",  
        method:"post",  
-       data:{edu_id:edu_id},  
+       data:{exe_id:exe_id},  
        success:function(data){  
             $('#update_modal').html(data);  
             $('#editmodal').modal("show");  
@@ -212,14 +229,14 @@ $(document).on('click','.editbtn', function(){
 
 
 
-// ### update education ajax
+// ### update experiences ajax
 $(document).on('submit', '#update_edu', function(e){
     e.preventDefault();
 
     $.ajax({
 
       type: 'POST',
-      url: 'assets/scripts/education/update_education_script.php',
+      url: 'assets/scripts/experiences/update_experience_script.php',
       data: new FormData(this),
       dataType: 'json',
       contentType: false,
@@ -229,10 +246,10 @@ $(document).on('submit', '#update_edu', function(e){
 
         if(data.status == true){    
 
-          $('#update_edu').trigger("reset"); 
+          $('#update_exe').trigger("reset"); 
           $('#notif').html(data.notif);
           $('#editmodal').modal('hide');
-          $('#edu_table').hide().html(data.resultat).fadeIn();
+          $('#exe_table').hide().html(data.resultat).fadeIn();
 
         }else{
           
@@ -247,7 +264,7 @@ $(document).on('submit', '#update_edu', function(e){
 });
 
 /*
- * --> View formation
+ * --> View experience
  * 
  * # Ouverture du Modal de vue
  *
@@ -255,14 +272,14 @@ $(document).on('submit', '#update_edu', function(e){
 
 // # Ouverture du Modal de vue
 $(document).on('click','.viewbtn', function(){  
-  var edu_id = $(this).attr("id");  
+  var exe_id = $(this).attr("id");  
 
   $.ajax({  
-       url:"assets/scripts/education/view_education_script.php",  
+       url:"assets/scripts/experiences/view_experience_script.php",  
        method:"post",  
-       data:{edu_id:edu_id},  
+       data:{exe_id:exe_id},  
        success:function(data){  
-            $('#edu_detail').html(data);  
+            $('#exe_detail').html(data);  
             $('#viewmodal').modal("show");  
        }  
   });  
@@ -297,12 +314,12 @@ $(document).on('click','.viewbtn', function(){
     var id = data[0];
     var parameters = "id="+id + "&publie="+publie;
     
-    $.post('assets/scripts/education/est_publie_update_script.php', parameters, function(data){
+    $.post('assets/scripts/experiences/est_publie_update_script.php', parameters, function(data){
 
             if(data.status == true){ 
 
                 $('#notif').html(data.notif);
-                $('#edu_table').html(data.resultat); 
+                $('#exe_table').html(data.resultat); 
                 
             }else{
              

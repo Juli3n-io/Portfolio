@@ -86,8 +86,8 @@ $(document).on('click', '.post-link', function(){
 
 })
 
-//expérience ouverture modal
-$(document).on('click','.custom-link', function(e){  
+//education ouverture modal
+$(document).on('click','.link-education', function(e){  
   e.preventDefault();
   var edu_id = $(this).attr("id");  
   
@@ -97,7 +97,23 @@ $(document).on('click','.custom-link', function(e){
        data:{edu_id:edu_id},  
        success:function(data){  
             $('#edu_detail').html(data);  
-            $('#viewmodal').modal('show');  
+            $('#viewmodaledu').modal('show');  
+       }  
+  });  
+});  
+
+//experience ouverture modal
+$(document).on('click','.link-experience', function(e){  
+  e.preventDefault();
+  var exe_id = $(this).attr("id"); 
+  
+  $.ajax({  
+       url:"assets/scripts/view_experience_modal.php",  
+       method:"post",  
+       data:{exe_id:exe_id},  
+       success:function(data){  
+            $('#exe_detail').html(data);  
+            $('#viewmodalexe').modal('show');  
        }  
   });  
 });  

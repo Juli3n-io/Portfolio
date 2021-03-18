@@ -12,21 +12,30 @@ $subject = htmlspecialchars($_POST['subject'], ENT_QUOTES, 'UTF-8');
 $msg = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
 $check = $_POST['valideCheck'];
 
-if(!isset($check)){
+if(!preg_match('~^[a-zA-Z-]+$~',$name)){
 
   $result['status'] = false;
-  $result['notif'] = notif('warning','oups! sans confirmation, je peux pas vous recontacter'); 
+  $result['notif'] = notif('info','oups! il manque votre nom'); 
 
-}elseif(!preg_match('~^[a-zA-Z-]+$~',$name)){
+}elseif(empty($email)){
 
   $result['status'] = false;
-  $result['notif'] = notif('warning','oups! il manque votre nom'); 
+  $result['notif'] = notif('warning','oups il manque votre email'); 
 
 }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
        
   $result['status'] = false;
-  $result['notif'] = notif('warning','email non valide ou manquant'); 
+  $result['notif'] = notif('warning','email non valide'); 
 
+}elseif(empty($msg)){
+
+  $result['status'] = false;
+  $result['notif'] = notif('info','oups votre message est vide'); 
+
+}elseif(!isset($check)){
+
+  $result['status'] = false;
+  $result['notif'] = notif('info','oups! il me faut votre autorisation pour vous contacter'); 
 
 }else{
 

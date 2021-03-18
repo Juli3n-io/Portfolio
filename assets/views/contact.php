@@ -77,7 +77,7 @@
                     <svg class="checkbox_check" width="25" height="25">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                <span>Je confirme vouloir etre recontacté</span></label>
+                <span>Je donne mon autorisation pour etre recontacté</span></label>
               </div>
 
               <div class="col-md-12">

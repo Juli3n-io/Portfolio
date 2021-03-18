@@ -4,7 +4,7 @@
 
       <div class="col-lg-5">
         <div class="contact-info">
-          <h4>Et si nous restions en Contact ?</h4>
+          <h4></h4>
           <p>Toujours disponible en Freelance, si vous avez un projet, n'hesitez pas à me contacter.</p>
           <ul>
             <li class="media">

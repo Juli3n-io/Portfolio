@@ -25,19 +25,7 @@ $(document).ready(function(){
   });
 
 
-  // soft skill circle progress
-  $('.card').each(function(){
-
-    $(this,'.bar').circleProgress({
-
-      value : $(this).data("value")/100,
-      startAngle: -1.55,
-      size: 100,
-      fill : {gradient:[["#FF8C00", 0.15], ["#774BBB", 0.74] ]}
-
-    })  
-
-  })
+  
   
 
 //portfolio
@@ -192,14 +180,146 @@ new Typewriter(textAnim,{
 .start() 
 
 
-// animation Contact
+
+
+
+
+// init controller
+var controller = new ScrollMagic.Controller();
+
+// animation about
+const about = document.querySelector('.about');
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: about
+  })
+  .setClassToggle('.about', 'fade-in')
+  .addTo(controller)
+
+// animation service
+const servicesTitle = document.querySelector('.services .heading');
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: servicesTitle
+})
+  .setClassToggle('.services .heading', 'fade-in')
+  .addTo(controller)
+
+const servicesItem = document.querySelector('.services .services-items');
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: servicesItem
+})
+  .setClassToggle('.services .services-items', 'fade-in')
+  .addTo(controller)
+
+// animation tarif
+const priceTitle = document.querySelector('.pricing .heading');
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: priceTitle
+})
+  .setClassToggle('.pricing .heading', 'fade-in')
+  .addTo(controller)
+
+const priceItem = document.querySelector('.pricing .pricing-item');
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: priceItem
+  })
+    .setClassToggle('.pricing .pricing-item', 'fade-in')
+    .addTo(controller)
+
+// animation skills
+const skillsTitle = document.querySelector('.skills .heading')
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: skillsTitle
+})
+.setClassToggle('.heading', 'fade-in')
+.addTo(controller)  
+
+const techSkill = document.querySelector('.tech-skill');
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: techSkill
+})
+  .setClassToggle('.tech-skill', 'fade-in')
+  .addTo(controller) 
+
+const pourcentagem = document.querySelector('.candidatos .parcial .pourcentagem')
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: pourcentagem
+})
+.setClassToggle('.candidatos .parcial .pourcentagem', 'progress')
+.addTo(controller)  
+
+
+const proSkill = document.querySelector('.pro-skill');
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: proSkill
+})
+  .setClassToggle('.pro-skill', 'fade-in')
+  .on('enter', function(e){
+    // soft skill circle progress
+    $('.card').each(function(){
+
+    $(this,'.bar').circleProgress({
+
+      value : $(this).data("value")/100,
+      startAngle: -1.55,
+      size: 100,
+      duration: 1500,
+      fill : {gradient:[["#FF8C00", 0.15], ["#774BBB", 0.74] ]}
+
+     })  
+
+    })
+
+  })
+  .addTo(controller)  
+
+
+// animation portfolio
+const portfolio = document.querySelector('.portfolio');
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: portfolio
+})
+  .setClassToggle('.portfolio', 'fade-in')
+  .addTo(controller)
+
+
+// animation experience
+const experienceH3 = document.querySelector('.experience h3');
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: experienceH3
+})
+  .setClassToggle('.experience h3', 'fade-in')
+  .addTo(controller)
+
+const eduItem = document.querySelector('.education-item');
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: eduItem
+})
+  .setClassToggle('.education-item', 'fade-in')
+  .addTo(controller)
+
+const workItem = document.querySelector('.work-item');
+var myContactScene = new ScrollMagic.Scene({
+  triggerElement: workItem
+})
+  .setClassToggle('.work-item', 'fade-in')
+  .addTo(controller)
+
+
+// contact contact
 const contactTitle = document.querySelector('.contact .contact-info h4');
 
-new Typewriter(contactTitle,{
-  loop: false,
-  deleteSpeed: 20 // vitesse de suppresion des caractéres
+var myContactScene = new ScrollMagic.Scene({
+triggerElement: contactTitle
 })
-.changeDelay(30)
-.typeString('Et si nous restions en contact ?') // text
-.pauseFor(1500) // pause entre 2 écriture
-.start()
+.setClassToggle('.contact', 'fade-in')
+.on("enter", function(e){
+  new Typewriter(contactTitle,{
+    loop: false,
+    deleteSpeed: 20 // vitesse de suppresion des caractéres
+  })
+  .changeDelay(30)
+  .typeString('Et si nous restions en contact ?') // text
+  .pauseFor(1500) // pause entre 2 écriture
+  .start()
+})
+.addTo(controller)

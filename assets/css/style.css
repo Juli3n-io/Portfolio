@@ -1216,12 +1216,35 @@ position: relative;
 /* ***  footer *** */
 /* *************** */
 
-footer p{
-  color: #FFF;
+footer{
   text-align: center;
+  margin-top: 6rem;
+  text-decoration: none;
+  color: #FFF;
   font-family: var(--poppins);
-  margin-top: 4rem;
 }
+
+footer .footer-nav ul{
+  display: inline-flex;
+}
+
+footer .footer-nav ul li{
+  padding: 10px;
+}
+
+footer a{
+  text-decoration: none;
+  color: #FFF;
+}
+
+footer a:hover{
+  color: var(--violet);
+}
+
+footer p{
+  margin-top: 1rem;
+}
+
 
 /* ***  Responsive *** */
 

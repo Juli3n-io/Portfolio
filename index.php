@@ -29,6 +29,7 @@ include __DIR__. '/assets/views/contact.php';
 
 
 <?php
+include __DIR__. '/assets/includes/cookie.php';
 include __DIR__. '/assets/includes/footer.php';
 ?>
 

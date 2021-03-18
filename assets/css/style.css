@@ -1,5 +1,6 @@
 @import url("var.css");
 @import url("notification.css");
+@import url("cookie.css");
 
 html{
   box-sizing: border-box;

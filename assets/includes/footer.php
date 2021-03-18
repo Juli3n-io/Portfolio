@@ -5,7 +5,7 @@
     <ul>
       <li><a href="https://github.com/Juli3n-dotcom"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
       <li><a href="https://www.linkedin.com/in/jquentier/"><i class="fab fa-github-square"></i> GitHub</a></li>
-      <li><a href="">Mentions Legales</a></li>
+      <li><a href="cgu.html">Mentions Legales</a></li>
     </ul>
   </div>
     <p>&copy Copyright <span class="date2"></span>, Julien QUENTIER Tous droits réservés</p>

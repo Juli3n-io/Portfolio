@@ -652,13 +652,13 @@ text-align: center;
 .tech-skill{
   margin-bottom: 4rem;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateX(-30px);
   transition: all 1s ease-in;
 }
 
 .tech-skill.fade-in{
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .candidatos{
@@ -720,14 +720,14 @@ background: rgba(0, 0, 0, 0.5);
   -webkit-animation-duration: 3s;
   -webkit-animation-name: animationProgress; */
   font-family: var(--poppins);
-  transition: 1.5s all;
+  transition: 1s all;
   /* animation-name: animationProgress; */
 }
 
 .candidatos .parcial .pourcentagem.progress{
   background-image: linear-gradient(to right, rgba(119, 75, 187, 0.9) 10%, rgba(255, 140, 0, 0.9) 74%);
-  -webkit-transition: 1.5s all;
-  -webkit-animation-duration: 1.5s;
+  -webkit-transition: 1s all;
+  -webkit-animation-duration: 1s;
   -webkit-animation-name: animationProgress;
   animation-name: animationProgress;
 }
@@ -746,13 +746,13 @@ background: rgba(0, 0, 0, 0.5);
 
 .pro-skill{
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateX(30px);
   transition: all 1s ease-in;
 }
 
 .pro-skill.fade-in{
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .card{
@@ -805,7 +805,7 @@ background: rgba(0, 0, 0, 0.5);
   margin-top: 4rem;
   opacity: 0;
   transform: translateY(30px);
-  transition: all 1.5s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 .portfolio.fade-in{
@@ -1009,7 +1009,7 @@ opacity: 1;
   text-align: center;
   opacity: 0;
   transform: translateY(30px);
-  transition: all 1s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 .experience h3.fade-in{
@@ -1044,13 +1044,13 @@ box-shadow: 0 25px 22px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(119 75 187 / 90%);
 
 .education-item{
 opacity: 0;
-  transform: translateY(30px);
+  transform: translateX(-30px);
   transition: all 1s ease-in;
 }
 
 .education-item.fade-in{
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .education-item h4,
@@ -1107,13 +1107,13 @@ opacity: 0;
 
 .work-item{
   opacity: 0;
-    transform: translateY(30px);
+    transform: translateX(30px);
     transition: all 1s ease-in;
   }
   
 .work-item.fade-in{
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
 .experience .download-btn{
@@ -1631,12 +1631,13 @@ footer p{
       height: 100vh !important;
       display: flex;
       align-items: center;
+      padding-top: 8rem;
     }
 
   /* *** Expérience *** */
 
   .modal-body .modal-part-text{
-    padding-top: 8rem;
+    padding-top: 10rem;
   }
 
   .experience .education-details .education-item,

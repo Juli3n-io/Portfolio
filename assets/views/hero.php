@@ -1,4 +1,4 @@
-<section class="home text-white" id="home">
+<section class="home text-white section" id="section0">
 
   <div class="container">
 
@@ -7,7 +7,7 @@
       <div class="col-md-5">
           <div class="hero-text">
             <span class="title">Hello i'm</span><br>
-            <span class="name">Julien Q.</span><br>
+            <span class="name">Julien</span><br>
             <span class="designation">Développeur Intégrateur Web</span><br>
 
             <div class="social-icons d-flex">

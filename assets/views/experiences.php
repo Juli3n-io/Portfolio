@@ -3,7 +3,7 @@ require_once __DIR__ . './../functions/experiences_functions.php';
 require_once __DIR__ . './../functions/docs_functions.php';
 ?>
 
-<section class="experience text-white" id="experience">
+<section class="experience text-white section" id="section7">
     <div class="container">
       <div class="row">
 

@@ -1,4 +1,4 @@
-<section class="services text-white" id="services">
+<section class="services text-white section" id="section2">
 
 <div class="container">
   <div class="row">

@@ -1,2 +1,5 @@
-# exclude evserything
+# exclude everything
 somefolder/*
+
+# exception to the rule
+!somefolder/.gitkeep 

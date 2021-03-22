@@ -2,7 +2,7 @@
 require_once __DIR__ . './../functions/portfolio_functions.php';
 ?>
 
-<section class="portfolio" id="portfolio">
+<section class="portfolio section" id="section5">
     <div class="container">
       <div class="row">
 

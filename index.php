@@ -8,6 +8,8 @@ include __DIR__. '/assets/includes/header.php';
 
 <div id="notif"></div>
 
+<div id="fullpage">
+
 <?php
 include __DIR__. '/assets/views/hero.php';
 
@@ -26,7 +28,7 @@ include __DIR__. '/assets/views/experiences.php';
 include __DIR__. '/assets/views/contact.php';
 ?>
 
-
+</div>
 
 <?php
 include __DIR__. '/assets/includes/cookie.php';

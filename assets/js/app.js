@@ -1,7 +1,6 @@
 // get date
 const date =  new Date();
 document.querySelector(".date").innerHTML = new Date().getFullYear();
-document.querySelector(".date2").innerHTML = new Date().getFullYear();
 
 
 $(document).ready(function(){
@@ -24,55 +23,6 @@ $(document).ready(function(){
     }
   });
 
-
-  
-  
-
-//portfolio
-$(window).on("load", function(){
-  var  $container = $('.portfolioContainer');
-  $container.isotope({
-
-    filter:'*',
-    animationOptions:{
-      queue : true
-
-    }
-
-});
-
-$('.portfolio-nav li').on('click', function(){
-
-    $('.portfolio-nav .current').removeClass('current');
-    $(this).addClass('current')
-    var selector = $(this).attr('data-filter');
-    $container.isotope({
-      filter : selector,
-      animationOptions: {
-        queue : true
-      }
-    });
-    return false
-  });
-
-
-});
-
-// Portfolio function ajax pour nombre de click
-$(document).on('click', '.post-link', function(){
-  var post_id = $(this).data("id")
-
-  $.ajax({  
-    url:"assets/scripts/posts_clicks_script.php",  
-    method:"post",  
-    data:{post_id:post_id},
-    success:function(data){  
-     
-    }  
-    
-  });   
-
-})
 
 // CV function ajax pour nombre de click
 $(document).on('click', '.download-btn a', function(){
@@ -155,6 +105,174 @@ $(document).on('submit','#contact-form', function(e){
   
 });
 
+window.onload = function(){
+  $('.hero-text').addClass('fade-in')
+      $('.hero-img').addClass('fade-in')
+}
+
+new fullpage('#fullpage', {
+  licenseKey: '',
+  menu: '#menu',
+  anchors: ['home','about', 'services', 'pricing','skills', 'portfolio', 'experience','contact'],
+
+  autoScrolling: true,
+  scrollOverflow: true,
+  fadingEffect: true,
+  onLeave: (origin, destination, direction) => {
+    const section = destination.item;
+
+    if(destination.index === 0){
+
+      $('.hero-text').addClass('fade-in')
+      $('.hero-img').addClass('fade-in')
+  
+      }else{
+
+        $('.hero-text').removeClass('fade-in')
+        $('.hero-img').removeClass('fade-in')
+      }
+
+    if(destination.index === 1){
+
+      $('.about').addClass('fade-in')
+  
+      }else{
+
+        $('.about').removeClass('fade-in')
+      }
+
+    if(destination.index === 2){
+
+      $('.services').addClass('fade-in')
+  
+    }else{
+
+      $('.services').removeClass('fade-in')
+      
+    }
+      
+    if(destination.index === 3){
+
+      $('.pricing').addClass('fade-in')
+  
+    }else{
+
+      $('.pricing').removeClass('fade-in')
+    
+    }
+
+    if(destination.index === 4){
+
+      $('.skills .heading').addClass('fade-in')
+      $('.pro-skill').addClass('fade-in')
+      $('.tech-skill').addClass('fade-in')
+      $('.candidatos .parcial .pourcentagem').addClass('progress')
+
+      $('.card').each(function(){
+
+        $(this,'.bar').circleProgress({
+      
+          value : $(this).data("value")/100,
+          startAngle: -1.55,
+          size: 100,
+          duration: 1500,
+          fill : {gradient:[["#FF8C00", 0.15], ["#774BBB", 0.74] ]}
+      
+         })  
+      
+        })
+
+    }else{
+      
+      $('.skills .heading').removeClass('fade-in')
+      $('.pro-skill').removeClass('fade-in')
+      $('.tech-skill').removeClass('fade-in')
+      $('.candidatos .parcial .pourcentagem').removeClass('progress')
+
+    }
+
+    if(destination.index === 5){
+
+      $(window).on("load", function(){
+        var  $container = $('.portfolioContainer');
+          $container.isotope({
+
+          filter:'*',
+          animationOptions:{
+          queue : true
+
+        }
+
+      });
+
+      $('.portfolio-nav li').on('click', function(){
+
+        $('.portfolio-nav .current').removeClass('current');
+        $(this).addClass('current')
+        var selector = $(this).attr('data-filter');
+        $container.isotope({
+
+          filter : selector,
+          animationOptions: {
+          queue : true
+          }
+        });
+        return false
+      });
+
+
+    });
+      
+
+    $('.portfolio').addClass('fade-in')
+  
+    }else{
+
+      $('.portfolio').removeClass('fade-in')
+      
+    }
+
+    if(destination.index === 6){
+
+      $('.experience h3').addClass('fade-in')
+      $('.experience .education-item').addClass('fade-in')
+      $('.experience .work-item').addClass('fade-in')
+
+    }else{
+
+      $('.experience h3').removeClass('fade-in')
+      $('.experience .education-item').removeClass('fade-in')
+      $('.experience .work-item').removeClass('fade-in')
+    }
+
+    if(destination.index === 7){
+
+      $('.contact').addClass('fade-in')
+
+      const contactTitle = document.querySelector('.contact .contact-info h4');
+
+
+      new Typewriter(contactTitle,{
+        loop: false,
+        deleteSpeed: 20 // vitesse de suppresion des caractéres
+      })
+      .changeDelay(30)
+      .typeString('Et si nous restions en contact ?') // text
+      .pauseFor(1500) // pause entre 2 écriture
+      .start()
+      
+
+    }else{
+
+      $('.contact').removeClass('fade-in')
+      
+    }
+
+  }
+})
+
+
+
 // animation Hero
 const textAnim = document.querySelector('.designation');
 
@@ -180,146 +298,3 @@ new Typewriter(textAnim,{
 .start() 
 
 
-
-
-
-
-// init controller
-var controller = new ScrollMagic.Controller();
-
-// animation about
-const about = document.querySelector('.about');
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: about
-  })
-  .setClassToggle('.about', 'fade-in')
-  .addTo(controller)
-
-// animation service
-const servicesTitle = document.querySelector('.services .heading');
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: servicesTitle
-})
-  .setClassToggle('.services .heading', 'fade-in')
-  .addTo(controller)
-
-const servicesItem = document.querySelector('.services .services-items');
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: servicesItem
-})
-  .setClassToggle('.services .services-items', 'fade-in')
-  .addTo(controller)
-
-// animation tarif
-const priceTitle = document.querySelector('.pricing .heading');
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: priceTitle
-})
-  .setClassToggle('.pricing .heading', 'fade-in')
-  .addTo(controller)
-
-const priceItem = document.querySelector('.pricing .pricing-item');
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: priceItem
-  })
-    .setClassToggle('.pricing .pricing-item', 'fade-in')
-    .addTo(controller)
-
-// animation skills
-const skillsTitle = document.querySelector('.skills .heading')
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: skillsTitle
-})
-.setClassToggle('.heading', 'fade-in')
-.addTo(controller)  
-
-const techSkill = document.querySelector('.tech-skill');
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: techSkill
-})
-  .setClassToggle('.tech-skill', 'fade-in')
-  .addTo(controller) 
-
-const pourcentagem = document.querySelector('.candidatos .parcial .pourcentagem')
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: pourcentagem
-})
-.setClassToggle('.candidatos .parcial .pourcentagem', 'progress')
-.addTo(controller)  
-
-
-const proSkill = document.querySelector('.pro-skill');
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: proSkill
-})
-  .setClassToggle('.pro-skill', 'fade-in')
-  .on('enter', function(e){
-    // soft skill circle progress
-    $('.card').each(function(){
-
-    $(this,'.bar').circleProgress({
-
-      value : $(this).data("value")/100,
-      startAngle: -1.55,
-      size: 100,
-      duration: 1500,
-      fill : {gradient:[["#FF8C00", 0.15], ["#774BBB", 0.74] ]}
-
-     })  
-
-    })
-
-  })
-  .addTo(controller)  
-
-
-// animation portfolio
-const portfolio = document.querySelector('.portfolio');
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: portfolio
-})
-  .setClassToggle('.portfolio', 'fade-in')
-  .addTo(controller)
-
-
-// animation experience
-const experienceH3 = document.querySelector('.experience h3');
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: experienceH3
-})
-  .setClassToggle('.experience h3', 'fade-in')
-  .addTo(controller)
-
-const eduItem = document.querySelector('.education-item');
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: eduItem
-})
-  .setClassToggle('.education-item', 'fade-in')
-  .addTo(controller)
-
-const workItem = document.querySelector('.work-item');
-var myContactScene = new ScrollMagic.Scene({
-  triggerElement: workItem
-})
-  .setClassToggle('.work-item', 'fade-in')
-  .addTo(controller)
-
-
-// contact contact
-const contactTitle = document.querySelector('.contact .contact-info h4');
-
-var myContactScene = new ScrollMagic.Scene({
-triggerElement: contactTitle
-})
-.setClassToggle('.contact', 'fade-in')
-.on("enter", function(e){
-  new Typewriter(contactTitle,{
-    loop: false,
-    deleteSpeed: 20 // vitesse de suppresion des caractéres
-  })
-  .changeDelay(30)
-  .typeString('Et si nous restions en contact ?') // text
-  .pauseFor(1500) // pause entre 2 écriture
-  .start()
-})
-.addTo(controller)

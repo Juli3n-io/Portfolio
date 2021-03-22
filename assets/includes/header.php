@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, minimal-ui">
   <meta name="description" content="CV développeur Web : création et développement de sites et d'applications Web. HTML5, CSS3, JQuery, Bootstrap, PHP, wordpress,...">
     <meta name="Keywords" content="Julien Quentier, développeur, développeur web, web, CV, site CV, site, application, application web, html5, css3, jquery, php, ecommerce, wordpress">
     <meta name="robots" content="index,follow,all">
@@ -29,27 +29,19 @@
 
 <!-- My CSS  -->
 
+<link rel="stylesheet" href="assets/css/fullpage.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 <body class=>
   
+  
 <header class="header">
-      <div class="wrap d-flex">
+      <div class="d-flex">
         <h1 class="logo">
-          <a href="#home">Julien Q.</a>
+          <a data-menuanchor="home" href="#home">Julien Q.</a>
         </h1>
-        <nav class="menu">
-          <ul>
-            <li><a href="#about">A propos</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#pricing">tarifs</a></li>
-            <li><a href="#skills">Compétences</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#experience">Expériences</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
+        
       </div>
 
       <a href="javascript:void(0);" class="sidemenu-toggler">
@@ -61,14 +53,14 @@
       <div class="sidemenu">
         <a href="javascript:void(0);" class="close"></a>
         <nav>
-          <ul>
-            <li><a href="#about">A propos</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#pricing">tarifs</a></li>
-            <li><a href="#skills">Compétences</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#experience">Expériences</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <ul id="menu">
+            <li data-menuanchor="about" ><a href="#about">A propos</a></li>
+            <li data-menuanchor="services"><a href="#services">Services</a></li>
+            <li data-menuanchor="pricing"><a href="#pricing">tarifs</a></li>
+            <li data-menuanchor="skills"><a href="#skills">Compétences</a></li>
+            <li data-menuanchor="portfolio"><a href="#portfolio">Portfolio</a></li>
+            <li data-menuanchor="experience"><a href="#experience">Expériences</a></li>
+            <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
           </ul>
         </nav>
         <footer>
@@ -77,6 +69,7 @@
               <a href="https://github.com/Juli3n-dotcom"><i class="fab fa-github-square"></i></a>
           </div>
           <p>&copy Copyright <span class="date"></span>, Julien QUENTIER Tous droits réservés</p>
+          <a href="cgu.html">Mentions Legales</a>
         </footer>
       </div>
     </header>

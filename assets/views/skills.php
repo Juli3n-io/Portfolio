@@ -2,7 +2,7 @@
 require_once __DIR__ . './../functions/skills_functions.php';
 ?>
 
-<section class="skills text-white" id="skills">
+<section class="skills text-white section" id="section4">
 
     <div class="container">
 

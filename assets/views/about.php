@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . './../functions/docs_functions.php';
 ?>
-<section class="about" id="about">
+<section class="about section" id="section1">
 
     <div class="container">
 
@@ -16,7 +16,7 @@ require_once __DIR__ . './../functions/docs_functions.php';
 
         <div class="about-img"></div>
 
-          <h2>A propos </h2>
+          <h2 class="heading">A propos </h2>
           <p>Bonjour, </p>
           <p>Je suis Julien, 
             aprés plus de 10 ans dans le commerce, 

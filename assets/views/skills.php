@@ -51,7 +51,9 @@ require_once __DIR__ . './../functions/skills_functions.php';
                 <div class="card" id="<?= $skill['class']?>" data-value="<?= $skill['number']?>">
                   <div class="circle">
                     <div class="bar"></div>
-                    <div class="box" data-value="<?= $skill['number']?>"><span><?= $skill['number']?> %</span></div>
+                    <div class="box" data-value="<?= $skill['number']?>">
+                      <span><?= $skill['number']?> %</span>
+                    </div>
                   </div>
                   <div class="text"><?= $skill['titre']?></div>
                 </div>

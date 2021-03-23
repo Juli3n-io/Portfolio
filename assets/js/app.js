@@ -24,6 +24,37 @@ $(document).ready(function(){
   });
 
 
+  $(window).on("load", function(){
+    var  $container = $('.portfolioContainer');
+      $container.isotope({
+
+      filter:'*',
+      animationOptions:{
+      queue : true
+
+    }
+
+  });
+
+  $('.portfolio-nav li').on('click', function(){
+
+    $('.portfolio-nav .current').removeClass('current');
+    $(this).addClass('current')
+    var selector = $(this).attr('data-filter');
+    $container.isotope({
+
+      filter : selector,
+      animationOptions: {
+      queue : true
+      }
+    });
+    return false
+  });
+
+
+});
+
+
 // CV function ajax pour nombre de click
 $(document).on('click', '.download-btn a', function(){
 
@@ -111,13 +142,13 @@ window.onload = function(){
 }
 
 new fullpage('#fullpage', {
-  licenseKey: '',
+  licenseKey: '56D1CF10-FB234396-B4B3342D-25E59CD7',
   menu: '#menu',
   anchors: ['home','about', 'services', 'pricing','skills', 'portfolio', 'experience','contact'],
-
   autoScrolling: true,
   scrollOverflow: true,
-  fadingEffect: true,
+  css3: true,
+  resize: false,
   onLeave: (origin, destination, direction) => {
     const section = destination.item;
 
@@ -193,35 +224,7 @@ new fullpage('#fullpage', {
 
     if(destination.index === 5){
 
-      $(window).on("load", function(){
-        var  $container = $('.portfolioContainer');
-          $container.isotope({
-
-          filter:'*',
-          animationOptions:{
-          queue : true
-
-        }
-
-      });
-
-      $('.portfolio-nav li').on('click', function(){
-
-        $('.portfolio-nav .current').removeClass('current');
-        $(this).addClass('current')
-        var selector = $(this).attr('data-filter');
-        $container.isotope({
-
-          filter : selector,
-          animationOptions: {
-          queue : true
-          }
-        });
-        return false
-      });
-
-
-    });
+      
       
 
     $('.portfolio').addClass('fade-in')

@@ -14,6 +14,10 @@ $(document).ready(function(){
     $('.sidemenu').removeClass('active');
   })
 
+  $('#menu li a').click(function(){
+    $('.sidemenu').removeClass('active');
+  })
+
   $(window).scroll(function(){
     var sc = $(window).scrollTop();
     if(sc > 0){

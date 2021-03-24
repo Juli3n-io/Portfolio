@@ -59,7 +59,7 @@ include __DIR__. '/assets/includes/header_admin.php';
 
 
 <section class="recent">
-  <div class="team__grid">
+  <div class="recent__grid">
     <div class="team__card">
         <div class="card__header">
             <h3>All Team </h3>

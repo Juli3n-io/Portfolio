@@ -308,6 +308,11 @@ main {
   grid-column-gap: 1.5rem;
 }
 
+.recent__grid{
+  display: block;
+  grid-column-gap: 1.5rem;
+}
+
 .activity__card,
 .summary__card,
 .bday__card,

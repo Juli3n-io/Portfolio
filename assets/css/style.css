@@ -803,6 +803,7 @@ background: rgba(0, 0, 0, 0.5);
   width: 48%;
   margin-bottom: 20px;
   text-align: center;
+  min-height: 150px;
 }
 
 .mh-pro-progess{

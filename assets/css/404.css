@@ -1,0 +1,37 @@
+@import url("var.css");
+
+body {
+  background: #212529;
+  position: relative;
+}
+#error {
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.btn a{
+  color: #FFF;
+  background-color: rgba(119, 75, 187, 0.9);
+  background-image: linear-gradient(to right, rgba(119, 75, 187, 0.9) 10%, rgba(255, 140, 0, 0.9) 74%);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  transition: 1s ease-in;
+  font-size: 14px;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%,-60%);
+  text-decoration: none;
+  font-family: var(--poppins);
+}
+
+.btn a:hover{
+  background-image: inherit;
+  color: #FFF;
+  background-color: rgba(119, 75, 187, 0.9);
+}

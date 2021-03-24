@@ -17,7 +17,7 @@
               <li>Intégration Web</li>
               <li>Freelance</li>
             </ul>
-            <a href="" class="btn custom-btn">Engager moi</a>
+            <a href="" class="btn custom-btn">Engagez moi</a>
           </div>
         </div>
 
@@ -26,13 +26,13 @@
             <i class="fas fa-store"></i>
             <h4>Site Vitrine</h4>
             <p>Je réalise votre site sur mesure</p>
-            <h5>500€*</h5>
+            <h5>à partir de 500€*</h5>
             <ul>
-              <li>Developpement sur mesure</li>
+              <li>Site One Page</li>
               <li>Google Friendly</li>
-              <li>avec Hébergement</li>
+              <li>Hébergement Possible</li>
             </ul>
-            <a href="" class="btn custom-btn">Engager moi</a>
+            <a href="" class="btn custom-btn">Me contacter</a>
           </div>
         </div>
 
@@ -41,13 +41,13 @@
             <i class="fas fa-shopping-cart"></i>
             <h4>E-Commerce</h4>
             <p>Je créer votre boutique en ligne</p>
-            <h5>1500€*</h5>
+            <h5>à partir de 1500€*</h5>
             <ul>
             <li>Developpement sur mesure</li>
               <li>Google Friendly</li>
               <li>avec Hébergement</li>
             </ul>
-            <a href="" class="btn custom-btn">Engager moi</a>
+            <a href="" class="btn custom-btn">Me contacter</a>
           </div>
         </div>
 

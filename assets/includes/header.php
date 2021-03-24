@@ -58,9 +58,18 @@
         <h1 class="logo">
           <a data-menuanchor="home" href="#home">Julien Q.</a>
         </h1>
-        
+        <nav class="menu">
+          <ul>
+          <li>
+          <a href="https://www.linkedin.com/in/jquentier/"><i class="fab fa-linkedin"></i></a>
+        </li>
+        <li>
+          <a href="https://github.com/Juli3n-dotcom"><i class="fab fa-github-square"></i></a>
+        </li>
+          </ul>
+        </nav>
       </div>
-
+      
       <a href="javascript:void(0);" class="sidemenu-toggler">
         <span></span>
         <span></span>

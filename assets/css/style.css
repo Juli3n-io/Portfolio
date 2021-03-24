@@ -117,21 +117,23 @@ ul{
   -webkit-text-fill-color: transparent;
 }
 
-.header .menu ul{
+.header  ul{
   display: none;
+  position: absolute;
+  right: 5%;
 }
 
-.header .menu li{
-  padding: 16px;
-}
 
 .header .menu a{
-  font-size: 1.2rem;
+  font-size: 24px;
   color: #FFF;
-  padding: 8px;
+  padding: 16px;
   display: block;
   text-transform: uppercase;
+}
 
+.header .sidemenu nav ul{
+  display: contents;
 }
 
 .header .menu a:hover{
@@ -334,6 +336,7 @@ ul{
   font-size: 35px;
   color: var(--violet);
 }
+
 
 .hero-img{
   height: auto;
@@ -1418,6 +1421,12 @@ position: relative;
   width: 70%;
 }
 
+.header  ul{
+  display: inline-flex;
+  position: absolute;
+  right: 10%;
+}
+
 #fullpage{
   margin-top: 0;
 }
@@ -1493,6 +1502,12 @@ position: relative;
 @media (min-width: 992px) { 
 
 /* ***  header *** */
+
+.header  ul{
+  display: inline-flex;
+  position: absolute;
+  right: 5%;
+}
 
 .header .sidemenu{
   width: 40%;

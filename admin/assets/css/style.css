@@ -301,11 +301,8 @@ main {
   margin-bottom: 3rem;
 }
 
-.recent_index{
-  max-width: 75%;
-}
 
-.activity__grid {
+.team__grid {
   display: grid;
   grid-template-columns: 75% 25%;
   grid-column-gap: 1.5rem;
@@ -407,6 +404,38 @@ main {
 
 .table-responsive {
   overflow-x: auto;
+}
+
+/* index right card */
+
+.summary__card {
+  margin-bottom: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.summary__single {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.summary__single span,
+.summary__single i {
+  font-size: 1.5rem;
+  color: #777;
+  padding-right: 1rem;
+}
+
+.summary__single h5 {
+  color: var(--main-color);
+  font-size: 1.1rem;
+  margin-bottom: 0rem !important;
+}
+
+.summary__single small {
+  font-weight: 700;
+  color: var(--text-grey);
 }
 
 th,

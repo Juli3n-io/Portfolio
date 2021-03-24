@@ -118,8 +118,47 @@ include __DIR__. '/assets/includes/header_admin.php';
         </table>
       </div> <!-- fin div table-responsive-->
        
-    </div> 
+   
   </div> 
+
+
+  <div class="summary">
+    <div class="summary__card">
+
+      <div class="summary__single">
+        <i class="fas fa-user-clock"></i>
+          <div>
+              <h5><?php echo $user_nbr; ?></h5>
+              <small>Utilisateur(s) en ligne</small>
+          </div>
+      </div>
+
+      <div class="summary__single">
+          <span class="ti-id-badge"></span>
+          <div>
+              <h5>196</h5>
+              <small>Nombre d'utilisateurs</small>
+          </div>
+      </div>
+
+      <div class="summary__single">
+          <span class="ti-calendar"></span>
+          <div>
+              <h5>100</h5>
+              <small>Nombre de lead</small>
+          </div>
+      </div>
+
+      <div class="summary__single">
+          <span class="ti-face-smile"></span>
+          <div>
+              <h5>200</h5>
+              <small>Profil update request</small>
+          </div>
+      </div>
+
+  </div>
+</div>
 
 </section>
 

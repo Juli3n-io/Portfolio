@@ -59,9 +59,9 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
                     </a>
                </li>
                 <li>
-                    <a href="">
-                         <i class="fas fa-users"></i>
-                         <span>Users</span>
+                    <a href="stats.php">
+                         <i class="fas fa-eye"></i>
+                         <span>Visites</span>
                     </a>
                </li>
                <li>

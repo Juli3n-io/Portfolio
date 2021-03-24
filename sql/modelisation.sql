@@ -45,15 +45,14 @@ user_ip VARCHAR (255) NOT NULL,
 )ENGINE=INNODB;
 
 
-CREATE TABLE recuperation
+CREATE TABLE visites
 (
-id INT(3)NOT NULL
-AUTO_INCREMENT,
-email varchar(255),
-code INT (11),
-confirm TINYINT,
-  PRIMARY KEY(id)
+  id INT(3)NOT NULL AUTO_INCREMENT,
+  nb_visites INT,
+  date DATETIME NOT NULL,
+    PRIMARY KEY (id)
 )ENGINE=INNODB;
+
 
 CREATE TABLE notification
 (

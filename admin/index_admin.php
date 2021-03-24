@@ -3,6 +3,7 @@ require_once __DIR__ . '/assets/config/bootstrap_admin.php';
 require_once __DIR__ . '/assets/functions/index_functions.php';
 require_once __DIR__ . '/assets/functions/posts_functions.php';
 require_once __DIR__ . '/assets/functions/categories_functions.php';
+require_once __DIR__ . '/assets/functions/stats_functions.php';
 
 
 $page_title ='';
@@ -30,6 +31,19 @@ include __DIR__. '/assets/includes/header_admin.php';
       </div>
       <div class="card__footer">
       <a href="docs.php">Voir les docs</a>
+      </div>
+    </div>
+
+    <div class="card__single">
+      <div class="card__body">
+        <i class="fas fa-eye"></i>
+        <div>
+          <h5>Visites</h5>
+          <h4><?= getTotales_Visites($pdo)?></h4>
+        </div>
+      </div>
+      <div class="card__footer">
+      <a href="docs.php">Voir les stats</a>
       </div>
     </div>
 
@@ -126,34 +140,34 @@ include __DIR__. '/assets/includes/header_admin.php';
     <div class="summary__card">
 
       <div class="summary__single">
-        <i class="fas fa-user-clock"></i>
+        <i class="fas fa-street-view"></i>
           <div>
-              <h5><?php echo $user_nbr; ?></h5>
+              <h5><?= $user_nbr; ?></h5>
               <small>Utilisateur(s) en ligne</small>
           </div>
       </div>
 
       <div class="summary__single">
-          <span class="ti-id-badge"></span>
+        <i class="fas fa-calendar-day"></i>
           <div>
-              <h5>196</h5>
-              <small>Nombre d'utilisateurs</small>
+              <h5><?= getDayVisites($pdo);?></h5>
+              <small>Visites Aujourd'hui</small>
           </div>
       </div>
 
       <div class="summary__single">
-          <span class="ti-calendar"></span>
+        <i class="far fa-calendar-alt"></i>
           <div>
-              <h5>100</h5>
-              <small>Nombre de lead</small>
+              <h5><?= getMonth_Visites($pdo) ?></h5>
+              <small>Visites ce mois ci</small>
           </div>
       </div>
 
       <div class="summary__single">
-          <span class="ti-face-smile"></span>
+        <i class="fas fa-globe-europe"></i>
           <div>
-              <h5>200</h5>
-              <small>Profil update request</small>
+              <h5><?= getYear_Visites($pdo)?></h5>
+              <small>Visites cette année</small>
           </div>
       </div>
 

@@ -14,7 +14,7 @@
     <link rel="icon" href="assets/img/icon.png">
     <link rel="apple-touch-icon" href="assets/img/icon.png">
     <!-- <link rel="manifest" href="manifest.json"> -->
-  <title>Julien QUENTIER - Développeur intégrateur Web</title>
+  <title>Développeur Web Freelance - Julien QUENTIER</title>
 
 <!-- Google Font -->
 

@@ -1,5 +1,34 @@
 <?php
 
+//récupération des link
+function getLink(PDO $pdo):array
+{
+  $req=$pdo->query(
+     'SELECT *
+       FROM origin_clicks
+       ORDER BY nb_clicks DESC'
+  );
+  $link = $req->fetchAll(PDO::FETCH_ASSOC);
+  return $link;
+}
+
+//vérification si langage existe déja
+function getLinkBy(PDO $pdo, string $colonne, $valeur): ?array
+  {
+       $req =$pdo->prepare(sprintf(
+       'SELECT *
+       FROM origin_clicks
+       WHERE %s = :valeur',
+       $colonne
+       ));
+    
+     $req->bindParam(':valeur', $valeur);
+     $req->execute();
+
+     $link =$req->fetch(PDO::FETCH_ASSOC);
+     return $link ?: null;
+  }
+
 function getDayVisites(PDO $pdo){
 
   $date = date('Y-m-d');
@@ -52,9 +81,26 @@ function getTotales_Visites(PDO $pdo){
   $data = $pdo->query("SELECT SUM(nb_visites) FROM visites");
   $visites = $data->fetch(PDO::FETCH_ASSOC);
 
-  if($visites['SUM(nb_visites)']){
-    return $visites['SUM(nb_visites)'];
-  }else{
-    return 0;
+    if($visites['SUM(nb_visites)']){
+      return $visites['SUM(nb_visites)'];
+    }else{
+      return 0;
+    }
   }
+
+function getBestLink(PDO $pdo){
+
+  $req=$pdo->query(
+    'SELECT *
+      FROM origin_clicks
+      ORDER BY nb_clicks DESC
+      LIMIT 1'
+ );
+ $link = $req->fetchAll(PDO::FETCH_ASSOC);
+ return $link;
+
+    
 }
+
+
+?>

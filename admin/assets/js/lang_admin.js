@@ -201,7 +201,7 @@ $(document).on('submit', '#update_lang', function(e){
 
         if(data.status == true){    
 
-          $('#add_lang').trigger("reset");
+          $('#update_lang').trigger("reset");
           $('#notif').html(data.notif);
           $('#editmodal').modal('hide');
           $('#lang_table').hide().html(data.resultat).fadeIn(); 

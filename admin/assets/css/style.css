@@ -463,7 +463,8 @@ td {
 }
 .member_action  .viewbtn,
 .member_action  .deletebtn,
-.member_action  .editbtn
+.member_action  .editbtn,
+.member_action .copybtn
 {
   appearance: none;
     -moz-appearance: none;
@@ -492,7 +493,13 @@ background: url('../img/info-circle-solid.svg') no-repeat;
 
 .member_action  .deletebtn{
   background: url('../img/trash-alt-regular.svg') no-repeat;
-  
+}
+
+.member_action .copybtn{
+  background: none;
+  margin-right: 15px;
+  color: #CCC;
+  font-size: 20px;
 }
 
 tbody tr:nth-child(even) {
@@ -605,36 +612,49 @@ tbody tr:nth-child(even) {
   color: var(--text-grey);
 }
 
-.bday__card {
+.link__card {
+  margin-top: 2rem;
   padding: 1rem;
+  background-color: #fff;
+  border-radius: 7px;
+  text-align: center;
 }
 
-.bday-flex {
+.link-flex {
   display: flex;
   align-items: center;
   margin-bottom: 0.3rem;
 }
-.bday-img {
+.link-img {
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  background-repeat: no-repeat;
   border: 3px solid #efefef;
-  background-size: cover;
-  background-image: url("");
   margin-right: 0.7rem;
+  position: relative;
+}
+
+.link-img i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #777;
+  font-size: 30px;
+}
+
+.link-info h5{
+  font-weight: 700;
+  color: var(--text-grey);
+}
+
+.link-info h5 i{
+  margin-right: 0.5rem;
 }
 
 .text-center {
-  text-align: center;
-}
-
-.text-center button {
-  background: var(--main-color);
-  color: #fff;
-  border: 1px solid var(--main-color);
-  border-radius: 4px;
-  padding: 0.4rem 1rem;
+  color: var(--main-color);
+  font-weight: 700;
 }
 
 /* **** Paginarion **** */
@@ -779,7 +799,8 @@ height: 100%;
 
 #update_lang .hiddenFileInput,
 #update_cat .hiddenFileInput,
-#update_post .hiddenFileInput{
+#update_post .hiddenFileInput,
+#update_link .hiddenFileInput{
   left: 20px;
   top:0;
 }

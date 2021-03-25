@@ -33,6 +33,8 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
      echo '<script type="text/javascript" src="assets/js/posts_admin.js"></script>';
 }else if(stripos($_SERVER['REQUEST_URI'], 'docs.php')){
      echo '<script type="text/javascript" src="assets/js/docs.js"></script>';
+}else if(stripos($_SERVER['REQUEST_URI'], 'stats.php')){
+     echo '<script type="text/javascript" src="assets/js/stats.js"></script>';
 }else{
      echo '';
 }

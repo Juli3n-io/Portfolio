@@ -54,7 +54,7 @@ include __DIR__. '/assets/includes/header_admin.php';
   <div class="team__grid">
     <div class="team__card">
         <div class="card__header">
-            <h3>Toutes les Posts </h3>
+            <h3>Posts </h3>
             <?php if($Membre['statut'] == 0) :?>
             <button id="add_post_modal">
                 <i class="fas fa-plus"></i>
@@ -170,6 +170,29 @@ include __DIR__. '/assets/includes/header_admin.php';
               <small>Visites cette année</small>
           </div>
       </div>
+
+      </div> 
+
+  <div class="link__card">
+    <div class="link-flex">
+
+      <?php foreach(getBestLink($pdo) as $link): ?>
+        <div class='link-img'><i class="<?=$link['icone']?>"></i></div>
+
+          <div class="link-info">
+              <h5><i class="fas fa-link"></i> Best link</h5>
+          <div>
+
+          <div>
+
+              <div class="text-center">
+                  <h4><?= $link['nb_clicks']?></h4>
+                  <small><?= $link['titre']?></small>
+              </div>
+      <?php endforeach;?>
+    </div>
+  </div>
+ 
 
   </div>
 </div>

@@ -203,3 +203,14 @@ CREATE TABLE cv_clicks
       REFERENCES  docs(id_doc)
       ON DELETE SET NULL
 )ENGINE=INNODB;
+
+CREATE TABLE origin_clicks
+(
+  id INT(3)NOT NULL AUTO_INCREMENT,
+  icone VARCHAR(255) DEFAULT NULL,
+  titre VARCHAR(255),
+  url VARCHAR (255) NOT NULL,
+  nb_clicks INT,
+  token VARCHAR (255) DEFAULT NULL,
+    PRIMARY KEY (id)
+)ENGINE=INNODB;

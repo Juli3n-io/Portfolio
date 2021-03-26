@@ -148,7 +148,7 @@ window.onload = function(){
 new fullpage('#fullpage', {
   licenseKey: '56D1CF10-FB234396-B4B3342D-25E59CD7',
   menu: '#menu',
-  anchors: ['home','about', 'services', 'pricing','skills', 'portfolio', 'experience','contact'],
+  anchors: ['home','about', 'services','skills', 'portfolio','pricing','experience','contact'],
   autoScrolling: true,
   scrollOverflow: true,
   css3: true,
@@ -187,17 +187,8 @@ new fullpage('#fullpage', {
       
     }
       
+
     if(destination.index === 3){
-
-      $('.pricing').addClass('fade-in')
-  
-    }else{
-
-      $('.pricing').removeClass('fade-in')
-    
-    }
-
-    if(destination.index === 4){
 
       $('.skills .heading').addClass('fade-in')
       $('.pro-skill').addClass('fade-in')
@@ -227,10 +218,7 @@ new fullpage('#fullpage', {
 
     }
 
-    if(destination.index === 5){
-
-      
-      
+    if(destination.index === 4){
 
     $('.portfolio').addClass('fade-in')
   
@@ -238,6 +226,16 @@ new fullpage('#fullpage', {
 
       $('.portfolio').removeClass('fade-in')
       
+    }
+
+    if(destination.index === 5){
+
+      $('.pricing').addClass('fade-in')
+  
+    }else{
+
+      $('.pricing').removeClass('fade-in')
+    
     }
 
     if(destination.index === 6){

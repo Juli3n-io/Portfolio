@@ -17,11 +17,11 @@ include __DIR__. '/assets/views/about.php';
 
 include __DIR__. '/assets/views/services.php';
 
-include __DIR__. '/assets/views/price.php';
-
 include __DIR__. '/assets/views/skills.php';
 
 include __DIR__. '/assets/views/portfolio.php';
+
+include __DIR__. '/assets/views/price.php';
 
 include __DIR__. '/assets/views/experiences.php';
 

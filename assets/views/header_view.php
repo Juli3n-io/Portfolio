@@ -82,9 +82,9 @@
         <ul id="menu">
             <li data-menuanchor="about" ><a href="#about">A propos</a></li>
             <li data-menuanchor="services"><a href="#services">Services</a></li>
-            <li data-menuanchor="pricing"><a href="#pricing">tarifs</a></li>
             <li data-menuanchor="skills"><a href="#skills">Compétences</a></li>
             <li data-menuanchor="portfolio"><a href="#portfolio">Portfolio</a></li>
+            <li data-menuanchor="pricing"><a href="#pricing">tarifs</a></li>
             <li data-menuanchor="experience"><a href="#experience">Expériences</a></li>
             <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
           </ul>

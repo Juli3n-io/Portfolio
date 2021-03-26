@@ -1502,13 +1502,6 @@ position: relative;
   margin-top: 4rem;
 }
 
-/* ***  contact *** */
-
-
-.form-part{
-  margin-top: 0;
-}
-
 
 }
 
@@ -1561,6 +1554,10 @@ position: relative;
 .contact-info h4{
   font-size: 30px;
   
+}
+
+.form-part{
+  margin-top: 0;
 }
 
 

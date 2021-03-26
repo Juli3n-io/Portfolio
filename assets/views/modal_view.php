@@ -29,3 +29,20 @@
     </div>
   </div>
 </div>
+
+
+<!-- ############################################## ***** Modal view  experience***** ########################################################## -->
+
+    
+<div class="modal fade" id="msgmodal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-dialog-centered">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-content" id="msg_detail">
+
+      
+
+      </div>  
+    </div>
+  </div>
+</div>

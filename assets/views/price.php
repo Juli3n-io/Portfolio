@@ -17,7 +17,14 @@
               <li>Intégration Web</li>
               <li>Freelance</li>
             </ul>
-            <a href="" class="btn custom-btn">Engagez moi</a>
+            <button 
+              type="button" 
+              class="btn custom-btn open-msg-modal"
+              name="freelance"
+              id="freelance"
+              title="Me contacter pour une mission de freelance"
+              value="Mission Freelance">Me contacter
+            </button>
           </div>
         </div>
 
@@ -32,7 +39,14 @@
               <li>Google Friendly</li>
               <li>Hébergement Possible</li>
             </ul>
-            <a href="" class="btn custom-btn">Me contacter</a>
+            <button 
+              type="button" 
+              class="btn custom-btn open-msg-modal"
+              name="freelance"
+              id="freelance"
+              title="Me contacter pour un site vitrire"
+              value="Création site vitrine">Me contacter
+            </button>
           </div>
         </div>
 
@@ -47,7 +61,14 @@
               <li>Google Friendly</li>
               <li>avec Hébergement</li>
             </ul>
-            <a href="" class="btn custom-btn">Me contacter</a>
+            <button 
+              type="button" 
+              class="btn custom-btn open-msg-modal"
+              name="freelance"
+              id="freelance"
+              title="Me contacter pour un E-commerce"
+              value="Création E-commerce">Me contacter
+            </button>
           </div>
         </div>
 

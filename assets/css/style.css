@@ -1,4 +1,6 @@
 @import url("var.css");
+@import url("notification.css");
+@import url("cookie.css");
 
 
 html{
@@ -624,6 +626,34 @@ padding: 20px 30px;
   color: var(--light-white);
   font-size: 10px;
 text-align: center;
+}
+
+/* **** Pricing modal **** */
+
+#modal-msg{
+  position: relative;
+  background-image: url('../img/contact-modal-illustration.png');
+  background-repeat: no-repeat;
+  background-size: 269px auto;
+}
+.modal-body .form-part{
+  margin-top: 10rem;
+}
+
+.modal-body .form-part h4{
+  top: 10%;
+    max-width: 50%;
+    right: 0%;
+    position: absolute;
+}
+
+.modal-body .contact-form .send{
+  text-align: center;
+}
+
+.modal-body .contact-form .sendMsg{
+  position: initial;
+  
 }
 
 /* ****************** */

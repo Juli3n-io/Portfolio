@@ -76,6 +76,56 @@ $(document).on('click', '.download-btn a', function(){
 
 })
 
+//Mission freelance ouverture modal
+$(document).on('click','.open-msg-modal', function(e){  
+  e.preventDefault();
+  var subject = $(this).attr("value"); 
+  
+  $.ajax({  
+       url:"assets/scripts/modal_msg.php",  
+       method:"post",  
+       data:{subject:subject},  
+       success:function(data){  
+            $('#msg_detail').html(data);  
+            $('#msgmodal').modal('show');  
+       }  
+  });  
+});  
+
+//envoi de message
+$(document).on('submit','#contact-form-modal', function(e){  
+
+  console.log('test')
+  e.preventDefault();
+  
+  $.ajax({
+
+    type: 'POST',
+    url: 'assets/scripts/send_message_script.php',
+    data: new FormData(this),
+    dataType: 'json',
+    contentType: false,
+    cache: false,
+    processData:false,
+    success: function(data){
+
+      if(data.status == true){   
+       
+        $('#contact-form').trigger("reset");
+        $('#notif').html(data.notif);
+        $('#notif').html(data.notif);
+        $('#msgmodal').modal('hide');
+                                  
+      }else{
+          
+        $('#notif').html(data.notif); 
+
+      } 
+
+    }
+  }); 
+});  
+
 //education ouverture modal
 $(document).on('click','.link-education', function(e){  
   e.preventDefault();

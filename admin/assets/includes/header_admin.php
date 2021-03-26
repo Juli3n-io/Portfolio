@@ -21,13 +21,13 @@ if (session_status() === PHP_SESSION_NONE){
    
 <!-- CSS -->
 <?php
-if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
+if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php') || stripos($_SERVER['REQUEST_URI'], 'connexion')){
      echo '<link rel="stylesheet" href="assets/css/login_admin.css">';
 }else if(stripos($_SERVER['REQUEST_URI'], 'register.php')){
      echo '<link rel="stylesheet" href="assets/css/register_admin.css">'; 
-}else if(stripos($_SERVER['REQUEST_URI'], 'profil_admin.php') || stripos($_SERVER['REQUEST_URI'], 'update_profil.php')){
+}else if(stripos($_SERVER['REQUEST_URI'], 'my-profil') || stripos($_SERVER['REQUEST_URI'], 'update_profil.php')){
      echo '<link rel="stylesheet" href="assets/css/profil_admin.css">'; 
-}else if(stripos($_SERVER['REQUEST_URI'], 'education.php') || stripos($_SERVER['REQUEST_URI'], 'experiences.php')){
+}else if(stripos($_SERVER['REQUEST_URI'], 'education') || stripos($_SERVER['REQUEST_URI'], 'experiences.php')){
      echo '<link rel="stylesheet" href="assets/css/jquery-ui.min.css">';
      echo '<link rel="stylesheet" href="assets/css/style.css">';
 }else {   
@@ -53,67 +53,67 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
          <div class="sidebar__menu">
          <ul>
               <li>
-                    <a href="index_admin.php">
+                    <a href="hello">
                          <span class="ti-home"></span>
                          <span>Home</span>
                     </a>
                </li>
                 <li>
-                    <a href="stats.php">
+                    <a href="stats">
                          <i class="fas fa-eye"></i>
                          <span>Visites</span>
                     </a>
                </li>
                <li>
-                    <a href="posts.php">
+                    <a href="posts">
                          <i class="fas fa-folder"></i>
                          <span>Post</span>
                     </a>
                </li>
                <li>
-                    <a href="team.php">
+                    <a href="team">
                          <i class="fas fa-laugh-beam"></i>
                          <span>Team</span>
                     </a>
                </li>
                <li>
-                    <a href="categories.php">
+                    <a href="categories">
                          <i class="fas fa-align-left"></i>
                          <span>Catégories</span>
                     </a>
                </li>
                <li>
-                    <a href="langages.php">
+                    <a href="langages">
                          <i class="fas fa-code"></i>
                          <span>Langages</span>
                     </a>
                </li>
                <li>
-                    <a href="skills.php">
+                    <a href="skills">
                          <i class="fas fa-user-tie"></i>
                          <span>Compétences</span>
                     </a>
                </li>
                <li>
-                    <a href="education.php">
+                    <a href="education">
                          <i class="fas fa-graduation-cap"></i>
                          <span>Education</span>
                     </a>
                </li>
                <li>
-                    <a href="experiences.php">
+                    <a href="experiences">
                          <i class="fas fa-glasses"></i>
                          <span>Expériences</span>
                     </a>
                </li>
                <li>
-                    <a href="docs.php">
+                    <a href="docs">
                          <i class="far fa-file"></i>
                          <span>Docs</span>
                     </a>
                </li>
                <li>
-                    <a href="">
+                    <a href="my-profil">
                          <span class="ti-settings"></span>
                          <span>Account</span>
                     </a>
@@ -160,11 +160,11 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
                               <ul>
                                    <li>
                                         <i class="fa fa-user-circle" aria-hidden="true"></i>
-                                        <a href="profil_admin.php"> Mon Profil</a>
+                                        <a href="my-profil"> Mon Profil</a>
                                    </li>
                                    <li>
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
-                                        <a href="update_profil.php">Modifier Profil</a>
+                                        <a href="update-profil">Modifier Profil</a>
                                    </li>
                                    <li>
                                         <i class="fa fa-envelope-o" aria-hidden="true"></i>

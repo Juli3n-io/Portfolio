@@ -1,0 +1,20 @@
+Options -Indexes
+RewriteEngine On
+
+RewriteRule ^hello$ index_admin.php
+RewriteRule ^connexion$ login_admin.php
+RewriteRule ^categories$ categories.php
+RewriteRule ^docs$ docs.php
+RewriteRule ^education$ education.php
+RewriteRule ^experiences$ experiences.php
+RewriteRule ^langages$ langages.php
+RewriteRule ^posts$ posts.php
+RewriteRule ^my-profil$ profil_admin.php
+RewriteRule ^update-profil$ update_profil.php
+RewriteRule ^skills$ skills.php
+RewriteRule ^stats$ stats.php
+RewriteRule ^team$ team.php
+RewriteRule ^oups$ 404.html
+
+ErrorDocument 404 /Portfolio/admin/assets/errors/404.html
+ErrorDocument 403 /Portfolio/admin/assets/errors/404.html

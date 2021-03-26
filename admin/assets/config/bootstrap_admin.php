@@ -8,12 +8,12 @@
 
  
 
-if(!stripos($_SERVER['REQUEST_URI'], 'login_admin.php') && !stripos($_SERVER['REQUEST_URI'], 'login_member.php')){
+if(!stripos($_SERVER['REQUEST_URI'], 'connexion') && !stripos($_SERVER['REQUEST_URI'], 'login_member.php')){
     $Membre = getMembre($pdo, $_GET['id_team_member'] ?? null);
 
     if($Membre === null){
         ajouterFlash('info','Merci de vous connecter');
-        header('Location: login_admin.php');
+        header('Location: connexion');
         exit();
         }
 }

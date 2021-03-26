@@ -5,10 +5,10 @@ if(isset($_POST['login'])){
 
     if(empty($_POST['username'] )){
          ajouterFlash('warning','pseudo manquant');
-         header('location: ../../login_admin.php');
+         header('location: ../../connexion');
     } elseif(empty($_POST['password'])){
          ajouterFlash('warning','mot de passe manquant');
-         header('location: ../../login_admin.php');
+         header('location: ../../connexion');
     }else{
             $req = $pdo->prepare(
                                     'SELECT *
@@ -25,17 +25,17 @@ if(isset($_POST['login'])){
         if(!$tmember){
 
         ajouterFlash('error','Membre inconnue');
-        header('location: ../../login_admin.php');
+        header('location: ../../connexion');
 
         }elseif(!$tmember['confirmation']){
 
         ajouterFlash('info','merci de confirmer votre compte');
-        header('location: ../../login_admin.php');
+        header('location: ../../connexion');
 
         }elseif(!password_verify($_POST['password'], $tmember['password'])){
 
         ajouterFlash('error','Mot de passe erroné');
-        header('location: ../../login_admin.php');
+        header('location: ../../connexion');
 
         }else{
 
@@ -53,7 +53,7 @@ if(isset($_POST['login'])){
         $_SESSION['team'] = $tmember;
         unset($_POST);
         session_write_close();
-        header('Location: ../../../index_admin.php');
+        header('Location: ../../../hello');
         ajouterFlash('success','Bonjour');
 
         }

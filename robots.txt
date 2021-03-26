@@ -1,0 +1,5 @@
+User-agent: *
+allow: /
+Disallow: /admin
+
+Sitemap : https://www.julien-quentier.fr/sitemap.xml

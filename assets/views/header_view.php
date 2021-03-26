@@ -13,7 +13,7 @@
     <meta name="author" content="Julien Quentier">
     <link rel="icon" href="assets/img/icon.png">
     <link rel="apple-touch-icon" href="assets/img/icon.png">
-    <!-- <link rel="manifest" href="manifest.json"> -->
+    <link rel="manifest" href="manifest.json">
   <title>Développeur Web Freelance - Julien QUENTIER</title>
 
 <!-- Google Font -->
@@ -37,8 +37,6 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
 <!-- Script  -->
-
-
 
 <script src="assets/js/scrolloverflow.min.js" async></script>
 <script src="assets/js/fullpage.min.js" async></script>

@@ -153,6 +153,7 @@ new fullpage('#fullpage', {
   scrollOverflow: true,
   css3: true,
   resize: false,
+  normalScrollElements: '#exeTxt, #eduTxt',
   onLeave: (origin, destination, direction) => {
     const section = destination.item;
 

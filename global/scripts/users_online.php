@@ -5,6 +5,9 @@ require_once __DIR__ . './../functions/users.php';
 $temps_session = 15;
 $temps_actuel = date('U');
 $user_ip = getIp();
+$user_nbr = '';
+
+if(!in_array($user_ip, $myIp)){
 
 $req_ip_exist = $pdo->prepare('SELECT * FROM online WHERE user_ip = ?');
 $req_ip_exist->execute(array($user_ip));
@@ -24,5 +27,14 @@ $del_ip->execute(array($session_delete_time));
 
 $show_user_nbr = $pdo->query('SELECT * FROM online');
 $user_nbr = $show_user_nbr->rowCount();
+
+
+}else{
+
+  $user_nbr = 0;
+  
+}
+
+
 
 ?>

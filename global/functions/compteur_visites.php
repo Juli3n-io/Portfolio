@@ -1,12 +1,13 @@
 <?php
 require_once __DIR__ . './../config/bootstrap.php';
-require_once __DIR__ . './../functions/users.php';
+require_once __DIR__ . '/users.php';
 
 function ajouter_vue($pdo, $myIp):void {
 
   $date = date('Y-m-d');
+  $user_ip = getIp();
   
-  if(getIp() !== $myIp){
+  if(!in_array($user_ip, $myIp)){
 
     if(getVisites($pdo,'date',$date)!==null){
 
@@ -37,57 +38,67 @@ function ajouter_vue($pdo, $myIp):void {
 }
 
 
-function origin_click(PDO $pdo, $token, $google, $googleCom,  $url){
+function origin_click(PDO $pdo, $myIp, $token, $google, $url){
 
-  if($url == $google || $url == $googleCom){
+  $user_ip = getIp();
 
-    $name = 'Google';
+  if(!in_array($user_ip, $myIp)){
+
+    if(in_array($url , $google)){
+
+      $name = 'Google';
+    
+      $data = $pdo->query("SELECT * FROM origin_clicks WHERE titre = '$name'");
+      $thisG = $data->fetch(PDO::FETCH_ASSOC);
+      
+      $new_visite = ++$thisG['nb_clicks'];
+      $id = $thisG['id'];
+      
+      $req_update = $pdo->prepare('UPDATE origin_clicks SET nb_clicks = :nb_clicks WHERE id = :id');
+      
+      $req_update->bindParam(':id',$id,PDO::PARAM_INT);
+      $req_update->bindValue(':nb_clicks',$new_visite);
+      $req_update->execute();
+      
+    }elseif($token !== ''){
+    
+    
+      $data = $pdo->query("SELECT * FROM origin_clicks WHERE token = '$token'");
+      $thisClick = $data->fetch(PDO::FETCH_ASSOC);
+      
+      $new_visite = ++$thisClick['nb_clicks'];
+      $id = $thisClick['id'];
+      
+      $req_update = $pdo->prepare('UPDATE origin_clicks SET nb_clicks = :nb_clicks WHERE id = :id');
+      
+      $req_update->bindParam(':id',$id,PDO::PARAM_INT);
+      $req_update->bindValue(':nb_clicks',$new_visite);
+      $req_update->execute();
+    
+    }else{
+    
+      $name = 'Autres';
+    
+      $data = $pdo->query("SELECT * FROM origin_clicks WHERE titre = '$name'");
+      $thisO = $data->fetch(PDO::FETCH_ASSOC);
+      
+      $new_visite = ++$thisO['nb_clicks'];
+      $id = $thisO['id'];
+      
+      $req_update = $pdo->prepare('UPDATE origin_clicks SET nb_clicks = :nb_clicks WHERE id = :id');
+      
+      $req_update->bindParam(':id',$id,PDO::PARAM_INT);
+      $req_update->bindValue(':nb_clicks',$new_visite);
+      $req_update->execute();
+    
+    
+    }  
+
+    
+
+  }
+
   
-    $data = $pdo->query("SELECT * FROM origin_clicks WHERE titre = '$name'");
-    $thisG = $data->fetch(PDO::FETCH_ASSOC);
-    
-    $new_visite = ++$thisG['nb_clicks'];
-    $id = $thisG['id'];
-    
-    $req_update = $pdo->prepare('UPDATE origin_clicks SET nb_clicks = :nb_clicks WHERE id = :id');
-    
-    $req_update->bindParam(':id',$id,PDO::PARAM_INT);
-    $req_update->bindValue(':nb_clicks',$new_visite);
-    $req_update->execute();
-    
-  }elseif($token !== ''){
-  
-  
-    $data = $pdo->query("SELECT * FROM origin_clicks WHERE token = '$token'");
-    $thisClick = $data->fetch(PDO::FETCH_ASSOC);
-    
-    $new_visite = ++$thisClick['nb_clicks'];
-    $id = $thisClick['id'];
-    
-    $req_update = $pdo->prepare('UPDATE origin_clicks SET nb_clicks = :nb_clicks WHERE id = :id');
-    
-    $req_update->bindParam(':id',$id,PDO::PARAM_INT);
-    $req_update->bindValue(':nb_clicks',$new_visite);
-    $req_update->execute();
-  
-  }else{
-  
-    $name = 'Autres';
-  
-    $data = $pdo->query("SELECT * FROM origin_clicks WHERE titre = '$name'");
-    $thisO = $data->fetch(PDO::FETCH_ASSOC);
-    
-    $new_visite = ++$thisO['nb_clicks'];
-    $id = $thisO['id'];
-    
-    $req_update = $pdo->prepare('UPDATE origin_clicks SET nb_clicks = :nb_clicks WHERE id = :id');
-    
-    $req_update->bindParam(':id',$id,PDO::PARAM_INT);
-    $req_update->bindValue(':nb_clicks',$new_visite);
-    $req_update->execute();
-  
-  
-  }  
 
 }
 

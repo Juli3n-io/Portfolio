@@ -40,7 +40,7 @@ if(isset($_POST['edu_id'])){
       $result .= '</div>';
 
       $result .= '<div class="col-md-12 modal-part-text">';
-        $result .= '<p>'.nl2br($edu['contenu']).'</p>';
+        $result .= '<p id="eduTxt">'.nl2br($edu['contenu']).'</p>';
       $result .= '</div>';
 
       $result .= '</div>';

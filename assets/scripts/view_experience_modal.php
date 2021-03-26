@@ -40,7 +40,7 @@ if(isset($_POST['exe_id'])){
       $result .= '</div>';
 
       $result .= '<div class="col-md-12 modal-part-text">';
-        $result .= '<p>'.nl2br($exe['contenu']).'</p>';
+        $result .= '<p id="exeTxt">'.nl2br($exe['contenu']).'</p>';
       $result .= '</div>';
 
       $result .= '</div>';

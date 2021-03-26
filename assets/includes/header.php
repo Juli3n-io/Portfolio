@@ -18,7 +18,7 @@ $token = htmlspecialchars($_GET["from"]);
 
 }
 
-origin_click($pdo, $token, $google, $googleCom, $url);
+origin_click($pdo, $myIp, $token, $google, $url);
  
 include __DIR__. './../views/header_view.php';
 ?>

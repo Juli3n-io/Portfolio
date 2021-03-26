@@ -95,7 +95,7 @@
               <a href="https://github.com/Juli3n-dotcom"><i class="fab fa-github-square"></i></a>
           </div>
           <p>&copy Copyright <span class="date"></span>, Julien QUENTIER Tous droits réservés</p>
-          <a href="cgu.html">Mentions Legales</a>
+          <a href="mentions-légales">Mentions Legales</a>
         </footer>
       </div>
     </header>

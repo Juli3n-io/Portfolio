@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteRule ^hello$ index.php
+RewriteRule ^oups$ 404.html
+RewriteRule ^mentions-légales$ cgu.html
+
+ErrorDocument 404 /Portfolio/oups

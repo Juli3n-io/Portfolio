@@ -28,7 +28,7 @@ include __DIR__.'/../global/includes/flash.php';
                 $data = $pdo->query("SELECT * FROM photo WHERE id_photo = '$id_photo'");
                 $photo = $data->fetch(PDO::FETCH_ASSOC);
 
-                echo "<img src='assets/avatars/".$photo['profil']."' alt='photo_profil' class='profil-img'>";
+                echo "<img src='assets/uploads/".$photo['profil']."' alt='photo_profil' class='profil-img'>";
             }
         ?>
         
@@ -53,7 +53,6 @@ include __DIR__.'/../global/includes/flash.php';
     </div>
 </div>
 
-<?= var_dump($Membre)?>
 
 <?php
 include __DIR__. '/assets/includes/footer_admin.php';

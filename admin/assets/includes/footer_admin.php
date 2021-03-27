@@ -6,34 +6,34 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
 <?php
-if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php')){
+if (stripos($_SERVER['REQUEST_URI'], 'connexion')){
      echo '<script type="text/javascript" src="assets/js/login_admin.js"></script>';
-}elseif (stripos($_SERVER['REQUEST_URI'], 'team.php')){
+}elseif (stripos($_SERVER['REQUEST_URI'], 'team')){
     echo '<script type="text/javascript" src="assets/js/team_admin.js"></script>';
-}elseif (stripos($_SERVER['REQUEST_URI'], 'posts.php')){
+}elseif (stripos($_SERVER['REQUEST_URI'], 'posts')){
      echo '<script type="text/javascript" src="assets/js/posts_admin.js"></script>';
-}elseif (stripos($_SERVER['REQUEST_URI'], 'categories.php')){
+}elseif (stripos($_SERVER['REQUEST_URI'], 'categories')){
      echo '<script type="text/javascript" src="assets/js/cat_admin.js"></script>';
-}elseif (stripos($_SERVER['REQUEST_URI'], 'experiences.php')){
+}elseif (stripos($_SERVER['REQUEST_URI'], 'experiences')){
      echo '<script type="text/javascript" src="assets/js/experiences.js"></script>';
      echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>';
-}elseif (stripos($_SERVER['REQUEST_URI'], 'education.php')){
+}elseif (stripos($_SERVER['REQUEST_URI'], 'education')){
      echo '<script type="text/javascript" src="assets/js/education.js"></script>';
      echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>';
-}elseif (stripos($_SERVER['REQUEST_URI'], 'langages.php')){
+}elseif (stripos($_SERVER['REQUEST_URI'], 'langages')){
      echo '<script type="text/javascript" src="assets/js/lang_admin.js"></script>';
-}elseif (stripos($_SERVER['REQUEST_URI'], 'skills.php')){
+}elseif (stripos($_SERVER['REQUEST_URI'], 'skills')){
      echo '<script type="text/javascript" src="assets/js/skills_admin.js"></script>';
-}else if(stripos($_SERVER['REQUEST_URI'], 'register.php')){
+}else if(stripos($_SERVER['REQUEST_URI'], 'register')){
      echo '<script type="text/javascript" src="assets/js/register_admin.js"></script>';  
-}else if(stripos($_SERVER['REQUEST_URI'], 'update_profil.php')){
+}else if(stripos($_SERVER['REQUEST_URI'], 'update_profil')){
      echo '<script type="text/javascript" src="assets/js/update_admin.js"></script>';
-}else if(stripos($_SERVER['REQUEST_URI'], 'index_admin.php')){
+}else if(stripos($_SERVER['REQUEST_URI'], 'hello')){
      echo '<script type="text/javascript" src="assets/js/index.js"></script>';
      echo '<script type="text/javascript" src="assets/js/posts_admin.js"></script>';
-}else if(stripos($_SERVER['REQUEST_URI'], 'docs.php')){
+}else if(stripos($_SERVER['REQUEST_URI'], 'docs')){
      echo '<script type="text/javascript" src="assets/js/docs.js"></script>';
-}else if(stripos($_SERVER['REQUEST_URI'], 'stats.php')){
+}else if(stripos($_SERVER['REQUEST_URI'], 'stats')){
      echo '<script type="text/javascript" src="assets/js/stats.js"></script>';
 }else{
      echo '';

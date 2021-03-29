@@ -1,7 +1,7 @@
 Options -Indexes
 RewriteEngine On
 
-RewriteRule ^hello$ index_admin.php
+RewriteRule ^hello$ index.php
 RewriteRule ^connexion$ login_admin.php
 RewriteRule ^categories$ categories.php
 RewriteRule ^docs$ docs.php
@@ -17,4 +17,3 @@ RewriteRule ^team$ team.php
 RewriteRule ^oups$ 404.html
 
 ErrorDocument 404 /Portfolio/admin/assets/errors/404.html
-ErrorDocument 403 /Portfolio/admin/assets/errors/404.html

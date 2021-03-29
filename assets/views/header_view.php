@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86, minimal-ui"> 
+  <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86, user-scalable=0"> 
   <meta name="theme-color" content="#212529">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -95,7 +95,7 @@
               <a href="https://github.com/Juli3n-dotcom"><i class="fab fa-github-square"></i></a>
           </div>
           <p>&copy Copyright <span class="date"></span>, Julien QUENTIER Tous droits réservés</p>
-          <a href="mentions-légales">Mentions Legales</a>
+          <a href="mentions-legales">Mentions Legales</a>
         </footer>
       </div>
     </header>

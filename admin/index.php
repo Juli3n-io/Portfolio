@@ -30,7 +30,7 @@ include __DIR__. '/assets/includes/header_admin.php';
         </div>
       </div>
       <div class="card__footer">
-      <a href="docs.php">Voir les docs</a>
+      <a href="docs">Voir les docs</a>
       </div>
     </div>
 
@@ -43,7 +43,7 @@ include __DIR__. '/assets/includes/header_admin.php';
         </div>
       </div>
       <div class="card__footer">
-      <a href="docs.php">Voir les stats</a>
+      <a href="stats">Voir les stats</a>
       </div>
     </div>
 

@@ -50,7 +50,24 @@ ul{
   padding: 0;
 }
 
-
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select:focus,
+textarea {
+  font-size: 16px !important;
+}
 
 /* *************** */
 /* ***  navigation *** */
@@ -635,18 +652,25 @@ text-align: center;
   background-image: url('../img/contact-modal-illustration.png');
   background-repeat: no-repeat;
   background-size: 269px auto;
+  overflow: scroll;
+  -webkit-overflow-scrolling:auto;
 }
 .modal-body .form-part{
   margin-top: 10rem;
 }
 
 .modal-body .form-part h4{
-  top: 10%;
-    max-width: 50%;
-    right: 0%;
+  top: 20%;
+    right: 10%;
     position: absolute;
 }
 
+.modal-body .contact-form{
+  /* max-height: 350px;
+  overflow: scroll;
+  -webkit-overflow-scrolling:auto; */
+  
+}
 .modal-body .contact-form .send{
   text-align: center;
 }
@@ -1349,7 +1373,7 @@ position: relative;
   border : 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   box-shadow: none;
-  font-size: 14px;
+  font-size: 16px !important;
   height: calc(2em + 0.75rem + 2px);
 }
 .contact-form .form-control:focus{
@@ -1461,6 +1485,10 @@ position: relative;
   display: inline-flex;
   position: absolute;
   right: 10%;
+}
+
+.header .sidemenu footer {
+  padding-top: 100px;
 }
 
 #fullpage{

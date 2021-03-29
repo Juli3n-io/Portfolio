@@ -4,6 +4,7 @@ document.querySelector(".date").innerHTML = new Date().getFullYear();
 
 
 $(document).ready(function(){
+  
 
   // menu header
   $(".sidemenu-toggler").click(function(){  
@@ -92,10 +93,9 @@ $(document).on('click','.open-msg-modal', function(e){
   });  
 });  
 
-//envoi de message
+//envoi de message des modals
 $(document).on('submit','#contact-form-modal', function(e){  
-
-  console.log('test')
+  console.log('test form modal')
   e.preventDefault();
   
   $.ajax({
@@ -111,8 +111,7 @@ $(document).on('submit','#contact-form-modal', function(e){
 
       if(data.status == true){   
        
-        $('#contact-form').trigger("reset");
-        $('#notif').html(data.notif);
+        $('#contact-form-modal').trigger("reset");
         $('#notif').html(data.notif);
         $('#msgmodal').modal('hide');
                                   
@@ -158,14 +157,17 @@ $(document).on('click','.link-experience', function(e){
   });  
 });  
 
+
 //envoi de message
-$(document).on('submit','#contact-form', function(e){  
+$(document).on('submit','#formulaire-contact', function(e){  
+  console.log('test formulaire')
+  
   e.preventDefault();
   
   $.ajax({
 
     type: 'POST',
-    url: 'assets/scripts/send_message_script.php',
+    url: 'assets/scripts/send_msg.php',
     data: new FormData(this),
     dataType: 'json',
     contentType: false,
@@ -175,8 +177,9 @@ $(document).on('submit','#contact-form', function(e){
 
       if(data.status == true){   
        
-        $('#contact-form').trigger("reset");
         $('#notif').html(data.notif);
+        $('#formulaire-contact').trigger("reset");
+        
                                   
       }else{
           
@@ -187,6 +190,9 @@ $(document).on('submit','#contact-form', function(e){
     }
   }); 
 });  
+
+
+
   
 });
 
@@ -302,6 +308,8 @@ new fullpage('#fullpage', {
     }
 
     if(destination.index === 7){
+
+
 
       $('.contact').addClass('fade-in')
 

@@ -67,7 +67,7 @@
               name="freelance"
               id="freelance"
               title="Me contacter pour un E-commerce"
-              value="Création E-commerce">Me contacter
+              value="Création site E-commerce">Me contacter
             </button>
           </div>
         </div>

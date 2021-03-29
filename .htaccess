@@ -1,9 +1,11 @@
-Options All -Indexes -MultiViews
+Options -Indexes
 RewriteEngine On
 
 RewriteRule ^hello$ index.php
 RewriteRule ^oups$ 404.html
-RewriteRule ^mentions-légales$ cgu.html
+RewriteRule ^mentions-legales$ cgu.html
 
 ErrorDocument 404 /Portfolio/oups
+
+
 

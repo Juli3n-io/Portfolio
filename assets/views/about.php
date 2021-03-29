@@ -18,30 +18,30 @@ require_once __DIR__ . './../functions/docs_functions.php';
 
           <h2 class="heading">A propos </h2>
           <p>Bonjour, </p>
-          <p>Je suis Julien, 
-            aprés plus de 10 ans dans le commerce, 
-            dont 6 années aux services d'Apple, 
-            je me suis fraichement reconvertis en développeur, 
-            intégrateur web et 
-            je me passionne pour le développement front-end. 
+          <p>Fraichement reconverti en développeur et intégrateur web après 10 ans dans le commerce,
+             dont 6 années au service d’Apple, 
+             j’ai décidé en 2020 de me lancer en tant que 
+             freelance pour vous aider à créer les sites Internet de demain.
           </p>
           <p>
-            Je cherche à associer le design et la technologie, 
-            ainsi, mes 6 années chez Apple m'ont permis d'étre minutieux 
-            dans mon travail, et de toujour chercher à me dépasser 
-            pour tirer le meilleur de mes expériences. 
-            Je continue aujourd'hui d'appliquer mes connaissances pour créer des sites internet attractifs.
+            Passionné par le développement front-end et les nouvelles technologies,
+             mes créations associent design et modernité. Fort de mes précédentes expériences, 
+             je travaille aujourd’hui avec rigueur et minutie pour vous fournir une prestation de services
+            haut de gamme et en adéquation avec vos besoins.
           </p>
           <p>
-            Je suis capable d'utiliser différentes 
-            technologies tel que HTML5 & CSS3, 
-            JavaScript, PHP, ainsi que 
+            En formation permanente pour pouvoir m’adapter aux demandes de mes clients, 
+            je travaille aujourd’hui sur différentes technologies telles que : 
+              HTML5 & CSS3, JavaScript, PHP, ainsi que 
              des CMS comme Wordpress ou Drupal.
           </p>
           <p>
-            Vous trouverez sur mon site quelques projets 
-            réalisés durant mes études ou durant mon temps libre.
+          N’hésitez pas à vous rendre sur mon portfolio pour découvrir les premiers sites réalisés dans le cadre de ma formation ou de mon activité.
           </p>
+          <p>
+          Et si nous commencions aujourd’hui, un nouveau projet ensemble ?
+          </p>
+          <p>Julien</p>
 
           <div class="tag">
             <ul>

@@ -27,7 +27,7 @@
         <div class="contact-form">
           <h4>Envoyer moi un message</h4>
 
-          <form action="" id="contact-form">
+          <form action="" id="formulaire-contact">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">

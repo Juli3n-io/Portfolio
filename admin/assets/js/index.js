@@ -1,6 +1,6 @@
 //index date
 const date = new Date();
-let day = date.getDay();
+let day = date.getDate();
 
 function NomDuJour (QuelleDate)
   {
@@ -27,29 +27,29 @@ function NomDuJour (QuelleDate)
   {
   switch (QuelleDate.getMonth())
     {
-    case 1 : return "Janvier"
+    case 0 : return "Janvier"
              break
-    case 2 : return "Février"
+    case 1 : return "Février"
              break
-    case 3 : return "Mars"
+    case 2 : return "Mars"
              break
-    case 4 : return "Avril"
+    case 3 : return "Avril"
              break
-    case 5 : return "Mai"
+    case 4 : return "Mai"
              break
-    case 6 : return "Juin"
+    case 5 : return "Juin"
             break
-    case 7 : return "Juillet"
+    case 6 : return "Juillet"
             break
-    case 8 : return "Aout"
+    case 7 : return "Aout"
             break
-    case 9 : return "Septembre"
+    case 8 : return "Septembre"
             break
-    case 10 : return "Octobre"
+    case 9 : return "Octobre"
             break
-    case 11 : return "Novembre"
+    case 10 : return "Novembre"
             break
-    case 12 : return "Décembre"
+    case 11 : return "Décembre"
             break
     } // Fin du switch
   } // Fin de la fonction NomDuJour

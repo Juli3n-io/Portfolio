@@ -114,11 +114,11 @@ if($Membre['statut'] == 0){
 
 if($post['est_publie'] == 1){
 
-$result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value='.$post['est_publie'].' checked></td>';
+$result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value='.$post['est_publie'].' checked></td>';
 
 }else{
 
-$result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value='.$post['est_publie'].'></td>';
+$result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value='.$post['est_publie'].'></td>';
 
 }
 
@@ -248,11 +248,11 @@ if($Membre['statut'] == 0){
 
 if($post['est_publie'] == 1){
 
-$result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value='.$post['est_publie'].' checked></td>';
+$result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value='.$post['est_publie'].' checked></td>';
 
 }else{
 
-$result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value='.$post['est_publie'].'></td>';
+$result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value='.$post['est_publie'].'></td>';
 
 }
 

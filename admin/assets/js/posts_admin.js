@@ -259,7 +259,7 @@ $(document).on('submit', '#update_post', function(e){
  */
 
  // # traitement de la publication
- $(document).on('click', '.confirmedelete', function(e){
+ $(document).on('click', '.est_publie', function(e){
   e.preventDefault();
 
   $tr = $(this).closest('tr');

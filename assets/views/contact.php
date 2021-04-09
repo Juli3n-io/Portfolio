@@ -24,6 +24,19 @@
       </div>
 
       <div class="col-lg-7 form-part">
+
+      <div class="btn-contact">
+        <button 
+              type="button" 
+              class="btn custom-btn open-msg-modal"
+              name=""
+              id=""
+              title="Me contacter pour une mission de freelance"
+              value="">Me contacter
+          </button>
+      </div>
+
+
         <div class="contact-form">
           <h4>Envoyer moi un message</h4>
 

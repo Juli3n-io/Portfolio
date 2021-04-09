@@ -14,13 +14,13 @@ require_once __DIR__ . './../functions/portfolio_functions.php';
           <div class="portfolio-nav col-sm-12" id="filter-button">
             <ul>
               <li data-filter="*" class="current">
-                <span>Toutes les catégories</span>
+                <a>Toutes les catégories</a>
               </li>
 
               <?php foreach(getCat($pdo) as $cat): ?>
 
                 <li data-filter=".<?= $cat['class']?>" >
-                  <span><?= $cat['titre_cat']?></span>
+                  <a><?= $cat['titre_cat']?></a>
                 </li>
 
               <?php endforeach;?>

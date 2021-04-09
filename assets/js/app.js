@@ -95,7 +95,7 @@ $(document).on('click','.open-msg-modal', function(e){
 
 //envoi de message des modals
 $(document).on('submit','#contact-form-modal', function(e){  
-  console.log('test form modal')
+  
   e.preventDefault();
   
   $.ajax({
@@ -167,7 +167,7 @@ $(document).on('submit','#formulaire-contact', function(e){
   $.ajax({
 
     type: 'POST',
-    url: 'assets/scripts/send_msg.php',
+    url: 'assets/scripts/send_message_script.php',
     data: new FormData(this),
     dataType: 'json',
     contentType: false,

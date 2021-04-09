@@ -4,18 +4,16 @@ require_once __DIR__ . './../functions/notifications.php';
 
 $result = array(); 
 
+
 if(!empty($_POST)){ 
 
-  $result['status'] = false;
-  $result['notif'] = notif('info','oups! il manque votre nom'); 
+$name = htmlspecialchars($_POST['name-form'], ENT_QUOTES, 'UTF-8');
+$email = htmlspecialchars($_POST['email-form'], ENT_QUOTES, 'UTF-8');
+$subject = htmlspecialchars($_POST['subject-form'], ENT_QUOTES, 'UTF-8');
+$msg = htmlspecialchars($_POST['message-form'], ENT_QUOTES, 'UTF-8');
+$check = $_POST['valideCheck-form'];
 
-$name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
-$email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
-$subject = htmlspecialchars($_POST['subject'], ENT_QUOTES, 'UTF-8');
-$msg = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
-$check = $_POST['valideCheck'];
-
-if(!preg_match('~^[a-zA-Z-]+$~',$name)){
+if(!preg_match('~^[^a-zA-Z0-9 _]+$~',$name)){
 
   $result['status'] = false;
   $result['notif'] = notif('info','oups! il manque votre nom'); 
@@ -23,7 +21,7 @@ if(!preg_match('~^[a-zA-Z-]+$~',$name)){
 }elseif(empty($email)){
 
   $result['status'] = false;
-  $result['notif'] = notif('warning','oups il manque votre email'); 
+  $result['notif'] = notif('info','oups il manque votre email'); 
 
 }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
        

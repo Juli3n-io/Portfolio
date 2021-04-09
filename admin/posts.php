@@ -111,7 +111,7 @@ include __DIR__. '/assets/includes/header_admin.php';
                     
                     <?php if($Membre['statut'] == 0) :?>
                       
-                    <td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value="<?= $post['est_publie'] ?>" <?= ($post['est_publie'] == 1) ? 'checked' : '' ;?>></td>
+                    <td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value="<?= $post['est_publie'] ?>" <?= ($post['est_publie'] == 1) ? 'checked' : '' ;?>></td>
 
                     <td class="member_action">
                          

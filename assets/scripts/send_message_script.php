@@ -12,7 +12,7 @@ $subject = htmlspecialchars($_POST['subject'], ENT_QUOTES, 'UTF-8');
 $msg = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
 $check = $_POST['valideCheck'];
 
-if(!preg_match('~^[a-zA-Z-]+$~',$name)){
+if(!preg_match('~^[a-zA-Z_ ]+$~',$name)){
 
   $result['status'] = false;
   $result['notif'] = notif('info','oups! il manque votre nom'); 
@@ -20,7 +20,7 @@ if(!preg_match('~^[a-zA-Z-]+$~',$name)){
 }elseif(empty($email)){
 
   $result['status'] = false;
-  $result['notif'] = notif('warning','oups il manque votre email'); 
+  $result['notif'] = notif('info','oups il manque votre email'); 
 
 }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
        

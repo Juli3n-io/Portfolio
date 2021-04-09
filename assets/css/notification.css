@@ -167,7 +167,6 @@
     position: fixed;
     top: 10%;
     right: 0;
-    width: 100%;
     max-width: none;
     z-index: 4000;
     transform-origin: top;

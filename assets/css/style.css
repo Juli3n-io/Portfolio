@@ -918,12 +918,12 @@ background: rgba(0, 0, 0, 0.5);
   color: var(--violet);
 }
 
-.portfolio-nav ul li span{
+.portfolio-nav ul li a{
   padding: 15px 0;
   border-bottom: 2px solid transparent;
 }
 
-.portfolio-nav ul li.current span{
+.portfolio-nav ul li.current a{
   border-bottom: 2px solid var(--violet);
 }
 
@@ -1356,6 +1356,18 @@ position: relative;
   margin-top: 4rem;
 }
 
+.form-part .btn-contact{
+  text-align: center;
+}
+
+.form-part .btn-contact button{
+  font-size: 20px;
+}
+
+.contact .form-part .contact-form{
+  display: none;
+}
+
 .form-part form{
   position: relative;
 }
@@ -1558,6 +1570,16 @@ position: relative;
 
 .experience .download-btn{
   margin-top: 4rem;
+}
+
+/* *** Contact *** */
+
+.form-part .btn-contact{
+  display: none;
+}
+
+.contact .form-part .contact-form{
+  display: block;
 }
 
 

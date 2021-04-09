@@ -21,32 +21,87 @@ if(!empty($_POST)){
   $thislang = $query->fetch(PDO::FETCH_ASSOC); 
 
 
+  // debut de la requete d'update
+  $param = FALSE;
+  $requete = 'UPDATE langages SET ';
+
   //modification du titre
   if($titre !== $thislang['titre']){
 
-    if(getLangBy($pdo,'titre',$titre)!==null){
+    if(getSkillBy($pdo,'titre',$titre)!==null){
 
       $result['status'] = false;
-      $result['notif'] = notif('error','oups! ce langage existe déjà'); 
+      $result['notif'] = notif('error','oups! cet langage existe déjà'); 
     
-      }else{
+    }else{
 
-      
-      //modification du titre
-    $req_update_lang = $pdo->prepare('UPDATE langages SET titre = :titre, icone = :icone, number = :number WHERE id_langage = :id');
+      $requete .= 'titre = :titre';
+      $param = TRUE;   
 
-    $req_update_lang->bindParam(':id',$id,PDO::PARAM_INT);
-    $req_update_lang->bindValue(':titre',$titre);
-    $req_update_lang->bindValue(':icone',$icone);
-    $req_update_lang->bindValue(':number',$number);
-    $req_update_lang->execute();
+    }
 
-    $result['status'] = true;
-    $result['notif'] = notif('success','langage modifié');
+  }
+
+  //modification du titre
+  if($icone !== $thislang['icone']){
+
+    if(getSkillBy($pdo,'icone',$icone)!==null){
+
+      $result['status'] = false;
+      $result['notif'] = notif('error','oups! cet icone existe déjà'); 
     
+    }else{
+
+      $requete .= 'icone = :icone';
+      $param = TRUE;   
+
+    }
+
+  }
+
+  //modification du nombre
+  if($number !== $thislang['number']){
+
+    if($param == TRUE){
+
+      $requete .= ', number = :number';
+
+    }else{
+
+      $requete .= 'number = :number';
+    }
+
+  $param = TRUE;  
+
+  }
+
+
+  //lancement de la requete
+  $requete .= ' WHERE id_langage = :id';
+
+  // préparation de la requete
+  $req_update = $pdo->prepare($requete);
+  $req_update->bindParam(':id',$id,PDO::PARAM_INT);
+
+
+  if($titre !== $thislang['titre']){
+    $req_update->bindValue(':titre',$titre);
+  }
+  if($icone !== $thislang['icone']){
+    $req_update->bindValue(':icone',$icone);
+  }
+  if($number !== $thislang['number']){
+    $req_update->bindValue(':number',$number);
+  }
+
+  $req_update->execute();
+
+  $result['status'] = true;
+  $result['notif'] = notif('success','Langage Modifié');
+
     $query = $pdo->query('SELECT * FROM langages');
 
-    //retour ajax
+     //retour ajax
     $result['resultat'] = '<table>';
 
     $result['resultat'] .= '<thead>
@@ -86,10 +141,8 @@ if(!empty($_POST)){
       $result['resultat'] .= '</tbody>';
 
       $result['resultat'] .= '</table>';
-    
-    }
 
-  }
+     
 
 
 }

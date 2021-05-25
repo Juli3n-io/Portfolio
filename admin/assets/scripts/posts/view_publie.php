@@ -23,8 +23,7 @@ $result['resultat'] .= '<thead>
                   <th>Img</th>
                   <th>Titre</th>
                   <th>Cat</th>
-                  <th>Clics</th>
-                  <th>Vues</th>';
+                  <th>Clics</th>';
                   if($Membre['statut'] == 0){
                     $result['resultat'] .= ' <th>Publié</th>';
                     $result['resultat'] .= '<th>Actions</th>';
@@ -52,7 +51,6 @@ while($post = $query->fetch()){
   $result['resultat'] .= '<td>'.$post['titre'].'</td>';
   $result['resultat'] .= '<td><div class="td-cat">'.getIcon($pdo, $post["categories_id"]).'</div></td>';
   $result['resultat'] .= '<td>'.getClick($pdo, $post["pics_id"]).'</td>';
-  $result['resultat'] .= '<td>0</td>';
 
   if($Membre['statut'] == 0){
 

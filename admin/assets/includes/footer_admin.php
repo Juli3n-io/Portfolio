@@ -34,6 +34,7 @@ if (stripos($_SERVER['REQUEST_URI'], 'connexion')){
 }else if(stripos($_SERVER['REQUEST_URI'], 'docs')){
      echo '<script type="text/javascript" src="assets/js/docs.js"></script>';
 }else if(stripos($_SERVER['REQUEST_URI'], 'stats')){
+     echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>';
      echo '<script type="text/javascript" src="assets/js/stats.js"></script>';
 }else{
      echo '';

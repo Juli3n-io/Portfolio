@@ -34,7 +34,7 @@
 <!-- My CSS  -->
 
 <link rel="stylesheet" href="assets/css/fullpage.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.min.css">
 
 <!-- Script  -->
 

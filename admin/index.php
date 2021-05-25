@@ -74,7 +74,6 @@ include __DIR__. '/assets/includes/header_admin.php';
                 <th>Titre</th>
                 <th>Cat</th>
                 <th>Clics</th>
-                <th>Vues</th>
                 <?php if($Membre['statut'] == 0) :?>
                 <th>Publié</th>
                 <th>Actions</th>
@@ -101,7 +100,6 @@ include __DIR__. '/assets/includes/header_admin.php';
                     <td><?=$post['titre']?></td>
                     <td><div class="td-cat"><?= getIcon($pdo, $post['categories_id'])?></div></td>
                     <td><?= getClick($pdo, $post["pics_id"])?></td>
-                    <td>0</td>
                     
                     <?php if($Membre['statut'] == 0) :?>
                       

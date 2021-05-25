@@ -38,13 +38,29 @@ function ajouter_vue($pdo, $myIp):void {
 }
 
 
-function origin_click(PDO $pdo, $myIp, $token, $google, $url){
+function origin_click(PDO $pdo, $myIp, $token, $google, $robot, $url){
 
   $user_ip = getIp();
 
   if(!in_array($user_ip, $myIp)){
 
-    if(in_array($url , $google)){
+    if($robot == TRUE){
+
+      $name = 'Bot';
+
+      $data = $pdo->query("SELECT * FROM origin_clicks WHERE titre = '$name'");
+      $thisBot = $data->fetch(PDO::FETCH_ASSOC);
+      
+      $new_visite = ++$thisBot['nb_clicks'];
+      $id = $thisBot['id'];
+      
+      $req_update = $pdo->prepare('UPDATE origin_clicks SET nb_clicks = :nb_clicks WHERE id = :id');
+      
+      $req_update->bindParam(':id',$id,PDO::PARAM_INT);
+      $req_update->bindValue(':nb_clicks',$new_visite);
+      $req_update->execute();
+  
+    }elseif(in_array($url , $google)){
 
       $name = 'Google';
     

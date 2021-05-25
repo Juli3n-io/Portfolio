@@ -12,7 +12,6 @@ if(!stripos($_SERVER['REQUEST_URI'], 'connexion') && !stripos($_SERVER['REQUEST_
     $Membre = getMembre($pdo, $_GET['id_team_member'] ?? null);
 
     if($Membre === null){
-        ajouterFlash('info','Merci de vous connecter');
         header('Location: connexion');
         exit();
         }

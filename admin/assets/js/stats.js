@@ -218,6 +218,30 @@ $(document).on('click','.viewbtn', function(){
   });  
 });  
 
+
+/*
+* --> View data
+*
+*/
+load_data();
+function load_data(page){
+
+  $.ajax({
+    url:"assets/scripts/stats/pagination.php",
+    method:"post",
+    data:{page:page},
+    success:function(data){
+      $('#pagination-data').html(data);  
+    }
+  })
+
+}
+
+$(document).on('click', '.pagination_link', function(){
+  var page = $(this).attr('id');
+  load_data(page);
+})
+
   
 });
 

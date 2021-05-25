@@ -850,6 +850,32 @@ height: 100%;
   color: var(--text-grey);
 }
 
+
+/* **** pagination **** */
+
+.custom_pagination{
+  margin: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination_link{
+  display: block;
+  width: 30px;
+  height: auto;
+  margin:2px;
+  border: 1px solid #CCC;
+  border-radius: 50%;
+  background-color: #FFF;
+  color: var(--main-color);
+}
+
+.pagination_link.active{
+  background-color: var(--main-color);
+  color: #FFF;
+}
+
 /* **** Responsive **** */
 
 @media only screen and (min-width: 800px) {

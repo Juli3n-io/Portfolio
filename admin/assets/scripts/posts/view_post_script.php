@@ -45,10 +45,6 @@ if(isset($_POST['post_id'])){
                         <td width="40%"><label>Nombre de clics : </label></td>  
                         <td width="60%">'.getClick($pdo, $post["pics_id"]).'</td>  
                     </tr>';
-        $result .= '<tr>  
-                      <td width="40%"><label>Nombre de Vues : </label></td>  
-                      <td width="60%">0</td>  
-                    </tr>';
 
         if($Membre['statut'] == 0){
           $result .= '<tr>';

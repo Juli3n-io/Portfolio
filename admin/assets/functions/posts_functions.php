@@ -87,7 +87,7 @@ function getActualCatID(PDO $pdo, INT $id){
 function getActualCatTitle(PDO $pdo, INT $id){
 
   $req = $pdo->query(
-    "SELECT titre
+    "SELECT titre_cat
     from categories
     WHERE id_categorie = '$id'");
 
@@ -143,5 +143,20 @@ function getPostIndex(PDO $pdo):array
                           LIMIT 5");
   $data = $query->fetchAll(PDO::FETCH_ASSOC);
   return $data;
+}
+
+
+//redimention des images
+function redim($source, $width, $height, $quality){
+    
+  $imageSize = getimagesize($source);
+
+  $imageRessource = imagecreatefromjpeg($source);
+
+  $imageFinal = imagecreatetruecolor($width, $height);
+
+  imagecopyresampled($imageFinal, $imageRessource, 0, 0, 0, 0, $width, $height, $imageSize[0], $imageSize[1]);
+
+  imagejpeg($imageFinal, $quality);
 }
 ?>

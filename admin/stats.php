@@ -84,6 +84,24 @@ include __DIR__. '/assets/includes/header_admin.php';
 </section>
 
 
+
+
+<section class="recent">
+  <div class="recent__grid">
+    <div class="team__card">
+      <div class="card__header">
+        <h3>Stats des visites </h3>
+      </div>
+
+      <div class="table-responsive" id="pagination-data">
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 <section class="recent">
   <div class="recent__grid">
     <div class="team__card">
@@ -149,7 +167,7 @@ include __DIR__. '/assets/includes/header_admin.php';
 
 </section>
 
-<div class="pagination" id="pagination">
+
   
 </div>
 

@@ -64,7 +64,6 @@ if(!empty($_POST)){
 
     }else{
 
-
       do{
         $filename = bin2hex(random_bytes(16));
         $complete_path = $path.'/'.$filename.'.'.$extension;
@@ -78,6 +77,7 @@ if(!empty($_POST)){
     $result['notif'] = notif('error','La photo n\'a pas pu être enregistrée'); 
 
     }else{
+      
 
       $req1 = $pdo->prepare('INSERT INTO pics(img) VALUES (:img)');
                   
@@ -178,8 +178,7 @@ if(!empty($_POST)){
                         <th>Img</th>
                         <th>Titre</th>
                         <th>Cat</th>
-                        <th>Clics</th>
-                        <th>Vues</th>';
+                        <th>Clics</th>';
                         if($Membre['statut'] == 0){
                           $result['resultat'] .= ' <th>Publié</th>';
                           $result['resultat'] .= '<th>Actions</th>';
@@ -207,7 +206,6 @@ if(!empty($_POST)){
         $result['resultat'] .= '<td>'.$post['titre'].'</td>';
         $result['resultat'] .= '<td><div class="td-cat">'.getIcon($pdo, $post["categories_id"]).'</div></td>';
         $result['resultat'] .= '<td>'.getClick($pdo, $post["pics_id"]).'</td>';
-        $result['resultat'] .= '<td>0</td>';
 
         if($Membre['statut'] == 0){
 

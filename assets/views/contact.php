@@ -9,7 +9,7 @@
           <ul>
             <li class="media">
               <i class="fa fa-map"></i>
-              <span class="media-body"> 1 allée Etienne Jodelle, 91080 COURCOURONNES</span>
+              <span class="media-body">91080 COURCOURONNES</span>
             </li>
             <li class="media">
               <i class="fas fa-phone-alt"></i>

@@ -80,7 +80,6 @@ include __DIR__. '/assets/includes/header_admin.php';
                 <th>Titre</th>
                 <th>Cat</th>
                 <th>Clics</th>
-                <th>Vues</th>
                 <?php if($Membre['statut'] == 0) :?>
                 <th>Publié</th>
                 <th>Actions</th>
@@ -107,7 +106,6 @@ include __DIR__. '/assets/includes/header_admin.php';
                     <td><?=$post['titre']?></td>
                     <td><div class="td-cat"><?= getIcon($pdo, $post['categories_id'])?></div></td>
                     <td><?= getClick($pdo, $post["pics_id"])?></td>
-                    <td>0</td>
                     
                     <?php if($Membre['statut'] == 0) :?>
                       
@@ -197,7 +195,7 @@ include __DIR__. '/assets/includes/header_admin.php';
               <select class="form-select" name="cat" aria-label="">
                 <option value="">Choisir une categorie :</option>
                 <?php foreach(getCat($pdo) as $cat): ?>
-                  <option value="<?=$cat['id_categorie']?>"><?=$cat['titre']?></option>
+                  <option value="<?=$cat['id_categorie']?>"><?=$cat['titre_cat']?></option>
                 <?php endforeach ;?>
               </select>
             </div>

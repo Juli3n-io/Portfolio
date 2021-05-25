@@ -1,10 +1,13 @@
 <?php
 require_once __DIR__ . './../../global/config/bootstrap.php';
 
-ajouter_vue($pdo, $myIp);
+
+
 
 $token = '';
 $url = '';
+$robot = FALSE;
+$user_agent = strstr(strtolower($_SERVER['HTTP_USER_AGENT']));
 
 if(isset($_SERVER['HTTP_REFERER'])){
 
@@ -18,7 +21,30 @@ $token = htmlspecialchars($_GET["from"]);
 
 }
 
-origin_click($pdo, $myIp, $token, $google, $url);
+if(in_array($user_agent, $bot)){
+
+  $robot = TRUE;
+
+}else{
+
+ ajouter_vue($pdo, $myIp);
+
+}
+
+// if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), $bot))
+// {
+//    $robot = TRUE;
+
+// }else{
+
+//   ajouter_vue($pdo, $myIp);
+
+// }
+
+
+origin_click($pdo, $myIp, $token, $google, $robot, $url);
+
  
 include __DIR__. './../views/header_view.php';
+
 ?>

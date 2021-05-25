@@ -49,7 +49,7 @@ if(isset($_POST['post_id'])){
             $result .= '<select class="form-select" name="cat" aria-label="">';
                 $result .= '<option value="'.getActualCatID($pdo,$post['categories_id']).'">'.getActualCatTitle($pdo,$post['categories_id']).'</option>';
                 foreach(getOtherCat($pdo,$post['categories_id']) as $cat){
-                    $result .= ' <option value="'.$cat['id_categorie'].'">'.$cat['titre'].'</option>';
+                    $result .= ' <option value="'.$cat['id_categorie'].'">'.$cat['titre_cat'].'</option>';
                 }
 
             $result .= '</select>';
@@ -58,9 +58,9 @@ if(isset($_POST['post_id'])){
         $result .= '<div class="mb-3 mt-4">';
             $result .= '<label for="est publié" class="form_label">Publié : </label>';
             if($post['est_publie'] == 1){
-                $result .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value='.$post['est_publie'].' checked></td>';
+                $result .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value='.$post['est_publie'].' checked></td>';
             }else{
-                $result .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value='.$post['est_publie'].'></td>';
+                $result .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value='.$post['est_publie'].'></td>';
             }
         $result .= '</div>';
 

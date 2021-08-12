@@ -1,10 +1,10 @@
 <?php
 
 //récupération des posts
-function getPost(PDO $pdo):array
+function getPost(PDO $pdo): array
 {
-  $req=$pdo->query(
-     'SELECT *
+  $req = $pdo->query(
+    'SELECT *
        FROM posts'
   );
   $post = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -14,37 +14,38 @@ function getPost(PDO $pdo):array
 
 //vérification si post existe déja
 function getPostBy(PDO $pdo, string $colonne, $valeur): ?array
-     {
-       $req =$pdo->prepare(sprintf(
-       'SELECT *
+{
+  $req = $pdo->prepare(sprintf(
+    'SELECT *
        FROM posts
        WHERE %s = :valeur',
-       $colonne
-       ));
-    
-     $req->bindParam(':valeur', $valeur);
-     $req->execute();
+    $colonne
+  ));
 
-     $post =$req->fetch(PDO::FETCH_ASSOC);
-     return $post ?: null;
-      }
+  $req->bindParam(':valeur', $valeur);
+  $req->execute();
+
+  $post = $req->fetch(PDO::FETCH_ASSOC);
+  return $post ?: null;
+}
 
 //récupération des icones des categories
-function getIcon(PDO $pdo, string $valeur) 
+function getIcon(PDO $pdo, string $valeur)
 
-      {
-        
-        $id = $valeur;
+{
 
-          $query = $pdo->query("SELECT icone FROM categories WHERE id_categorie = '$id'");
-          $cat = $query->fetch();
-          
-          return '<div class="img-logo"><i class="'.$cat['icone'].'"></i></div>';
-      }
+  $id = $valeur;
+
+  $query = $pdo->query("SELECT icone FROM categories WHERE id_categorie = '$id'");
+  $cat = $query->fetch();
+
+  return '<div class="img-logo"><i class="' . $cat['icone'] . '"></i></div>';
+}
 
 //count du nombre de post
-function countPosts(PDO $pdo) {
-  $query = $pdo ->query("SELECT count(*) as nb from posts");
+function countPosts(PDO $pdo)
+{
+  $query = $pdo->query("SELECT count(*) as nb from posts");
   $data = $query->fetch();
 
   $count = $data['nb'];
@@ -52,8 +53,9 @@ function countPosts(PDO $pdo) {
 }
 
 //count du nombre de post publié
-function countPostsPublie(PDO $pdo) {
-  $query = $pdo ->query("SELECT count(*) as nb from posts WHERE est_publie = 1");
+function countPostsPublie(PDO $pdo)
+{
+  $query = $pdo->query("SELECT count(*) as nb from posts WHERE est_publie = 1");
   $data = $query->fetch();
 
   $count = $data['nb'];
@@ -61,8 +63,9 @@ function countPostsPublie(PDO $pdo) {
 }
 
 //count du nombre de post publié
-function countPostsNonPublie(PDO $pdo) {
-  $query = $pdo ->query("SELECT count(*) as nb from posts WHERE est_publie = 0");
+function countPostsNonPublie(PDO $pdo)
+{
+  $query = $pdo->query("SELECT count(*) as nb from posts WHERE est_publie = 0");
   $data = $query->fetch();
 
   $count = $data['nb'];
@@ -70,71 +73,85 @@ function countPostsNonPublie(PDO $pdo) {
 }
 
 //update cat -> récupération de l'ID'catégorie actuelle
-function getActualCatID(PDO $pdo, INT $id){
+function getActualCatID(PDO $pdo, INT $id)
+{
 
   $req = $pdo->query(
     "SELECT id_categorie
     from categories
-    WHERE id_categorie = '$id'");
+    WHERE id_categorie = '$id'"
+  );
 
 
-    $cat = $req->fetch(PDO::FETCH_ASSOC);
-    return $cat['id_categorie'];
+  $cat = $req->fetch(PDO::FETCH_ASSOC);
+  return $cat['id_categorie'];
+}
 
-  }
-
-  //update cat -> récupération du titre'catégorie actuelle
-function getActualCatTitle(PDO $pdo, INT $id){
+//update cat -> récupération du titre'catégorie actuelle
+function getActualCatTitle(PDO $pdo, INT $id)
+{
 
   $req = $pdo->query(
     "SELECT titre_cat
     from categories
-    WHERE id_categorie = '$id'");
+    WHERE id_categorie = '$id'"
+  );
 
 
-    $cat = $req->fetch(PDO::FETCH_ASSOC);
-    return $cat['titre'];
+  $cat = $req->fetch(PDO::FETCH_ASSOC);
+  return $cat['titre'];
+}
 
-  }
-
-  // update cat -> récupération des autres categories
+// update cat -> récupération des autres categories
 function getOtherCat(PDO $pdo, INT $id)
 {
 
-  $req =$pdo->query(
+  $req = $pdo->query(
     "SELECT *
     FROM categories
     WHERE id_categorie != '$id'"
-    );
+  );
 
-    $cat = $req->fetchAll(PDO::FETCH_ASSOC);
-    return $cat;
-     
+  $cat = $req->fetchAll(PDO::FETCH_ASSOC);
+  return $cat;
 }
 
 //get click by post
-function getClick(PDO $pdo, INT $id){
+function getClick(PDO $pdo, INT $id)
+{
 
   $req = $pdo->query(
     "SELECT nb_clicks
     from clicks
-    WHERE post_id = '$id'");
+    WHERE post_id = '$id'"
+  );
 
 
-    $click = $req->fetch(PDO::FETCH_ASSOC);
-    
-    if($click){
-      return $click['nb_clicks'];
-    }else{
-      return 0;
-    }
+  $click = $req->fetch(PDO::FETCH_ASSOC);
 
+  if ($click) {
+    return $click['nb_clicks'];
+  } else {
+    return 0;
   }
+}
+
+//get best post 
+function getBestPost(PDO $pdo)
+{
+  $query = $pdo->query("SELECT posts.*, clicks.*
+                          FROM posts 
+                          LEFT JOIN clicks on clicks.post_id = posts.id_post
+                          ORDER BY nb_clicks DESC
+                          LIMIT 1");
+  $data = $query->fetchAll(PDO::FETCH_ASSOC);
+  return $data;
+}
 
 
 
 //Index récupération des posts par ordre de vue
-function getPostIndex(PDO $pdo):array
+function getPostIndex(PDO $pdo): array
 {
   $query = $pdo->query("SELECT posts.*, clicks.*
                           FROM posts 
@@ -147,8 +164,9 @@ function getPostIndex(PDO $pdo):array
 
 
 //redimention des images
-function redim($source, $width, $height, $quality){
-    
+function redim($source, $width, $height, $quality)
+{
+
   $imageSize = getimagesize($source);
 
   $imageRessource = imagecreatefromjpeg($source);
@@ -159,4 +177,3 @@ function redim($source, $width, $height, $quality){
 
   imagejpeg($imageFinal, $quality);
 }
-?>

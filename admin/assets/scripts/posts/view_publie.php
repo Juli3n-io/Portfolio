@@ -56,11 +56,11 @@ while($post = $query->fetch()){
 
     if($post['est_publie'] == 1){
 
-      $result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value='.$post['est_publie'].' checked></td>';
+      $result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value='.$post['est_publie'].' checked></td>';
 
     }else{
 
-      $result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value='.$post['est_publie'].'></td>';
+      $result['resultat'] .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value='.$post['est_publie'].'></td>';
 
     }
     
@@ -92,4 +92,3 @@ $result['resultat'] .= '</table>';
 
 // Return result 
 echo json_encode($result);
-?>

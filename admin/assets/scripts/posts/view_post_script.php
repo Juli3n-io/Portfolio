@@ -51,11 +51,11 @@ if(isset($_POST['post_id'])){
             $result .= '<td width="40%"><label>Publié : </label></td>  ';
             if($post['est_publie'] == 1){
             
-                $result .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value='.$post['est_publie'].' checked></td>';
+                $result .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value='.$post['est_publie'].' checked></td>';
             
             }else{
             
-                $result .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete" value='.$post['est_publie'].'></td>';
+                $result .= '<td> <input type="checkbox" id="est_publie" name="est_publie" class="est_publie" value='.$post['est_publie'].'></td>';
             
             }
             $result .= '</tr>';
@@ -76,13 +76,3 @@ if(isset($_POST['post_id'])){
   echo $result;
 
 }
-
-?>
-
-
-  
-    
-    
-  
-  
-   

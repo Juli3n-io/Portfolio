@@ -169,7 +169,7 @@ est_publie TINYINT NOT NULL,
     CONSTRAINT fk_post_auteur
       FOREIGN KEY  (auteur)
       REFERENCES  team(id_team_member)
-      ON DELETE CASCADE,
+      ON DELETE SET NULL,
     CONSTRAINT fk_pics_photo
       FOREIGN KEY  (pics_id)
       REFERENCES  pics(id_pics)

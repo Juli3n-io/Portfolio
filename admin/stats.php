@@ -80,6 +80,19 @@ include __DIR__. '/assets/includes/header_admin.php';
       </div>
     </div>
 
+    <div class="card__single card_visites">
+      <div class="card__body">
+        <i class="fas fa-robot"></i>
+        <div>
+          <h5>Bots</h5>
+          <h4><?= getBot($pdo) ?></h4>
+        </div>
+      </div>
+      <div class="card__footer">
+
+      </div>
+    </div>
+
   </div>
 </section>
 

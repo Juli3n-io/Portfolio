@@ -6,6 +6,7 @@ function getLink(PDO $pdo):array
   $req=$pdo->query(
      'SELECT *
        FROM origin_clicks
+       WHERE titre != "Bot" AND  titre != "Autres"
        ORDER BY nb_clicks DESC'
   );
   $link = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -93,6 +94,7 @@ function getBestLink(PDO $pdo){
   $req=$pdo->query(
     'SELECT *
       FROM origin_clicks
+      WHERE titre != "Bot" AND  titre != "Autres"
       ORDER BY nb_clicks DESC
       LIMIT 1'
  );
@@ -100,6 +102,17 @@ function getBestLink(PDO $pdo){
  return $link;
 
     
+}
+
+//récupération des bots
+function getBot(PDO $pdo)
+{
+$req=$pdo->query(
+  'SELECT *
+    FROM origin_clicks
+    WHERE titre = "Bot"');
+  $botvisites = $req->fetch(PDO::FETCH_ASSOC);
+  return $botvisites['nb_clicks'];
 }
 
 

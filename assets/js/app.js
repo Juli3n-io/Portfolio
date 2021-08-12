@@ -2,6 +2,36 @@
 const date =  new Date();
 document.querySelector(".date").innerHTML = new Date().getFullYear();
 
+var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+
+//gestion des images pour safari ancienne version
+function browserDetect() {
+  
+  if (isSafari) {
+    //hero
+    let heroImg = document.getElementsByClassName('img-fluid')[0];
+    heroImg.setAttribute("src", "assets/img/hero.png");
+
+    //about
+    let aboutImg = document.getElementsByClassName('about-img')[0];
+    aboutImg.style.backgroundImage = 'url("assets/img/mac.png")';
+
+    //modal contact backgroundImage
+      let msgModal = document.getElementById('modal-msg')
+      if(msgModal != undefined) {
+        msgModal.style.backgroundImage = 'url("assets/img/contact-modal-illustration.png")';
+      }
+    
+    //cookie
+    let cookieImg = document.getElementsByClassName('cookie-img')[0];
+      if(cookieImg) {
+      cookieImg.setAttribute("src", "assets/img/cookie.png");
+      }
+
+  }
+  
+}
+browserDetect()
 
 $(document).ready(function(){
   
@@ -76,9 +106,26 @@ $(document).on('click', '.download-btn a', function(){
   });   
 
 })
+  
+// nombre de click des posts
+  $(document).on('click', '.post-link', function(e) {
+    e.preventDefault();
+    var post_id = this.getAttribute('data-id');
+
+    $.ajax({
+      url: "assets/scripts/posts_clicks_script.php",
+      method: "post",
+      data: { post_id: post_id },
+      success: function (data) {
+        
+      }
+    })
+  
+  })
 
 //Mission freelance ouverture modal
-$(document).on('click','.open-msg-modal', function(e){  
+  $(document).on('click', '.open-msg-modal', function (e) {
+  
   e.preventDefault();
   var subject = $(this).attr("value"); 
   
@@ -88,7 +135,8 @@ $(document).on('click','.open-msg-modal', function(e){
        data:{subject:subject},  
        success:function(data){  
             $('#msg_detail').html(data);  
-            $('#msgmodal').modal('show');  
+         $('#msgmodal').modal('show');
+         browserDetect()
        }  
   });  
 });  
@@ -97,6 +145,7 @@ $(document).on('click','.open-msg-modal', function(e){
 $(document).on('submit','#contact-form-modal', function(e){  
   
   e.preventDefault();
+  browserDetect()
   
   $.ajax({
 

@@ -11,4 +11,3 @@ require_once __DIR__ . '/../functions/compteur_visites.php';
 include __DIR__.'/../scripts/users_online.php';
 
 session_start();
-

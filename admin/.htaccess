@@ -9,6 +9,7 @@ RewriteRule ^education$ education.php
 RewriteRule ^experiences$ experiences.php
 RewriteRule ^langages$ langages.php
 RewriteRule ^posts$ posts.php
+RewriteRule ^reviews$ reviews.php
 RewriteRule ^my-profil$ profil_admin.php
 RewriteRule ^update-profil$ update_profil.php
 RewriteRule ^skills$ skills.php

@@ -214,3 +214,17 @@ CREATE TABLE origin_clicks
   token VARCHAR (255) DEFAULT NULL,
     PRIMARY KEY (id)
 )ENGINE=INNODB;
+
+
+CREATE TABLE reviews
+(
+  id INT(3)NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) DEFAULT NULL,
+  company VARCHAR(255),
+  contenu TEXT NOT NULL,
+  note INT(3) NOT NULL,
+  url VARCHAR (255) NOT NULL,
+  date_enregistrement DATETIME NOT NULL,
+  est_publie TINYINT NOT NULL,
+    PRIMARY KEY (id)
+)ENGINE=INNODB;

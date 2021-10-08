@@ -1,128 +1,135 @@
 <?php
-if (session_status() === PHP_SESSION_NONE){
-    session_start();
-  }
-  require_once __DIR__ . '/../config/bootstrap_admin.php';
+if (session_status() === PHP_SESSION_NONE) {
+     session_start();
+}
+require_once __DIR__ . '/../config/bootstrap_admin.php';
 
-  $Membre = getMembre($pdo, $_GET['id_team_member'] ?? null);
+$Membre = getMembre($pdo, $_GET['id_team_member'] ?? null);
 
- 
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title>Dashboard | <?=$page_title?></title>
-    <link rel="icon" href="assets/img/dashboard.svg">
-    <link rel="apple-touch-icon" href="assets/img/dashboard.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Dashboard | <?= $page_title ?></title>
+<link rel="icon" href="assets/img/dashboard.svg">
+<link rel="apple-touch-icon" href="assets/img/dashboard.svg">
 
 <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-   
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
 <!-- CSS -->
 <?php
-if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php') || stripos($_SERVER['REQUEST_URI'], 'connexion')){
+if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php') || stripos($_SERVER['REQUEST_URI'], 'connexion')) {
      echo '<link rel="stylesheet" href="assets/css/login_admin.css">';
-}else if(stripos($_SERVER['REQUEST_URI'], 'register.php')){
-     echo '<link rel="stylesheet" href="assets/css/register_admin.css">'; 
-}else if(stripos($_SERVER['REQUEST_URI'], 'my-profil') || stripos($_SERVER['REQUEST_URI'], 'update_profil.php')){
-     echo '<link rel="stylesheet" href="assets/css/profil_admin.css">'; 
-}else if(stripos($_SERVER['REQUEST_URI'], 'education') || stripos($_SERVER['REQUEST_URI'], 'experiences.php')){
+} else if (stripos($_SERVER['REQUEST_URI'], 'register.php')) {
+     echo '<link rel="stylesheet" href="assets/css/register_admin.css">';
+} else if (stripos($_SERVER['REQUEST_URI'], 'my-profil') || stripos($_SERVER['REQUEST_URI'], 'update_profil.php')) {
+     echo '<link rel="stylesheet" href="assets/css/profil_admin.css">';
+} else if (stripos($_SERVER['REQUEST_URI'], 'education') || stripos($_SERVER['REQUEST_URI'], 'experiences.php')) {
      echo '<link rel="stylesheet" href="assets/css/jquery-ui.min.css">';
      echo '<link rel="stylesheet" href="assets/css/style.css">';
-}else {   
+} else {
      echo '<link rel="stylesheet" href="assets/css/style.css">';
 }
-?>   
+?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.min.css">
 <script src="https://kit.fontawesome.com/3760b9e264.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 </head>
+
 <body>
 
-    <input type="checkbox" id="sidebar-toggle">
-    <div class="sidebar">
-         <div class="sidebar__header">
-           <h3 class="brand">
-              <span>Dashboard</span>
-           </h3> 
-            <label for="sidebar-toggle" class="ti-menu-alt"></label>
-         </div>
+     <input type="checkbox" id="sidebar-toggle">
+     <div class="sidebar">
+          <div class="sidebar__header">
+               <h3 class="brand">
+                    <span>Dashboard</span>
+               </h3>
+               <label for="sidebar-toggle" class="ti-menu-alt"></label>
+          </div>
 
-         <div class="sidebar__menu">
-         <ul>
-              <li>
-                    <a href="hello">
-                         <span class="ti-home"></span>
-                         <span>Home</span>
-                    </a>
-               </li>
-                <li>
-                    <a href="stats">
-                         <i class="fas fa-eye"></i>
-                         <span>Visites</span>
-                    </a>
-               </li>
-               <li>
-                    <a href="posts">
-                         <i class="fas fa-folder"></i>
-                         <span>Post</span>
-                    </a>
-               </li>
-               <li>
-                    <a href="team">
-                         <i class="fas fa-laugh-beam"></i>
-                         <span>Team</span>
-                    </a>
-               </li>
-               <li>
-                    <a href="categories">
-                         <i class="fas fa-align-left"></i>
-                         <span>Catégories</span>
-                    </a>
-               </li>
-               <li>
-                    <a href="langages">
-                         <i class="fas fa-code"></i>
-                         <span>Langages</span>
-                    </a>
-               </li>
-               <li>
-                    <a href="skills">
-                         <i class="fas fa-user-tie"></i>
-                         <span>Compétences</span>
-                    </a>
-               </li>
-               <li>
-                    <a href="education">
-                         <i class="fas fa-graduation-cap"></i>
-                         <span>Education</span>
-                    </a>
-               </li>
-               <li>
-                    <a href="experiences">
-                         <i class="fas fa-glasses"></i>
-                         <span>Expériences</span>
-                    </a>
-               </li>
-               <li>
-                    <a href="docs">
-                         <i class="far fa-file"></i>
-                         <span>Docs</span>
-                    </a>
-               </li>
-               <li>
-                    <a href="my-profil">
-                         <span class="ti-settings"></span>
-                         <span>Account</span>
-                    </a>
-               </li>
-         </ul>
-         </div>
-    </div>
+          <div class="sidebar__menu">
+               <ul>
+                    <li>
+                         <a href="hello">
+                              <span class="ti-home"></span>
+                              <span>Home</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="stats">
+                              <i class="fas fa-eye"></i>
+                              <span>Visites</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="posts">
+                              <i class="fas fa-folder"></i>
+                              <span>Post</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="reviews">
+                              <i class="fas fa-star"></i>
+                              <span>Reviews</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="team">
+                              <i class="fas fa-laugh-beam"></i>
+                              <span>Team</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="categories">
+                              <i class="fas fa-align-left"></i>
+                              <span>Catégories</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="langages">
+                              <i class="fas fa-code"></i>
+                              <span>Langages</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="skills">
+                              <i class="fas fa-user-tie"></i>
+                              <span>Compétences</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="education">
+                              <i class="fas fa-graduation-cap"></i>
+                              <span>Education</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="experiences">
+                              <i class="fas fa-glasses"></i>
+                              <span>Expériences</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="docs">
+                              <i class="far fa-file"></i>
+                              <span>Docs</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="my-profil">
+                              <span class="ti-settings"></span>
+                              <span>Account</span>
+                         </a>
+                    </li>
+               </ul>
+          </div>
+     </div>
 
-    <div class="main__content">
+     <div class="main__content">
 
           <header>
                <div class="search__wrapper">
@@ -136,23 +143,23 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php') || stripos($_SERVER['REQ
                     <div class="member_menu-action">
                          <div class="profile" onclick="menuTeamToggle();">
                               <?php
-                                   if ($Membre['photo_id'] == NULL) {
-                                        if($Membre['civilite'] == 0) {
-                                             echo "<img src='assets/img/male.svg' alt='photo_profil_male'>";
-                                        }elseif($Membre['civilite'] == 1){
-                                             echo "<img src='assets/img/female.svg' alt='photo_profil_female'>";
-                                        }else{
-                                             echo "<img src='assets/img/profil.svg' alt='photo_profil_other'>";
-                                        }
-                                   }else{
-
-                                        //récupération de la photo de profil
-                                        $id_photo = $Membre['photo_id'];
-                                        $data = $pdo->query("SELECT * FROM photo WHERE id_photo = '$id_photo'");
-                                        $photo = $data->fetch(PDO::FETCH_ASSOC);
-                                   
-                                        echo "<img src='assets/uploads/".$photo['profil']."' alt='photo_profil' class='profil-img'>";
+                              if ($Membre['photo_id'] == NULL) {
+                                   if ($Membre['civilite'] == 0) {
+                                        echo "<img src='assets/img/male.svg' alt='photo_profil_male'>";
+                                   } elseif ($Membre['civilite'] == 1) {
+                                        echo "<img src='assets/img/female.svg' alt='photo_profil_female'>";
+                                   } else {
+                                        echo "<img src='assets/img/profil.svg' alt='photo_profil_other'>";
                                    }
+                              } else {
+
+                                   //récupération de la photo de profil
+                                   $id_photo = $Membre['photo_id'];
+                                   $data = $pdo->query("SELECT * FROM photo WHERE id_photo = '$id_photo'");
+                                   $photo = $data->fetch(PDO::FETCH_ASSOC);
+
+                                   echo "<img src='assets/uploads/" . $photo['profil'] . "' alt='photo_profil' class='profil-img'>";
+                              }
                               ?>
                          </div>
                          <div class="member_menu">
@@ -163,7 +170,7 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php') || stripos($_SERVER['REQ
                                         <a href="my-profil"> Mon Profil</a>
                                    </li>
                                    <li>
-                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         <a href="update-profil">Modifier Profil</a>
                                    </li>
                                    <li>
@@ -184,5 +191,5 @@ if (stripos($_SERVER['REQUEST_URI'], 'login_admin.php') || stripos($_SERVER['REQ
                </div>
           </header>
 
-    <main>
-  <h2 class="dash__title"><?= $page_title?></h2>
+          <main>
+               <h2 class="dash__title"><?= $page_title ?></h2>

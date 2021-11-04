@@ -89,6 +89,19 @@ textarea {
 #fp-nav ul li a span {
   background: #fff;
 }
+#fp-nav.fp-right {
+  right: 0px !important;
+}
+
+#fp-nav ul li .fp-tooltip {
+  font-family: "Oswald", sans-serif;
+}
+
+#fp-nav ul li a.active span {
+  background: var(--violet);
+  filter: drop-shadow(0 0 10px var(--violet))
+    drop-shadow(0 0 30px var(--violet));
+}
 
 /* *************** */
 /* *** header *** */
@@ -429,13 +442,20 @@ textarea {
 }
 
 .about-img {
-  width: 200px;
-  height: 200px;
-  background-image: url("../img/mac.webp");
-  background-size: 100% 100%;
-  border-radius: 50%;
-  float: left;
-  shape-outside: border-box;
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-left: 50%;
+  margin: 0 auto;
+  padding: 0;
+  filter: drop-shadow(0 0 10px var(--violet))
+    drop-shadow(0 0 30px var(--violet));
+  text-align: center;
+}
+
+.about-img img {
+  border-radius: 10%;
+  height: 300px;
 }
 
 .about h2 {
@@ -1555,8 +1575,9 @@ figure:hover figcaption {
   }
 
   .about .about-img {
-    width: 250px;
-    height: 250px;
+    padding-top: 4rem;
+    filter: drop-shadow(0 0 10px var(--violet))
+      drop-shadow(0 0 30px var(--violet)) drop-shadow(0 0 60px var(--violet));
   }
 
   .about .gap h2 {
@@ -1654,8 +1675,10 @@ figure:hover figcaption {
   /* ***  about *** */
 
   .about .about-img {
-    height: 350px;
+    height: 90%;
     width: 350px;
+    filter: drop-shadow(0 0 10px var(--violet))
+      drop-shadow(0 0 30px var(--violet)) drop-shadow(0 0 60px var(--violet));
   }
 
   /* ***  experience *** */

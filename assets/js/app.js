@@ -13,8 +13,8 @@ function browserDetect() {
     heroImg.setAttribute("src", "assets/img/hero.png");
 
     //about
-    let aboutImg = document.getElementsByClassName('about-img')[0];
-    aboutImg.style.backgroundImage = 'url("assets/img/mac.png")';
+    let aboutImg = document.getElementById('about-img');
+    aboutImg.style.backgroundImage = 'url("assets/img/profil.jpeg")';
 
     //modal contact backgroundImage
       let msgModal = document.getElementById('modal-msg')
@@ -258,6 +258,9 @@ new fullpage('#fullpage', {
   scrollOverflow: true,
   css3: true,
   resize: false,
+  navigation: true,
+  navigationPosition: 'right',
+  navigationTooltips: ['Home', 'A Propos', 'Mes Services','Compétences','Portfolio','Tarifs','Expériences & Formations', 'Contact'],
   normalScrollElements: '#exeTxt, #eduTxt',
   onLeave: (origin, destination, direction) => {
     const section = destination.item;
@@ -394,6 +397,9 @@ new Typewriter(textAnim,{
   deleteSpeed: 20 // vitesse de suppresion des caractéres
 })
 .changeDelay(30)
+.typeString('Intégrateur <span class="web">WEB</span>') // text
+.pauseFor(1500) // pause entre 2 écriture
+.deleteChars(15)
 .typeString('Développeur <span class="web">WEB</span>') // text
 .pauseFor(1500) // pause entre 2 écriture
 .deleteChars(3)

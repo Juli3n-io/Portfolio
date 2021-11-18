@@ -21,6 +21,13 @@ if (isset($_POST['reviews_id'])) {
 
 
     $result .= '<input type="hidden" name="update_id" id="update_id" value="' . $reviews['id'] . '">';
+    $result .= '<input type="hidden" name="update_img" id="update_img" value="' . $reviews['logo_id'] . '">';
+
+    $result .= '<img src="../global/uploads/' . getLogo($pdo, $reviews["logo_id"]) . '" alt="logo" class="update_reviews_logo" id="img-logo">';
+
+    $result .= '<span class="hiddenFileInput">';
+    $result .= '<input type="file" name="new_logo" id="new_logo">';
+    $result .= '</span>';
 
     $result .= '<div class="mb-3 mt-4">';
     $result .= '<label for="update_name">Nom de la personne : </label>';

@@ -88,7 +88,7 @@ $(document).on('click','.viewbtn', function(){
  */
 
 
-// # modal delete education
+// # modal delete reviews
 $(document).on('click','.deletebtn', function () {
 
   $('#deletemodal').modal('show');
@@ -102,6 +102,7 @@ $(document).on('click','.deletebtn', function () {
   }).get();
   
   $('#delete_id').val(data[0]);
+  $('#delete_img').val(data[2]);
   
 });
   
@@ -123,14 +124,16 @@ $('#confirmedelete').on('click', function () {
 $('#delete_reviews').on('submit', function(e){
 
   e.preventDefault();
-  delete_cat();
+  delete_reviews();
 
-  function delete_cat(){
+  function delete_reviews(){
 
     var id = $('#delete_id').val();
+    var img = $('#delete_img').val();
     var confirme = $('#confirmedelete').val();
-    var parameters = "id="+id + '&confirmedelete=' + confirme;
+    var parameters = "id="+id + '&img=' + img + '&confirmedelete=' + confirme;
 
+    console.log(parameters)
         
     $.post('assets/scripts/reviews/delete_reviews_script.php', parameters, function(data){
 
@@ -140,7 +143,8 @@ $('#delete_reviews').on('submit', function(e){
                 $('#notif').html(data.notif);
                 $('#deletemodal').modal('hide');
                 $('#pagination-data').hide().html(data.resultat).fadeIn();
-                
+                $('#cards').html(data.cards);
+              
             }else{
 
                 $('#notif').html(data.notif); 
@@ -176,7 +180,28 @@ $(document).on('click','.editbtn', function(){
             $('#editmodal').modal("show");  
        }  
   });  
-});  
+});
+  
+var reader = new FileReader();
+var img;
+// ## view logo if change
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      
+
+      reader.onload = function (e) {
+          $('#img-logo').attr('src', e.target.result);
+          img = e.target.value;
+      }
+
+      reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$(document).on('change',"#new_logo", function (e) {
+  readURL(this);
+  img = e.target.value;
+});
 
 
 
@@ -201,6 +226,7 @@ $(document).on('submit', '#update_reviews', function(e){
           $('#notif').html(data.notif);
           $('#editmodal').modal('hide');
           $('#pagination-data').hide().html(data.resultat).fadeIn();
+          $('#cards').html(data.cards);
 
         }else{
           
@@ -278,7 +304,57 @@ $(document).on('click','#non_publie', function(e){
 
        }  
   });  
-});  
+});
+  
+  
+/*
+ * --> Update publication
+ * 
+ * # traitement ajax de la publication a partir du tableau
+ * 
+ */
+
+ // # traitement de la publication
+ $(document).on('click', '.est_publie', function(e){
+   e.preventDefault();
+   
+  $tr = $(this).closest('tr');
+  
+  let data = $tr.children('td').map(function () {
+
+    return $(this).text()
+
+  }).get();
+
+   var publie = $(this).val();
+
+  
+  update_est_publie();
+
+  function update_est_publie(){
+
+    var id = data[0];
+    var parameters = "id="+id + "&publie="+publie;
+        
+    $.post('assets/scripts/reviews/est_publie_update_script.php', parameters, function(data){
+
+            if(data.status == true){ 
+
+                $('#notif').html(data.notif);
+                $('#pagination-data').html(data.resultat); 
+                $('#cards').html(data.cards); 
+                
+            }else{
+
+                $('#notif').html(data.notif); 
+
+            } 
+                
+    }, 'json');
+
+}
+
+});
 
 
 /*

@@ -12,6 +12,7 @@ if (!empty($_POST)) {
 
   $result = array();
   $id = $_POST['id'];
+  $logo = $_POST['img'];
   $confirme = 'on';
 
   // validation en back de la confirmation de la suppression
@@ -20,6 +21,17 @@ if (!empty($_POST)) {
     $result['status'] = false;
     $result['notif'] = notif('error', 'Merci de confirmer la suppression');
   } else {
+
+    //suppresion du logo
+    $data = $pdo->query("SELECT * FROM reviews_logo WHERE id = '$logo'");
+    $photo = $data->fetch(PDO::FETCH_ASSOC);
+
+    $file = __DIR__ . '/../../../../global/uploads/';
+    $dir = opendir($file);
+    unlink($file . $photo['logo']);
+    closedir($dir);
+
+    $req1 = $pdo->exec("DELETE FROM reviews_logo WHERE id = '$logo'");
 
     //suppresion de la categorie de la BDD
     $req = $pdo->exec("DELETE FROM reviews WHERE id = '$id'");
@@ -61,7 +73,7 @@ if (!empty($_POST)) {
                                   <i class="far fa-eye-slash"></i>
                                 <div>
                                     <h5>Non Publiés</h5>
-                                    <h4>' . countReviewsPublie($pdo) . '</h4>
+                                    <h4>' . countReviewsNonPublie($pdo) . '</h4>
                                 </div>
                               </div>
                               <div class="card__footer">
@@ -107,6 +119,7 @@ if (!empty($_POST)) {
                               <tr>
                             <th>ID</th>
                             <th>Nom</th>
+                            <th class="dnone">pics_id</th>
                             <th>Company</th>
                             <th>Notes</th>';
     if ($Membre['statut'] == 0) {
@@ -127,7 +140,14 @@ if (!empty($_POST)) {
                 <tr>
                   <td>' . $row['id'] . '</td>
                   <td>' . $row['name'] . '</td>
-                  <td>' . $row['company'] . '</td>;
+                  <td class="dnone">' . $row["logo_id"] . '</td>';
+      if ($row["logo_id"] != NULL) {
+        $result['resultat'] .= '<td><div class="img-profil" style="background-image: url(../global/uploads/' . getLogo($pdo, $row["logo_id"]) . '")"></div></td>';
+      } else {
+        $result['resultat'] .= '<td> </td>';
+      }
+
+      $result['resultat'] .= '<td>' . $row['company'] . '</td>;
                   <td>' . stars($row['note']) . '</td>';
 
       if ($Membre['statut'] == 0) {

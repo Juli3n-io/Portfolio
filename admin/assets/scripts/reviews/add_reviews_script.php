@@ -16,7 +16,8 @@ if (!empty($_POST)) {
   $company = $_POST['add_company'];
   $contenu = $_POST['add_contenu'];
   $note = $_POST['note'];
-  $url = $_POST['add_url_post'];
+  $url = $_POST['add_url'];
+  $logo = NULL;
 
   if (empty($name)) {
 
@@ -36,10 +37,51 @@ if (!empty($_POST)) {
     $result['notif'] = notif('warning', 'oups! il manque la note');
   } else {
 
-    $req = $pdo->prepare('INSERT INTO reviews(name,
+    if (!$_FILES['add_logo']) {
+
+      //insertion de l'image
+      $extension = pathinfo($_FILES['add_logo']['name'], PATHINFO_EXTENSION);
+      $path = __DIR__ . '/../../../../global/uploads';
+      // Allow certain file formats 
+      $allowTypes = array('svg', 'jpg', 'png', 'jpeg', 'webp');
+
+      if ($_FILES['add_logo']['error'] !== UPLOAD_ERR_OK) {
+
+        $result['status'] = false;
+        $result['notif'] = notif('warning', 'Probléme lors de l\'envoi du fichier.code ' . $_FILES['add_logo']['error']);
+      } elseif ($_FILES['add_logo']['size'] < 12 || !in_array($extension, $allowTypes)) {
+
+        $result['status'] = false;
+        $result['notif'] = notif('error', 'Le fichier envoyé n\'est pas une image');
+      } else {
+
+        do {
+          $filename = bin2hex(random_bytes(16));
+          $complete_path = $path . '/' . $filename . '.' . $extension;
+        } while (file_exists($complete_path));
+      }
+
+      if (!move_uploaded_file($_FILES['add_logo']['tmp_name'], $complete_path)) {
+
+        $result['status'] = false;
+        $result['notif'] = notif('error', 'La photo n\'a pas pu être enregistrée');
+      } else {
+
+
+        $req1 = $pdo->prepare('INSERT INTO reviews_logo(logo) VALUES (:logo)');
+
+        $req1->bindValue(':logo', $filename . '.' . $extension);
+        $req1->execute();
+      }
+
+      $logo = $pdo->lastInsertId();
+    }
+
+    $req2 = $pdo->prepare('INSERT INTO reviews(name,
                                               company, 
                                               contenu,
                                               note,
+                                              logo_id,
                                               url, 
                                               date_enregistrement,
                                               est_publie) 
@@ -47,21 +89,23 @@ if (!empty($_POST)) {
                                             :company,
                                             :contenu, 
                                             :note,
+                                            :logo,
                                             :url, 
                                             :date,
                                             :publie)');
 
-    $req->bindParam(':name', $name);
-    $req->bindParam(':company', $company);
-    $req->bindParam(':contenu', $contenu);
-    $req->bindValue(':note', $note);
-    $req->bindParam(':url', $url);
-    $req->bindValue(':date', (new DateTime())->format('Y-m-d H:i:s'));
-    $req->bindValue(':publie', isset($_POST['est_publie']), PDO::PARAM_BOOL);
-    $req->execute();
+    $req2->bindParam(':name', $name);
+    $req2->bindParam(':company', $company);
+    $req2->bindParam(':contenu', $contenu);
+    $req2->bindParam(':note', $note);
+    $req2->bindValue(':logo', $logo);
+    $req2->bindParam(':url', $url);
+    $req2->bindValue(':date', (new DateTime())->format('Y-m-d H:i:s'));
+    $req2->bindValue(':publie', isset($_POST['est_publie']), PDO::PARAM_BOOL);
+    $req2->execute();
 
     $result['status'] = true;
-    $result['notif'] = notif('success', 'Nouveau post ajouté');
+    $result['notif'] = notif('success', 'Nouveau commentaire ajouté');
 
     //retour ajax card
     $result['cards'] = '<div class="card__single card_visites">
@@ -95,7 +139,7 @@ if (!empty($_POST)) {
                                   <i class="far fa-eye-slash"></i>
                                 <div>
                                     <h5>Non Publiés</h5>
-                                    <h4>' . countReviewsPublie($pdo) . '</h4>
+                                    <h4>' . countReviewsNonPublie($pdo) . '</h4>
                                 </div>
                               </div>
                               <div class="card__footer">
@@ -141,6 +185,8 @@ if (!empty($_POST)) {
                               <tr>
                             <th>ID</th>
                             <th>Nom</th>
+                             <th class="dnone">pics_id</th>
+                            <th>Logo</th>
                             <th>Company</th>
                             <th>Notes</th>';
     if ($Membre['statut'] == 0) {
@@ -161,7 +207,13 @@ if (!empty($_POST)) {
                 <tr>
                   <td>' . $row['id'] . '</td>
                   <td>' . $row['name'] . '</td>
-                  <td>' . $row['company'] . '</td>;
+                  <td class="dnone">' . $row["logo_id"] . '</td>';
+      if ($row["logo_id"] != NULL) {
+        $result['resultat'] .= '<td><div class="img-profil" style="background-image: url(../global/uploads/' . getLogo($pdo, $row["logo_id"]) . '")"></div></td>';
+      } else {
+        $result['resultat'] .= '<td> </td>';
+      }
+      $result['resultat'] .= '<td>' . $row['company'] . '</td>
                   <td>' . stars($row['note']) . '</td>';
 
       if ($Membre['statut'] == 0) {

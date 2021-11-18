@@ -585,6 +585,11 @@ tbody tr:nth-child(even) {
   background-repeat: no-repeat;
 }
 
+.update_reviews_logo {
+  width: initial;
+  height: 2rem;
+}
+
 .summary__card {
   margin-bottom: 1.5rem;
   padding-top: 0.5rem;
@@ -801,7 +806,8 @@ tbody tr:nth-child(even) {
 #update_lang .hiddenFileInput,
 #update_cat .hiddenFileInput,
 #update_post .hiddenFileInput,
-#update_link .hiddenFileInput {
+#update_link .hiddenFileInput,
+#update_reviews .hiddenFileInput {
   left: 20px;
   top: 0;
 }
@@ -946,6 +952,7 @@ tbody tr:nth-child(even) {
   .dash__cards {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .card__single {
     margin-bottom: 1rem;
   }

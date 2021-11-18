@@ -24,6 +24,8 @@ $output .= '
                 <tr>
                   <th>ID</th>
                   <th>Nom</th>
+                  <th class="dnone">pics_id</th>
+                  <th>Logo</th>
                   <th>Company</th>
                   <th>Notes</th>';
 if ($Membre['statut'] == 0) {
@@ -43,7 +45,14 @@ while ($row = $query->fetch()) {
               <tr>
                 <td>' . $row['id'] . '</td>
                 <td>' . $row['name'] . '</td>
-                <td>' . $row['company'] . '</td>
+                <td class="dnone">' . $row["logo_id"] . '</td>';
+  if ($row["logo_id"] != NULL) {
+    $output .= '<td><div class="img-profil" style="background-image: url(../global/uploads/' . getLogo($pdo, $row["logo_id"]) . '")"></div></td>';
+  } else {
+    $output .= '<td> </td>';
+  }
+
+  $output .= '<td>' . $row['company'] . '</td>
                 <td>' . stars($row['note']) . '</td>';
 
   if ($Membre['statut'] == 0) {
@@ -88,11 +97,6 @@ for ($i = 1; $i <= $total_pages; $i++) {
     $output .= '<span 
               class="pagination_link" id="' . $i . '">' . $i . '</span>';
   }
-
-  // $output .= '<span 
-  //             class="pagination_link" 
-  //             style="cursor:pointer; padding:6px;border: 1px solid #CCC;"
-  //             id="'.$i.'">'.$i.'</span>';
 }
 
 echo $output;

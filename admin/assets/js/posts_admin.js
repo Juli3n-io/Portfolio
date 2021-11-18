@@ -133,7 +133,7 @@ $('#confirmedelete').on('click', function () {
 });
 
 
-// ### delete cat ajax
+// ### delete post ajax
 $('#delete_post').on('submit', function(e){
 
   e.preventDefault();

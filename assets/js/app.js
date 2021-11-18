@@ -22,6 +22,12 @@ function browserDetect() {
         msgModal.style.backgroundImage = 'url("assets/img/contact-modal-illustration.png")';
       }
     
+    //modal reviews backgroundImage
+      let reviewsModal = document.getElementById('modal-reviews')
+      if(reviews != undefined) {
+        reviews.style.backgroundImage = 'url("assets/img/contact-modal-illustration.png")';
+      }
+    
     //cookie
     let cookieImg = document.getElementsByClassName('cookie-img')[0];
       if(cookieImg) {
@@ -33,7 +39,7 @@ function browserDetect() {
 }
 browserDetect()
 
-$(document).ready(function(){
+$(document).ready(function () {
   
 
   // menu header
@@ -172,7 +178,9 @@ $(document).on('submit','#contact-form-modal', function(e){
 
     }
   }); 
-});  
+});
+  
+
 
 //education ouverture modal
 $(document).on('click','.link-education', function(e){  
@@ -209,7 +217,6 @@ $(document).on('click','.link-experience', function(e){
 
 //envoi de message
 $(document).on('submit','#formulaire-contact', function(e){  
-  console.log('test formulaire')
   
   e.preventDefault();
   
@@ -253,14 +260,14 @@ window.onload = function(){
 new fullpage('#fullpage', {
   licenseKey: '56D1CF10-FB234396-B4B3342D-25E59CD7',
   menu: '#menu',
-  anchors: ['home','about', 'services','skills', 'portfolio','pricing','experience','contact'],
+  anchors: ['home','about', 'services','skills', 'portfolio','pricing','reviews','experience','contact'],
   autoScrolling: true,
   scrollOverflow: true,
   css3: true,
   resize: false,
   navigation: true,
   navigationPosition: 'right',
-  navigationTooltips: ['Home', 'A Propos', 'Mes Services','Compétences','Portfolio','Tarifs','Expériences & Formations', 'Contact'],
+  navigationTooltips: ['Home', 'A Propos', 'Mes Services','Compétences','Portfolio','Tarifs','Avis','Expériences & Formations', 'Contact'],
   normalScrollElements: '#exeTxt, #eduTxt',
   onLeave: (origin, destination, direction) => {
     const section = destination.item;
@@ -348,6 +355,84 @@ new fullpage('#fullpage', {
 
     if(destination.index === 6){
 
+      $('.reviews h2').addClass('fade-in')
+      $('.swiper').addClass('fade-in')
+
+      var swiper = new Swiper('.swiper', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      loop: true
+      });
+
+      $('#open_add_review').on('click', function (e) {
+       
+        e.preventDefault();
+  
+        $.ajax({  
+            url:"assets/scripts/modal_reviews.php",  
+            method: "post",
+            success:function(data){  
+              $('#reviews_detail').html(data);  
+              $('#reviewmodal').modal('show');
+              browserDetect()
+            }  
+        });  
+      });
+      
+      //envoi du commentaire
+$(document).on('submit','#add-modal-reviews', function(e){  
+  
+  e.preventDefault();
+  
+  $.ajax({
+
+    type: 'POST',
+    url: 'assets/scripts/addReviewsScript.php',
+    data: new FormData(this),
+    dataType: 'json',
+    contentType: false,
+    cache: false,
+    processData:false,
+    success: function(data){
+
+      if(data.status == true){   
+       
+        $('#notif').html(data.notif);
+        $('#addReviewsScript.php').trigger("reset");
+        $('#reviewmodal').modal('hide');
+                                  
+      }else{
+          
+        $('#notif').html(data.notif);
+        
+
+      } 
+
+    }
+  }); 
+});  
+      
+      
+
+
+    }else{
+
+      $('.reviews h2').removeClass('fade-in')
+      $('.swiper').removeClass('fade-in')
+     
+    }
+
+    if(destination.index === 7){
+
       $('.experience h3').addClass('fade-in')
       $('.experience .education-item').addClass('fade-in')
       $('.experience .work-item').addClass('fade-in')
@@ -359,7 +444,7 @@ new fullpage('#fullpage', {
       $('.experience .work-item').removeClass('fade-in')
     }
 
-    if(destination.index === 7){
+    if(destination.index === 8){
 
 
 

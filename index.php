@@ -23,6 +23,8 @@ include __DIR__ . '/assets/includes/header.php';
 
   include __DIR__ . '/assets/views/price.php';
 
+  include __DIR__ . '/assets/views/reviews.php';
+
   include __DIR__ . '/assets/views/experiences.php';
 
   include __DIR__ . '/assets/views/contact.php';

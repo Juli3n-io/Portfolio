@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../functions/reviews_functions.php';
 
 /* #############################################################################
 
-Ajout d'une reviews a partir reviews.php en Ajax
+Update d'une reviews a partir reviews.php en Ajax
 
 ############################################################################# */
 
@@ -28,6 +28,53 @@ if (!empty($_POST)) {
   // debut de la requete d'update
   $param = FALSE;
   $requete = 'UPDATE reviews SET ';
+
+  if (!empty($_FILES['new_logo']['tmp_name'])) {
+
+    $oldLogo = $thisReviews['logo_id'];
+    $extension = pathinfo($_FILES['new_logo']['name'], PATHINFO_EXTENSION);
+    $path = __DIR__ . '/../../../../global/uploads';
+    // Allow certain file formats 
+    $allowTypes = array('svg', 'jpg', 'png', 'jpeg');
+
+    if ($_FILES['new_logo']['error'] !== UPLOAD_ERR_OK) {
+
+      $result['status'] = false;
+      $result['notif'] = notif('warning', 'Probléme lors de l\'envoi du fichier.code ' . $_FILES['new_logo']['error']);
+    } elseif ($_FILES['new_logo']['size'] < 12 || !in_array($extension, $allowTypes)) {
+
+      $result['status'] = false;
+      $result['notif'] = notif('error', 'Le fichier envoyé n\'est pas une image');
+    } else {
+
+      do {
+        $filename = bin2hex(random_bytes(16));
+        $complete_path = $path . '/' . $filename . '.' . $extension;
+      } while (file_exists($complete_path));
+    }
+
+    if (!move_uploaded_file($_FILES['new_logo']['tmp_name'], $complete_path)) {
+
+      $result['status'] = false;
+      $result['notif'] = notif('error', 'La photo n\'a pas pu être enregistrée');
+    } else {
+
+      //suppresion de l'ancien  logo
+      $data = $pdo->query("SELECT * FROM reviews_logo WHERE id = '$oldLogo'");
+      $pics = $data->fetch(PDO::FETCH_ASSOC);
+
+      $file = __DIR__ . '/../../../../global/uploads/';
+      $dir = opendir($file);
+      unlink($file . $pics['logo']);
+      closedir($dir);
+
+      $req_update_pics = $pdo->prepare('UPDATE reviews_logo SET logo = :logo WHERE id = :id');
+
+      $req_update_pics->bindParam(':id', $oldLogo, PDO::PARAM_INT);
+      $req_update_pics->bindValue(':logo', $filename . '.' . $extension);
+      $req_update_pics->execute();
+    }
+  }
 
   //modification du nom
   if ($name !== $thisReviews['name']) {
@@ -136,7 +183,7 @@ if (!empty($_POST)) {
   $req_update->execute();
 
   $result['status'] = true;
-  $result['notif'] = notif('success', 'Formation modifiée');
+  $result['notif'] = notif('success', 'Reviews modifiée');
 
   //retour ajax card
   $result['cards'] = '<div class="card__single card_visites">
@@ -170,7 +217,7 @@ if (!empty($_POST)) {
                                   <i class="far fa-eye-slash"></i>
                                 <div>
                                     <h5>Non Publiés</h5>
-                                    <h4>' . countReviewsPublie($pdo) . '</h4>
+                                    <h4>' . countReviewsNonPublie($pdo) . '</h4>
                                 </div>
                               </div>
                               <div class="card__footer">
@@ -178,7 +225,7 @@ if (!empty($_POST)) {
                               </div>
                             </div>';
 
-  $result['cards'] .= '<div class="card__single ">
+  $result['cards'] .= '<div class="card__single card_visites">
                               <div class="card__body">
                                   <i class="fas fa-star"></i>
                                 <div>
@@ -208,7 +255,7 @@ if (!empty($_POST)) {
   //   // préparation retour Ajax
   $query = $pdo->query("SELECT * FROM reviews ORDER BY date_enregistrement ASC LIMIT $start_from,$record_per_page");
 
-  //   //retour ajax table
+  //retour ajax table
   $result['resultat'] = '<table>';
 
   $result['resultat'] .=
@@ -216,6 +263,7 @@ if (!empty($_POST)) {
                               <tr>
                             <th>ID</th>
                             <th>Nom</th>
+                            <th class="dnone">pics_id</th>
                             <th>Company</th>
                             <th>Notes</th>';
   if ($Membre['statut'] == 0) {
@@ -236,7 +284,14 @@ if (!empty($_POST)) {
                 <tr>
                   <td>' . $row['id'] . '</td>
                   <td>' . $row['name'] . '</td>
-                  <td>' . $row['company'] . '</td>;
+                  <td class="dnone">' . $row["logo_id"] . '</td>';
+    if ($row["logo_id"] != NULL) {
+      $result['resultat'] .= '<td><div class="img-profil" style="background-image: url(../global/uploads/' . getLogo($pdo, $row["logo_id"]) . '")"></div></td>';
+    } else {
+      $result['resultat'] .= '<td> </td>';
+    }
+
+    $result['resultat'] .= '<td>' . $row['company'] . '</td>;
                   <td>' . stars($row['note']) . '</td>';
 
     if ($Membre['statut'] == 0) {
@@ -282,7 +337,6 @@ if (!empty($_POST)) {
                 class="pagination_link" id="' . $i . '">' . $i . '</span>';
     }
   } // fin for
-
 
 } // fin if global
 

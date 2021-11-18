@@ -9,7 +9,7 @@ include __DIR__ . '/assets/includes/header_admin.php';
 <div id="notif"></div>
 
 
-<section>
+<section id="reviews_cards">
   <div class="dash__cards" id="cards">
 
     <div class="card__single card_visites">
@@ -52,7 +52,7 @@ include __DIR__ . '/assets/includes/header_admin.php';
     </div>
 
 
-    <div class="card__single">
+    <div class="card__single card_visites">
       <div class="card__body">
         <i class="fas fa-star"></i>
         <div>
@@ -60,8 +60,7 @@ include __DIR__ . '/assets/includes/header_admin.php';
           <h4><?= notesMoyenne($pdo) ?></h4>
         </div>
       </div>
-      <div class="card__footer">
-      </div>
+      <div class="card__footer"> </div>
     </div>
 
 
@@ -116,6 +115,11 @@ include __DIR__ . '/assets/includes/header_admin.php';
             </div>
 
             <div class="mb-3 mt-4">
+              <label for="add_logo" class="form_label">Logo : </label>
+              <input type="file" name="add_logo" id="add_logo" class="form-control">
+            </div>
+
+            <div class="mb-3 mt-4">
               <label for="add_contenu" class="form_label">Commentaire : </label>
               <textarea name="add_contenu" id="add_contenu" class="form-control"></textarea>
             </div>
@@ -139,7 +143,7 @@ include __DIR__ . '/assets/includes/header_admin.php';
             </div>
 
             <div class="mb-3 mt-4">
-              <label for="est publié" class="form_label">Publié : </label>
+              <label for="est_publié" class="form_label">Publié : </label>
               <div class="form-check">
                 <input type="checkbox" id="est_publie" name="est_publie" class="confirmedelete">
                 <label for="confirmedelete">OUI</label>
@@ -169,6 +173,7 @@ include __DIR__ . '/assets/includes/header_admin.php';
         <div class="modal-body">
           <form action="" method="post" id="delete_reviews">
             <input type="hidden" name="delete_id" id="delete_id">
+            <input type="hidden" name="delete_img" id="delete_img">
 
             <p>Etes vous sur de vouloir supprimer cette reviews?</p>
 
@@ -193,7 +198,7 @@ include __DIR__ . '/assets/includes/header_admin.php';
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Reviews</h5>
+          <h5 class="modal-title" id="">Edit Reviews</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="update_modal">

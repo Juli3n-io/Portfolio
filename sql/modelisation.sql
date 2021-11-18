@@ -215,6 +215,12 @@ CREATE TABLE origin_clicks
     PRIMARY KEY (id)
 )ENGINE=INNODB;
 
+CREATE TABLE reviews_logo
+(
+id INT(3) NOT NULL AUTO_INCREMENT,
+logo VARCHAR (255) NOT NULL,
+ PRIMARY KEY (id)
+)ENGINE=INNODB;
 
 CREATE TABLE reviews
 (
@@ -223,8 +229,13 @@ CREATE TABLE reviews
   company VARCHAR(255),
   contenu TEXT NOT NULL,
   note INT(3) NOT NULL,
+  logo_id INT(3) DEFAULT NULL,
   url VARCHAR (255) NOT NULL,
   date_enregistrement DATETIME NOT NULL,
   est_publie TINYINT NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    CONSTRAINT fk_reviews_logo
+      FOREIGN KEY (logo_id)
+      REFERENCES  reviews_logo(id)
+      ON DELETE SET NULL
 )ENGINE=INNODB;

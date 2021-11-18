@@ -34,6 +34,7 @@
   <!-- My CSS  -->
 
   <link rel="stylesheet" href="assets/css/fullpage.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- Script  -->
@@ -78,6 +79,7 @@
           <li data-menuanchor="skills"><a href="#skills">Compétences</a></li>
           <li data-menuanchor="portfolio"><a href="#portfolio">Portfolio</a></li>
           <li data-menuanchor="pricing"><a href="#pricing">tarifs</a></li>
+          <li data-menuanchor="reviews"><a href="#reviews">Avis</a></li>
           <li data-menuanchor="experience"><a href="#experience">Expériences</a></li>
           <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
         </ul>
